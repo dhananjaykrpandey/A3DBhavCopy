@@ -52,6 +52,8 @@
             this.commandBarSeparator1 = new Telerik.WinControls.UI.CommandBarSeparator();
             this.RdProgressBar = new Telerik.WinControls.UI.RadProgressBarElement();
             this.commandBarSeparator2 = new Telerik.WinControls.UI.CommandBarSeparator();
+            this.RdLlbDateRange = new Telerik.WinControls.UI.RadLabelElement();
+            this.commandBarSeparator3 = new Telerik.WinControls.UI.CommandBarSeparator();
             this.RdLlbMessage = new Telerik.WinControls.UI.RadLabelElement();
             this.visualStudio2012DarkTheme1 = new Telerik.WinControls.Themes.VisualStudio2012DarkTheme();
             this.visualStudio2012LightTheme1 = new Telerik.WinControls.Themes.VisualStudio2012LightTheme();
@@ -87,7 +89,7 @@
             // 
             // 
             this.RdRibbonBar.OptionsButton.Text = "Options";
-            this.RdRibbonBar.Size = new System.Drawing.Size(1188, 162);
+            this.RdRibbonBar.Size = new System.Drawing.Size(1188, 164);
             this.RdRibbonBar.StartButtonImage = global::A3DBhavCopy.Properties.Resources.Rupee16X16;
             this.RdRibbonBar.TabIndex = 0;
             this.RdRibbonBar.Text = "A3D Bhav-Copy Analysis System";
@@ -144,14 +146,14 @@
             this.RdDockMain.Controls.Add(this.documentContainer1);
             this.RdDockMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RdDockMain.IsCleanUpTarget = true;
-            this.RdDockMain.Location = new System.Drawing.Point(0, 162);
+            this.RdDockMain.Location = new System.Drawing.Point(0, 164);
             this.RdDockMain.MainDocumentContainer = this.documentContainer1;
             this.RdDockMain.Name = "RdDockMain";
             // 
             // 
             // 
             this.RdDockMain.RootElement.MinSize = new System.Drawing.Size(0, 0);
-            this.RdDockMain.Size = new System.Drawing.Size(1188, 539);
+            this.RdDockMain.Size = new System.Drawing.Size(1188, 537);
             this.RdDockMain.TabIndex = 0;
             this.RdDockMain.TabStop = false;
             this.RdDockMain.Text = "radDock1";
@@ -172,6 +174,8 @@
             this.commandBarSeparator1,
             this.RdProgressBar,
             this.commandBarSeparator2,
+            this.RdLlbDateRange,
+            this.commandBarSeparator3,
             this.RdLlbMessage});
             this.RdStatusStrip.Location = new System.Drawing.Point(0, 701);
             this.RdStatusStrip.Name = "RdStatusStrip";
@@ -282,11 +286,27 @@
             this.RdStatusStrip.SetSpring(this.commandBarSeparator2, false);
             this.commandBarSeparator2.VisibleInOverflowMenu = false;
             // 
+            // RdLlbDateRange
+            // 
+            this.RdLlbDateRange.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.Auto;
+            this.RdLlbDateRange.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(68)))), ((int)(((byte)(237)))));
+            this.RdLlbDateRange.Name = "RdLlbDateRange";
+            this.RdStatusStrip.SetSpring(this.RdLlbDateRange, false);
+            this.RdLlbDateRange.Text = "..";
+            this.RdLlbDateRange.TextWrap = true;
+            // 
+            // commandBarSeparator3
+            // 
+            this.commandBarSeparator3.Name = "commandBarSeparator3";
+            this.RdStatusStrip.SetSpring(this.commandBarSeparator3, false);
+            this.commandBarSeparator3.VisibleInOverflowMenu = false;
+            // 
             // RdLlbMessage
             // 
+            this.RdLlbMessage.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.Auto;
             this.RdLlbMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(2)))), ((int)(((byte)(2)))));
             this.RdLlbMessage.Name = "RdLlbMessage";
-            this.RdStatusStrip.SetSpring(this.RdLlbMessage, true);
+            this.RdStatusStrip.SetSpring(this.RdLlbMessage, false);
             this.RdLlbMessage.Text = "..";
             this.RdLlbMessage.TextWrap = true;
             // 
@@ -323,7 +343,7 @@
         private Telerik.WinControls.UI.RadRibbonBar RdRibbonBar;
         private Telerik.WinControls.UI.Docking.RadDock RdDockMain;
         private Telerik.WinControls.UI.Docking.DocumentContainer documentContainer1;
-        private Telerik.WinControls.UI.RadStatusStrip RdStatusStrip;
+        public Telerik.WinControls.UI.RadStatusStrip RdStatusStrip;
         private Telerik.WinControls.UI.RibbonTab ribbonTab1;
         private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup1;
         private Telerik.WinControls.UI.RadButtonElement RdBtnMenuDownloadBhavCopy;
@@ -331,10 +351,10 @@
         private Telerik.WinControls.UI.RadButtonElement RdBtnMenuAnalysisBhavCopy;
         private Telerik.WinControls.UI.RadSplitButtonElement RdSplitBtnTheme;
         private Telerik.WinControls.UI.CommandBarSeparator commandBarSeparator1;
-        private Telerik.WinControls.UI.RadProgressBarElement RdProgressBar;
+        public Telerik.WinControls.UI.RadProgressBarElement RdProgressBar;
         private Telerik.WinControls.UI.CommandBarSeparator commandBarSeparator2;
-        private Telerik.WinControls.UI.RadLabelElement RdLlbMessage;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem1;
+        public Telerik.WinControls.UI.RadLabelElement RdLlbMessage;
+        
 
         private Telerik.WinControls.UI.RadMenuItem RdSpltBtnItemThemeDefault;
         private Telerik.WinControls.UI.RadMenuItem RdSpltBtnItemThemeBreeze;
@@ -355,6 +375,8 @@
         private Telerik.WinControls.Themes.Office2013DarkTheme office2013DarkTheme1;
         private Telerik.WinControls.Themes.DesertTheme desertTheme1;
         private Telerik.WinControls.Themes.BreezeTheme breezeTheme1;
+        private Telerik.WinControls.UI.CommandBarSeparator commandBarSeparator3;
+        public Telerik.WinControls.UI.RadLabelElement RdLlbDateRange;
     }
 }
 

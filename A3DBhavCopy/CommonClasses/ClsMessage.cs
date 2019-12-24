@@ -25,7 +25,7 @@ namespace A3DBhavCopy.CommonClasses
 
          readonly string   ProjectName ="A3D Bhav-Copy Analysis System";
 
-        public  void showMessage(string msg, MessageBoxIcon Icon)
+        public  void showMessage(string msg, MessageBoxIcon Icon=MessageBoxIcon.Information)
         {
             MessageBox.Show(msg, ProjectName, MessageBoxButtons.OK, Icon);
         }

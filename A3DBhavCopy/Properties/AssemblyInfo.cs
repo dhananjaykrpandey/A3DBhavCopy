@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("A3DBhavCopy")]
+[assembly: AssemblyTitle("A3D Bhav-Copy Analysis System")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("A3DBhavCopy")]
+[assembly: AssemblyCompany("Arnika Infotech")]
+[assembly: AssemblyProduct("A3D Bhav-Copy Analysis System")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
