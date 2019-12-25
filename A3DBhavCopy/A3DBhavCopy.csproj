@@ -159,10 +159,14 @@
     <Compile Include="Models\A3DBhavCopyDataContext.cs" />
     <Compile Include="Models\MClsBhavCopyDetails.cs" />
     <Compile Include="Models\MClsBhavCopyHead.cs" />
+    <Compile Include="Models\MClsCompanies.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmA3DBhavCopy.resx">
       <DependentUpon>FrmA3DBhavCopy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAnalysis.resx">
+      <DependentUpon>FrmAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDownload.resx">
       <DependentUpon>FrmDownload.cs</DependentUpon>
@@ -245,6 +249,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\save_all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\analysis24X4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\analysis16X16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Excel24X24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\analysis24X41.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

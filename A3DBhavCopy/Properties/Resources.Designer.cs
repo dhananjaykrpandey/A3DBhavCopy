@@ -63,6 +63,26 @@ namespace A3DBhavCopy.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap analysis16X16 {
+            get {
+                object obj = ResourceManager.GetObject("analysis16X16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap analysis24X4 {
+            get {
+                object obj = ResourceManager.GetObject("analysis24X4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Analysis48X48 {
             get {
                 object obj = ResourceManager.GetObject("Analysis48X48", resourceCulture);
@@ -106,6 +126,16 @@ namespace A3DBhavCopy.Properties {
         internal static System.Drawing.Bitmap DownloadAndSave24X24 {
             get {
                 object obj = ResourceManager.GetObject("DownloadAndSave24X24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Excel24X24 {
+            get {
+                object obj = ResourceManager.GetObject("Excel24X24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
