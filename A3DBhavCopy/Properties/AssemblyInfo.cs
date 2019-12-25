@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("A3D Bhav-Copy Analysis System")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Arnika Infotech")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("A3D Bhav-Copy Analysis System")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]

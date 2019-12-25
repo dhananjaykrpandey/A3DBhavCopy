@@ -3,26 +3,23 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Telerik.WinControls.UI;
 using System.Net;
 using System.IO.Compression;
 using System.IO;
-using ExcelDataReader;
 using System.Data.Entity;
 using A3DBhavCopy.Models;
 using System.Net.NetworkInformation;
+using System.Globalization;
 
 namespace A3DBhavCopy
 {
     public partial class FrmDownload : RadForm
     {
-        private RadProgressBarElement RdProgressBar;
-        private RadLabelElement RdLlbMessage;
+        //private RadProgressBarElement RdProgressBar;
+        //private RadLabelElement RdLlbMessage;
         private RadLabelElement RdLlbDateRange;
         private RadStatusStrip RdStatusStrip;
         DateTime _DtpFromDate = DateTime.Now;
@@ -115,8 +112,8 @@ namespace A3DBhavCopy
             {
                 FrmA3DBhavCopy _RadFormParent = (FrmA3DBhavCopy)this.Parent.Parent.Parent.Parent.Parent;
                 RdStatusStrip = _RadFormParent.RdStatusStrip;
-                RdProgressBar = _RadFormParent.RdProgressBar;
-                RdLlbMessage = _RadFormParent.RdLlbMessage;
+                //RdProgressBar = _RadFormParent.RdProgressBar;
+                //RdLlbMessage = _RadFormParent.RdLlbMessage;
                 RdLlbDateRange = _RadFormParent.RdLlbDateRange;
             }
             catch (Exception ex)
@@ -233,7 +230,7 @@ namespace A3DBhavCopy
                         return true;
                     }
                 }
-                catch 
+                catch
                 {
                     return false;
                 }
@@ -329,6 +326,9 @@ namespace A3DBhavCopy
         {
             try
             {
+                RdLlbMessage.Text = "Uploading Data..";
+                RdLlbMessage.Update();
+                Application.DoEvents();
                 DvBhavCopyFile = new DataView();
                 DvBhavCopyFile = _DataSet.DefaultViewManager.CreateDataView(DtBhavCopyFile);
                 DvBhavCopyFile.RowFilter = "isnull(lFileDownloaded,0)=1";
@@ -359,8 +359,19 @@ namespace A3DBhavCopy
                     }
                     DtBhavCopyData = new DataTable();
 
+                    RdProgressBar.Minimum = 1;
+                    RdProgressBar.Maximum = DvBhavCopyFile.Count;
                     foreach (DataRowView DrvFiles in DvBhavCopyFile)
                     {
+                        RdProgressBar.Value1 = RdProgressBar.Value1 < DvBhavCopyFile.Count ? RdProgressBar.Value1 + 1 : DvBhavCopyFile.Count;
+                        RdProgressBar.Text = ((RdProgressBar.Value1 * 100) / DvBhavCopyFile.Count).ToString() + " %";
+                        RdProgressBar.Update();
+                        RdProgressBar.Refresh();
+                        RdLlbMessage.Text = "Geting < " + DrvFiles["cFileName"].ToString().Replace(".zip", "") + " > File Data..";
+                        RdLlbMessage.Update();
+                        Application.DoEvents();
+
+
                         ConnectCSV(StrCsvFileLoation, DrvFiles["cFileName"].ToString().Replace(".zip", ""));
 
                     }
@@ -376,6 +387,13 @@ namespace A3DBhavCopy
                         DrvFilesData["dTIMESTAMP"] = StrDateFormat[1] + "/" + StrDateFormat[0] + "/" + StrDateFormat[2];
                         DrvFilesData.EndEdit();
                     }
+                    RdProgressBar.ResetText();
+                    RdProgressBar.Refresh();
+                    RdProgressBar.Minimum = 0;
+                    RdProgressBar.Maximum = DvBhavCopyFile.Count;
+                    RdProgressBar.Value1 = 0;
+
+                    DvBhavCopyFile.Sort = " dFileDate DESC";
 
                     using (A3DBhavCopyDataContext dbContxt = new A3DBhavCopyDataContext())
                     {
@@ -383,36 +401,131 @@ namespace A3DBhavCopy
                         {
                             try
                             {
+                                int iFileID = 0;
                                 foreach (DataRowView DrvFiles in DvBhavCopyFile)
                                 {
+                                    string StrFileName = DrvFiles["cFileName"].ToString().Replace(".zip", "");
+
+                                    RdLlbMessage.Text = "Reading < " + StrFileName + " > File Data..";
+                                    RdLlbMessage.Update();
+                                    Application.DoEvents();
+
+                                   
+
+
+                                    var vBhavCopyHead = dbContxt._MBhavCopyHead.Where(f => f.cFileName == StrFileName).Select(BCH => BCH.iFileID).ToList();
+                                    if (vBhavCopyHead != null && vBhavCopyHead.Count>0)
+                                    {
+
+                                        RdLlbMessage.Text = "Deleting existing < " + StrFileName + " > File Data..";
+                                        RdLlbMessage.Update();
+                                        Application.DoEvents();
+
+                                        foreach (var item in vBhavCopyHead)
+                                        {
+                                            IList<MClsBhavCopyHead> mClsBhavCopyHeads = dbContxt._MBhavCopyHead.Where(bch => bch.iFileID == item).ToList();
+                                            if (mClsBhavCopyHeads != null && mClsBhavCopyHeads.Count > 0)
+                                            {
+                                                dbContxt._MBhavCopyHead.RemoveRange(mClsBhavCopyHeads);
+                                                dbContxt.SaveChanges();
+                                                //foreach (var vBhavCopyHeads in mClsBhavCopyHeads)
+                                                //{
+                                                //    dbContxt._MBhavCopyHead.Remove(vBhavCopyHeads);
+                                                //    dbContxt.SaveChanges();
+                                                //}
+                                            }
+                                            IList<MClsBhavCopyDetails> mClsBhavCopyDetails = dbContxt._MClsBhavCopyDetails.Where(bcd => bcd.iFileID == item).ToList();
+                                            if (mClsBhavCopyDetails != null && mClsBhavCopyDetails.Count > 0)
+                                            {
+                                                dbContxt._MClsBhavCopyDetails.RemoveRange(mClsBhavCopyDetails);
+                                                dbContxt.SaveChanges();
+                                                //foreach (var vBhavCopyDetails in mClsBhavCopyDetails)
+                                                //{
+                                                //    dbContxt._MClsBhavCopyDetails.Remove(vBhavCopyDetails);
+                                                //    dbContxt.SaveChanges();
+                                                //}
+                                            }
+
+                                        }
+                                    }
+                                    /**********************************************************************************************/
+                                    iFileID = 0;
                                     MClsBhavCopyHead _mClsBhavCopyHead = new MClsBhavCopyHead();
                                     _mClsBhavCopyHead.cFileName = DrvFiles["cFileName"].ToString().Replace(".zip", "");
                                     _mClsBhavCopyHead.dFileDate = Convert.ToDateTime(DrvFiles["dFileDate"]);
                                     _mClsBhavCopyHead.dFileUploadDate = DateTime.Now;
                                     dbContxt._MBhavCopyHead.Add(_mClsBhavCopyHead);
-                                    int iFileID = _mClsBhavCopyHead.iFileID;
-                                    DtBhavCopyData.DefaultView.RowFilter = "cFileName='"+ DrvFiles["cFileName"].ToString().Replace(".zip", "") + "'";
+                                    dbContxt.SaveChanges();
+                                    iFileID = _mClsBhavCopyHead.iFileID;
+                                    /**********************************************************************************************/
 
-                                    foreach (DataRowView DrvFilesData in DtBhavCopyData.DefaultView)
-                                    {
-                                        MClsBhavCopyDetails _mClsBhavCopyDetails = new MClsBhavCopyDetails();
-                                        _mClsBhavCopyDetails.iFileID = iFileID;
-                                        _mClsBhavCopyDetails.cSYMBOL = DrvFilesData["cSYMBOL"].ToString().Trim();
-                                        _mClsBhavCopyDetails.cSERIES = DrvFilesData["cSERIES"].ToString().Trim();
-                                        _mClsBhavCopyDetails.cOPEN = DrvFilesData["cSYMBOL"].ToString().Trim();
-                                        _mClsBhavCopyDetails.cHIGH = DrvFilesData["cHIGH"].ToString().Trim();
-                                        _mClsBhavCopyDetails.cLOW = DrvFilesData["cLOW"].ToString().Trim();
-                                        _mClsBhavCopyDetails.cCLOSE = DrvFilesData["cCLOSE"].ToString().Trim();
-                                        _mClsBhavCopyDetails.cLAST = DrvFilesData["cLAST"].ToString().Trim();
-                                        _mClsBhavCopyDetails.cPREVCLOSE = DrvFilesData["cPREVCLOSE"].ToString().Trim();
-                                        _mClsBhavCopyDetails.cTOTTRDQTY = DrvFilesData["cTOTTRDQTY"].ToString().Trim();
-                                        _mClsBhavCopyDetails.cTOTTRDVAL = DrvFilesData["cTOTTRDVAL"].ToString().Trim();
-                                        _mClsBhavCopyDetails.cTIMESTAMP = DrvFilesData["cTIMESTAMP"].ToString().Trim();
-                                        _mClsBhavCopyDetails.cTOTALTRADES = DrvFilesData["cTOTALTRADES"].ToString().Trim();
-                                        _mClsBhavCopyDetails.cISIN = DrvFilesData["cISIN"].ToString().Trim();
-                                        dbContxt._MClsBhavCopyDetails.Add(_mClsBhavCopyDetails);
-                                    }
+                                    RdLlbMessage.Text = "Geting all data of < " + StrFileName + " > File ..";
+                                    RdLlbMessage.Update();
+                                    Application.DoEvents();
+
+                                    DtBhavCopyData.DefaultView.RowFilter = "cFileName='" + DrvFiles["cFileName"].ToString().Replace(".zip", "") + "'";
+
+                                    RdLlbMessage.Text = "Saving data of  < " + StrFileName + " > File. Total no of record < " + DtBhavCopyData.DefaultView.Count.ToString() + " >";
+                                    RdLlbMessage.Update();
+                                    Application.DoEvents();
+
+
+                                    List<MClsBhavCopyDetails> _mClsBhavCopyDetails = new List<MClsBhavCopyDetails>();
+                                    _mClsBhavCopyDetails = (from DataRowView DrvFilesData in DtBhavCopyData.DefaultView
+                                                            select new MClsBhavCopyDetails()
+                                                            {
+                                                                iFileID = iFileID,
+                                                                cSYMBOL = DrvFilesData["cSYMBOL"].ToString().Trim(),
+                                                                cSERIES = DrvFilesData["cSERIES"].ToString().Trim(),
+                                                                cOPEN = DrvFilesData["cSYMBOL"].ToString().Trim(),
+                                                                cHIGH = DrvFilesData["cHIGH"].ToString().Trim(),
+                                                                cLOW = DrvFilesData["cLOW"].ToString().Trim(),
+                                                                cCLOSE = DrvFilesData["cCLOSE"].ToString().Trim(),
+                                                                cLAST = DrvFilesData["cLAST"].ToString().Trim(),
+                                                                cPREVCLOSE = DrvFilesData["cPREVCLOSE"].ToString().Trim(),
+                                                                cTOTTRDQTY = DrvFilesData["cTOTTRDQTY"].ToString().Trim(),
+                                                                cTOTTRDVAL = DrvFilesData["cTOTTRDVAL"].ToString().Trim(),
+                                                                cTIMESTAMP = DrvFilesData["cTIMESTAMP"].ToString().Trim(),
+                                                                cTOTALTRADES = DrvFilesData["cTOTALTRADES"].ToString().Trim(),
+                                                                cISIN = DrvFilesData["cISIN"].ToString().Trim(),
+                                                                dTIMESTAMP = Convert.ToDateTime(DrvFilesData["dTIMESTAMP"])
+                                                            }).ToList();
+                                    dbContxt._MClsBhavCopyDetails.AddRange(_mClsBhavCopyDetails);
+
+                                    //foreach (DataRowView DrvFilesData in DtBhavCopyData.DefaultView)
+                                    //{
+
+                                    //    RdProgressBar.Value1 = RdProgressBar.Value1 < DtBhavCopyData.DefaultView.Count ? RdProgressBar.Value1 + 1 : DtBhavCopyData.DefaultView.Count;
+                                    //    RdProgressBar.Text = ((RdProgressBar.Value1 * 100) / DtBhavCopyData.DefaultView.Count).ToString() + " %";
+                                    //    RdProgressBar.Update();
+                                    //    RdProgressBar.Refresh();
+                                    //    Application.DoEvents();
+
+                                    //    MClsBhavCopyDetails _mClsBhavCopyDetails = new MClsBhavCopyDetails();
+                                    //    _mClsBhavCopyDetails.iFileID = iFileID;
+                                    //    _mClsBhavCopyDetails.cSYMBOL = DrvFilesData["cSYMBOL"].ToString().Trim();
+                                    //    _mClsBhavCopyDetails.cSERIES = DrvFilesData["cSERIES"].ToString().Trim();
+                                    //    _mClsBhavCopyDetails.cOPEN = DrvFilesData["cSYMBOL"].ToString().Trim();
+                                    //    _mClsBhavCopyDetails.cHIGH = DrvFilesData["cHIGH"].ToString().Trim();
+                                    //    _mClsBhavCopyDetails.cLOW = DrvFilesData["cLOW"].ToString().Trim();
+                                    //    _mClsBhavCopyDetails.cCLOSE = DrvFilesData["cCLOSE"].ToString().Trim();
+                                    //    _mClsBhavCopyDetails.cLAST = DrvFilesData["cLAST"].ToString().Trim();
+                                    //    _mClsBhavCopyDetails.cPREVCLOSE = DrvFilesData["cPREVCLOSE"].ToString().Trim();
+                                    //    _mClsBhavCopyDetails.cTOTTRDQTY = DrvFilesData["cTOTTRDQTY"].ToString().Trim();
+                                    //    _mClsBhavCopyDetails.cTOTTRDVAL = DrvFilesData["cTOTTRDVAL"].ToString().Trim();
+                                    //    _mClsBhavCopyDetails.cTIMESTAMP = DrvFilesData["cTIMESTAMP"].ToString().Trim();
+                                    //    _mClsBhavCopyDetails.cTOTALTRADES = DrvFilesData["cTOTALTRADES"].ToString().Trim();
+                                    //    _mClsBhavCopyDetails.cISIN = DrvFilesData["cISIN"].ToString().Trim();
+                                    //    _mClsBhavCopyDetails.dTIMESTAMP = Convert.ToDateTime(DrvFilesData["dTIMESTAMP"]);
+                                    //    dbContxt._MClsBhavCopyDetails.Add(_mClsBhavCopyDetails);
+                                    //}
                                     DtBhavCopyData.DefaultView.RowFilter = "";
+
+                                    RdProgressBar.Value1 = RdProgressBar.Value1 < DvBhavCopyFile.Count ? RdProgressBar.Value1 + 1 : DvBhavCopyFile.Count;
+                                    RdProgressBar.Text = ((RdProgressBar.Value1 * 100) / DvBhavCopyFile.Count).ToString() + " %";
+                                    RdProgressBar.Update();
+                                    RdProgressBar.Refresh();
+                                    Application.DoEvents();
                                 }
                                 dbContxt.SaveChanges();
                                 transaction.Commit();
@@ -472,12 +585,80 @@ namespace A3DBhavCopy
                 }
 
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        private void RdBtnSaveFileOnly_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DtBhavCopyFile.Rows.Clear();
+                DtBhavCopyData.Rows.Clear();
+                using (OpenFileDialog Opg = new OpenFileDialog())
+                {
+                    Opg.Filter = "";
+                    Opg.Multiselect = true;
+                    Opg.Title = "Select Bhav-Copy Files";
+                    Opg.Filter = "CSV Zip files(*.csv.zip)|*.csv.zip";
+                    Opg.RestoreDirectory = true;
+
+                    if (Opg.ShowDialog() == DialogResult.OK)
+                    {
+                        foreach (var item in Opg.FileNames)
+                        {
+                            FileInfo fileinfo = new FileInfo(item);
+                            DataRow _DataBhavCopyFileRow = DtBhavCopyFile.NewRow();
+                            DateTime _DtMonthDate = GetOffLineBhavCopyDate(fileinfo.Name);
+                            //string StrUrl = "";
+                            //StrUrl = @"/" + _DtMonthDate.Year + @"/" + _DtMonthDate.ToString("MMM").ToUpper() + @"/cm" + _DtMonthDate.ToString("ddMMMyyyy").ToUpper() + "bhav.csv.zip";
+
+                            _DataBhavCopyFileRow["cFileName"] = fileinfo.Name;
+                            _DataBhavCopyFileRow["dFileDate"] = _DtMonthDate.ToShortDateString();
+                            _DataBhavCopyFileRow["cFileDownLoadStatus"] = "Download Completed.";
+                            _DataBhavCopyFileRow["cFileLoation"] = fileinfo.FullName;
+                            _DataBhavCopyFileRow["lFileDownloaded"] = true;
+                            DtBhavCopyFile.Rows.Add(_DataBhavCopyFileRow);
+                        }
+                    }
+                    RdGrdBhavCopyFile.DataSource = DtBhavCopyFile.DefaultView;
+                    UploadData();
+                    ClsMessage._IClsMessage.showMessage("Upload completed!");
+                }
+
+            }
             catch (Exception ex)
             {
 
                 ClsMessage._IClsMessage.ProjectExceptionMessage(ex);
             }
+        }
+        private DateTime GetOffLineBhavCopyDate(string StrFileName)
+        {
+            try
+            {
+                DateTime _DtBhavCopyDate = DateTime.Now;
 
+                string StrFileDate = "";
+                StrFileDate = StrFileName.ToUpper().Replace("CM", "").Replace("BHAV.CSV.ZIP", "");
+                string StrDate = "";
+                string StrMonth = "";
+                string StrYear = "";
+                StrDate = StrFileDate.Substring(0, 2);
+                StrMonth = StrFileDate.Substring(2, 3);
+                StrYear = StrFileDate.Substring(5, 4);
+                _DtBhavCopyDate = new DateTime(Convert.ToInt32(StrYear), DateTime.ParseExact(StrMonth, "MMM", CultureInfo.CurrentCulture).Month, Convert.ToInt32(StrDate));
+                return _DtBhavCopyDate;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
