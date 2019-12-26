@@ -262,6 +262,12 @@
   <ItemGroup>
     <None Include="Resources\analysis24X41.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DownArrowRed9X16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpArrowGreen8X16.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

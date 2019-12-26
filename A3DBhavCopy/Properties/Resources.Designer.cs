@@ -113,6 +113,16 @@ namespace A3DBhavCopy.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DownArrowRed9X16 {
+            get {
+                object obj = ResourceManager.GetObject("DownArrowRed9X16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DownLoad488X {
             get {
                 object obj = ResourceManager.GetObject("DownLoad488X", resourceCulture);
@@ -246,6 +256,16 @@ namespace A3DBhavCopy.Properties {
         internal static System.Drawing.Bitmap UnCheckAll16X16 {
             get {
                 object obj = ResourceManager.GetObject("UnCheckAll16X16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UpArrowGreen8X16 {
+            get {
+                object obj = ResourceManager.GetObject("UpArrowGreen8X16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

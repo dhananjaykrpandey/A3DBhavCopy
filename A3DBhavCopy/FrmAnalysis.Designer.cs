@@ -415,6 +415,7 @@
             // RdGrdReportResult
             // 
             this.RdGrdReportResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RdGrdReportResult.EnableCustomDrawing = true;
             this.RdGrdReportResult.Location = new System.Drawing.Point(0, 78);
             // 
             // 
@@ -424,6 +425,7 @@
             this.RdGrdReportResult.Size = new System.Drawing.Size(710, 575);
             this.RdGrdReportResult.TabIndex = 1;
             this.RdGrdReportResult.Text = "radGridView2";
+            this.RdGrdReportResult.CellPaint += new Telerik.WinControls.UI.GridViewCellPaintEventHandler(this.RdGrdReportResult_CellPaint);
             // 
             // RdPnlReportHeader
             // 

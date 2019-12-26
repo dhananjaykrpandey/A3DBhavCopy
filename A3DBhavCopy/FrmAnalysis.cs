@@ -59,32 +59,6 @@ namespace A3DBhavCopy
             DcCol.DefaultValue = "";
             DtBhavCopyCompany.Columns.Add(DcCol);
 
-
-            DataColumn DcColBhavCopyData = new DataColumn("cSYMBOL", typeof(string));
-            DcColBhavCopyData.DefaultValue = "";
-            DcColBhavCopyData.Caption = "Compnay Name(Symbol)";
-            DtBhavCopyData.Columns.Add(DcColBhavCopyData);
-
-            DcColBhavCopyData = new DataColumn("cSERIES", typeof(string));
-            DcColBhavCopyData.DefaultValue = "";
-            DcColBhavCopyData.Caption = "Compnay Series(Series)";
-            DtBhavCopyData.Columns.Add(DcColBhavCopyData);
-
-            //DataColumn DcColBhavCopyData;
-            DcColBhavCopyData = new DataColumn("cPREVCLOSE", typeof(double));
-            DcColBhavCopyData.DefaultValue = 0;
-            DcColBhavCopyData.Caption = "Previous Day Closing Value";
-            DtBhavCopyData.Columns.Add(DcColBhavCopyData);
-
-            DcColBhavCopyData = new DataColumn("cCLOSE", typeof(double));
-            DcColBhavCopyData.DefaultValue = 0;
-            DcColBhavCopyData.Caption = "Today Closing Value";
-            DtBhavCopyData.Columns.Add(DcColBhavCopyData);
-
-            DcColBhavCopyData = new DataColumn("cTOTTRDVAL", typeof(double));
-            DcColBhavCopyData.DefaultValue = 0;
-            DcColBhavCopyData.Caption = "Total Trading Value";
-            DtBhavCopyData.Columns.Add(DcColBhavCopyData);
         }
 
         enum enumReportType
@@ -228,14 +202,24 @@ namespace A3DBhavCopy
         {
             try
             {
+                DtBhavCopyData = new DataTable();
                 DtBhavCopySqlData = new DataTable();
+                RdGrdReportResult.DataSource = null;
+                DataColumn DcColBhavCopyData = new DataColumn("cSYMBOL", typeof(string));
+                DcColBhavCopyData.DefaultValue = "";
+                DcColBhavCopyData.Caption = "Compnay Name(Symbol)";
+                DtBhavCopyData.Columns.Add(DcColBhavCopyData);
+
+                DcColBhavCopyData = new DataColumn("cSERIES", typeof(string));
+                DcColBhavCopyData.DefaultValue = "";
+                DcColBhavCopyData.Caption = "Compnay Series(Series)";
+                DtBhavCopyData.Columns.Add(DcColBhavCopyData);
                 string StrSqlQuery = "";
                 string StrSqlQueryFilter = "Where ";
                 RdProgressBar.Minimum = 1;
                 RdProgressBar.Maximum = DvBhavCopyCompany.Count;
                 RdProgressBar.Value1 = 1;
                 RdProgressBar.Text = "Filling Company Details";
-
                 DataRow _DataRowBhavCopy;
                 for (int i = 0; i < DvBhavCopyCompany.Count; i++)
                 {
@@ -268,42 +252,59 @@ namespace A3DBhavCopy
                 }
 
                 double _IDaysInMonth = (_DtpToDate - _DtpFromDate).TotalDays;
-                
+
+
+
                 ColumnGroupsViewDefinition view = new ColumnGroupsViewDefinition();
                 GridViewColumnGroup gridViewColumnGroup;
+                gridViewColumnGroup = new GridViewColumnGroup("Company Details");
+                gridViewColumnGroup.Rows.Add(new GridViewColumnGroupRow());
+                gridViewColumnGroup.Rows[0].ColumnNames.Add("cSYMBOL");
+                gridViewColumnGroup.Rows[0].ColumnNames.Add("cSERIES");
+                view.ColumnGroups.Add(gridViewColumnGroup);
+
+                
+
+
                 for (int i = 0; i <= _IDaysInMonth; i++)
                 {
 
-
-
                     DateTime _DtMonthDate = _DtpFromDate.AddDays(Convert.ToDouble(i));
                     if (_DtMonthDate.DayOfWeek.ToString() == "Sunday" || _DtMonthDate.DayOfWeek.ToString() == "Saturday") { continue; }
-                    // DcColBhavCopyData = new DataColumn("Col" + _DtMonthDate.ToString("yyyy-MM-dd"), typeof(string));
 
-                    gridViewColumnGroup=   new GridViewColumnGroup(_DtMonthDate.ToString("dd-MMM-yyyy"));
-                   // if (gridViewColumnGroup.Rows.Count <= 0) {  }
+                    DcColBhavCopyData = new DataColumn("cPREVCLOSE_" + _DtMonthDate.ToString("dd-MMM-yyyy"), typeof(double));
+                    DcColBhavCopyData.DefaultValue = 0;
+                    DcColBhavCopyData.Caption = "Previous Day Closing Value";
+                    DtBhavCopyData.Columns.Add(DcColBhavCopyData);
+
+                    DcColBhavCopyData = new DataColumn("cCLOSE_" + _DtMonthDate.ToString("dd-MMM-yyyy"), typeof(double));
+                    DcColBhavCopyData.DefaultValue = 0;
+                    DcColBhavCopyData.Caption = "Today Closing Value";
+                    DtBhavCopyData.Columns.Add(DcColBhavCopyData);
+
+                    DcColBhavCopyData = new DataColumn("cTOTTRDVAL_" + _DtMonthDate.ToString("dd-MMM-yyyy"), typeof(double));
+                    DcColBhavCopyData.DefaultValue = 0;
+                    DcColBhavCopyData.Caption = "Total Trading Value";
+                    DtBhavCopyData.Columns.Add(DcColBhavCopyData);
+
+                    DcColBhavCopyData = new DataColumn("cPriceChange_" + _DtMonthDate.ToString("dd-MMM-yyyy"), typeof(double));
+                    DcColBhavCopyData.DefaultValue = 0;
+                    DcColBhavCopyData.Caption = "Price Change";
+                    DtBhavCopyData.Columns.Add(DcColBhavCopyData);
+
+                    gridViewColumnGroup = new GridViewColumnGroup(_DtMonthDate.ToString("dd-MMM-yyyy"));
+
                     gridViewColumnGroup.Rows.Add(new GridViewColumnGroupRow());
-                    gridViewColumnGroup.Rows[0].ColumnNames.Add("cPREVCLOSE");
-                    gridViewColumnGroup.Rows[0].ColumnNames.Add("cCLOSE");
-                    gridViewColumnGroup.Rows[0].ColumnNames.Add("cTOTTRDVAL");
-
+                    gridViewColumnGroup.Rows[0].ColumnNames.Add("cPREVCLOSE_" + _DtMonthDate.ToString("dd-MMM-yyyy"));
+                    gridViewColumnGroup.Rows[0].ColumnNames.Add("cCLOSE_" + _DtMonthDate.ToString("dd-MMM-yyyy"));
+                    gridViewColumnGroup.Rows[0].ColumnNames.Add("cTOTTRDVAL_" + _DtMonthDate.ToString("dd-MMM-yyyy"));
+                    gridViewColumnGroup.Rows[0].ColumnNames.Add("cPriceChange_" + _DtMonthDate.ToString("dd-MMM-yyyy"));
                     view.ColumnGroups.Add(gridViewColumnGroup);
-
-                    //DcColBhavCopyData.Caption = _DtMonthDate.ToString("dd-MMM-yyyy");
-
-                    //DcColBhavCopyData.ExtendedProperties.Add("DaysName", _DtMonthDate.DayOfWeek);
-
-                    // DcColBhavCopyData.ExtendedProperties.Add("DateValue", _DtMonthDate);
-                    //DtBhavCopyData.Columns.Add(DcColBhavCopyData);
-
                 }
 
                 RdGrdReportResult.ViewDefinition = view;
 
-                //DcColBhavCopyData = new DataColumn("cTOTTRDIFF", typeof(double));
-                //DcColBhavCopyData.DefaultValue = 0;
-                //DcColBhavCopyData.Caption = "Total Trading Diffrance";
-                //DtBhavCopyData.Columns.Add(DcColBhavCopyData);
+               
 
                 RdProgressBar.Minimum = 1;
                 RdProgressBar.Maximum = DtBhavCopyData.DefaultView.Count;
@@ -321,23 +322,49 @@ namespace A3DBhavCopy
                     DtBhavCopySqlData.DefaultView.RowFilter = "cSYMBOL='" + DrvCompany["cSYMBOL"] + "' AND cSERIES='" + DrvCompany["cSERIES"] + "' ";
                     foreach (DataRowView DrvBhavCopySqlData in DtBhavCopySqlData.DefaultView)
                     {
-                        DrvCompany["cPREVCLOSE"] = DrvBhavCopySqlData["cPREVCLOSE"];
-                        DrvCompany["cCLOSE"] = DrvBhavCopySqlData["cCLOSE"];
-                        DrvCompany["cTOTTRDVAL"] = DrvBhavCopySqlData["cTOTTRDVAL"];
-                        //if (DtBhavCopyData.Columns.Contains("Col" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("yyyy-MM-dd")))
-                        //{
-                        //    DrvCompany["Col" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("yyyy-MM-dd")] = DrvBhavCopySqlData["cTOTTRDVAL"];
+                        //DrvCompany["cPREVCLOSE"] = DrvBhavCopySqlData["cPREVCLOSE"];
+                        //DrvCompany["cCLOSE"] = DrvBhavCopySqlData["cCLOSE"];
+                        //DrvCompany["cTOTTRDVAL"] = DrvBhavCopySqlData["cTOTTRDVAL"];
 
-                        //    //_TotalData = _TotalData + Convert.ToDouble(DrvAtmDeteData["cTotalPerInService"]);
+                        if (DtBhavCopyData.Columns.Contains("cPREVCLOSE_" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy")))
+                        {
+                            DrvCompany["cPREVCLOSE_" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy")] = DrvBhavCopySqlData["cPREVCLOSE"];
 
-                        //}
+                        }
+                        if (DtBhavCopyData.Columns.Contains("cCLOSE_" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy")))
+                        {
+                            DrvCompany["cCLOSE_" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy")] = DrvBhavCopySqlData["cCLOSE"];
+
+                        }
+                        if (DtBhavCopyData.Columns.Contains("cTOTTRDVAL_" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy")))
+                        {
+                            DrvCompany["cTOTTRDVAL_" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy")] = DrvBhavCopySqlData["cTOTTRDVAL"];
+
+                        }
+                        if (DtBhavCopyData.Columns.Contains("cPriceChange_" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy")))
+                        {
+                            DrvCompany["cPriceChange_" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy")] = Math.Round(Convert.ToDouble(DrvBhavCopySqlData["cCLOSE"])-Convert.ToDouble(DrvBhavCopySqlData["cPREVCLOSE"]),2);
+
+                        }
                         //DrvAtmID["cAverage"] = _TotalData / _IDaysInMonth;//DrvAtmDeteData["cTotalPerInService"];
                     }
-
+                    DtBhavCopySqlData.DefaultView.RowFilter = "";
                     RdProgressBar.Value1 = RdProgressBar.Value1 < DvBhavCopyCompany.Count ? RdProgressBar.Value1 + 1 : DvBhavCopyCompany.Count;
                 }
                 RdGrdReportResult.DataSource = DtBhavCopyData;
-
+                ConditionalFormattingObject _ConditionalFormattingObject = new ConditionalFormattingObject("MyCondition", ConditionTypes.Less, "0", "", false);
+                //obj.CellBackColor = Color.SkyBlue;
+                _ConditionalFormattingObject.CellForeColor = Color.Red;
+                //obj.TextAlignment = ContentAlignment.MiddleRight;
+                foreach (var gridViewDataColumn in RdGrdReportResult.Columns)
+                {
+                    if (gridViewDataColumn.Name.Contains("cPriceChange_"))
+                    {
+                        gridViewDataColumn.ConditionalFormattingObjectList.Add(_ConditionalFormattingObject);
+                    }
+                }
+                RdProgressBar.Value1 = 1;
+                RdProgressBar.Text = "Done";
             }
             catch (Exception ex)
             {
@@ -346,5 +373,37 @@ namespace A3DBhavCopy
             }
         }
 
+        private void RdGrdReportResult_CellPaint(object sender, GridViewCellPaintEventArgs e)
+        {
+            try
+            {
+                if (e.Cell != null && e.Cell.RowInfo is GridViewDataRowInfo && e.Cell.ColumnInfo.Name.Contains("cPriceChange_"))
+                {
+                    double value = Convert.ToDouble(e.Cell.Value);
+                    if (value == 0)
+                    {
+                        return;
+                    }
+                    else if (value<0)
+                    {
+                        e.Graphics.DrawImage(A3DBhavCopy.Properties.Resources.DownArrowRed9X16,new PointF(0,0));
+                    }
+                    else if (value > 0)
+                    {
+                        e.Graphics.DrawImage(A3DBhavCopy.Properties.Resources.UpArrowGreen8X16, new PointF(0, 0));
+                    }
+                    //Brush brush = value < 0 ? Brushes.Red : Brushes.Green;
+                    //using (Font font = new Font("Segoe UI", 17))
+                    //{
+                    //    e.Graphics.DrawString("*", font, brush, Point.Empty);
+                    //}
+                }
+            }
+            catch (Exception ex)
+            {
+
+                ClsMessage._IClsMessage.ProjectExceptionMessage(ex);
+            }
+        }
     }
 }
