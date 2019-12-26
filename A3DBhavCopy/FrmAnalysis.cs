@@ -5,10 +5,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Telerik.WinControls;
+using Telerik.WinControls.Export;
 using Telerik.WinControls.UI;
 using Telerik.WinControls.UI.Docking;
 
@@ -102,6 +105,36 @@ namespace A3DBhavCopy
         {
             GetCompaniesDetails();
         }
+        private void RdRbtDate_ToggleStateChanged(object sender, StateChangedEventArgs args)
+        {
+            try
+            {
+                RadRadioButton _RadRadioButton = (RadRadioButton)sender;
+                switch (_RadRadioButton.Name)
+                {
+                    case "RdRbtDate":
+                        RdDtpFrom.CustomFormat = "dd-MMM-yyyy";
+                        RdDtpTo.CustomFormat = "dd-MMM-yyyy";
+                        break;
+                    case "RdRbtMonth":
+                        RdDtpFrom.CustomFormat = "MMM-yyyy";
+                        RdDtpTo.CustomFormat = "MMM-yyyy";
+                        break;
+                    case "RdRbtYear":
+                        RdDtpFrom.CustomFormat = "yyyy";
+                        RdDtpTo.CustomFormat = "yyyy";
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                ClsMessage._IClsMessage.ProjectExceptionMessage(ex);
+            }
+        }
+
         private void RdTreeMenu_NodeMouseClick(object sender, RadTreeViewEventArgs e)
         {
             try
@@ -112,9 +145,11 @@ namespace A3DBhavCopy
                     {
                         case "SORTBYVAL":
                             EnuReportType = enumReportType.SortByValue;
+                            RdGrdReportResult.DataSource = null;
                             break;
-                        case "SortByQuantity":
+                        case "SORTBYQUANTITY":
                             EnuReportType = enumReportType.SortByQty;
+                            RdGrdReportResult.DataSource = null;
                             break;
                         default:
                             EnuReportType = enumReportType.SortByValue;
@@ -207,13 +242,20 @@ namespace A3DBhavCopy
                 RdGrdReportResult.DataSource = null;
                 DataColumn DcColBhavCopyData = new DataColumn("cSYMBOL", typeof(string));
                 DcColBhavCopyData.DefaultValue = "";
-                DcColBhavCopyData.Caption = "Compnay Name(Symbol)";
+                DcColBhavCopyData.Caption = "Company Name(Symbol)";
                 DtBhavCopyData.Columns.Add(DcColBhavCopyData);
 
                 DcColBhavCopyData = new DataColumn("cSERIES", typeof(string));
                 DcColBhavCopyData.DefaultValue = "";
-                DcColBhavCopyData.Caption = "Compnay Series(Series)";
+                DcColBhavCopyData.Caption = "Company Series(Series)";
                 DtBhavCopyData.Columns.Add(DcColBhavCopyData);
+
+                DcColBhavCopyData = new DataColumn("cSummary", typeof(double));
+                DcColBhavCopyData.DefaultValue = 0;
+                DcColBhavCopyData.Caption = "Total Summary";
+                DtBhavCopyData.Columns.Add(DcColBhavCopyData);
+
+
                 string StrSqlQuery = "";
                 string StrSqlQueryFilter = "Where ";
                 RdProgressBar.Minimum = 1;
@@ -261,9 +303,10 @@ namespace A3DBhavCopy
                 gridViewColumnGroup.Rows.Add(new GridViewColumnGroupRow());
                 gridViewColumnGroup.Rows[0].ColumnNames.Add("cSYMBOL");
                 gridViewColumnGroup.Rows[0].ColumnNames.Add("cSERIES");
+                gridViewColumnGroup.Rows[0].ColumnNames.Add("cSummary");
                 view.ColumnGroups.Add(gridViewColumnGroup);
 
-                
+
 
 
                 for (int i = 0; i <= _IDaysInMonth; i++)
@@ -282,11 +325,20 @@ namespace A3DBhavCopy
                     DcColBhavCopyData.Caption = "Today Closing Value";
                     DtBhavCopyData.Columns.Add(DcColBhavCopyData);
 
-                    DcColBhavCopyData = new DataColumn("cTOTTRDVAL_" + _DtMonthDate.ToString("dd-MMM-yyyy"), typeof(double));
-                    DcColBhavCopyData.DefaultValue = 0;
-                    DcColBhavCopyData.Caption = "Total Trading Value";
-                    DtBhavCopyData.Columns.Add(DcColBhavCopyData);
-
+                    if (EnuReportType == enumReportType.SortByQty)
+                    {
+                        DcColBhavCopyData = new DataColumn("cTOTTRDQTY_" + _DtMonthDate.ToString("dd-MMM-yyyy"), typeof(double));
+                        DcColBhavCopyData.DefaultValue = 0;
+                        DcColBhavCopyData.Caption = "Total Trading Quantity";
+                        DtBhavCopyData.Columns.Add(DcColBhavCopyData);
+                    }
+                    else
+                    {
+                        DcColBhavCopyData = new DataColumn("cTOTTRDVAL_" + _DtMonthDate.ToString("dd-MMM-yyyy"), typeof(double));
+                        DcColBhavCopyData.DefaultValue = 0;
+                        DcColBhavCopyData.Caption = "Total Trading Value";
+                        DtBhavCopyData.Columns.Add(DcColBhavCopyData);
+                    }
                     DcColBhavCopyData = new DataColumn("cPriceChange_" + _DtMonthDate.ToString("dd-MMM-yyyy"), typeof(double));
                     DcColBhavCopyData.DefaultValue = 0;
                     DcColBhavCopyData.Caption = "Price Change";
@@ -297,23 +349,30 @@ namespace A3DBhavCopy
                     gridViewColumnGroup.Rows.Add(new GridViewColumnGroupRow());
                     gridViewColumnGroup.Rows[0].ColumnNames.Add("cPREVCLOSE_" + _DtMonthDate.ToString("dd-MMM-yyyy"));
                     gridViewColumnGroup.Rows[0].ColumnNames.Add("cCLOSE_" + _DtMonthDate.ToString("dd-MMM-yyyy"));
-                    gridViewColumnGroup.Rows[0].ColumnNames.Add("cTOTTRDVAL_" + _DtMonthDate.ToString("dd-MMM-yyyy"));
+                    if (EnuReportType == enumReportType.SortByQty)
+                    {
+                        gridViewColumnGroup.Rows[0].ColumnNames.Add("cTOTTRDQTY_" + _DtMonthDate.ToString("dd-MMM-yyyy"));
+                    }
+                    else
+                    {
+                        gridViewColumnGroup.Rows[0].ColumnNames.Add("cTOTTRDVAL_" + _DtMonthDate.ToString("dd-MMM-yyyy"));
+                    }
                     gridViewColumnGroup.Rows[0].ColumnNames.Add("cPriceChange_" + _DtMonthDate.ToString("dd-MMM-yyyy"));
                     view.ColumnGroups.Add(gridViewColumnGroup);
                 }
 
                 RdGrdReportResult.ViewDefinition = view;
 
-               
+
 
                 RdProgressBar.Minimum = 1;
                 RdProgressBar.Maximum = DtBhavCopyData.DefaultView.Count;
                 RdProgressBar.Value1 = 1;
                 RdProgressBar.Text = "Filling Bhav-Copy Data";
-
+                double dblSummary = 0;
                 foreach (DataRowView DrvCompany in DtBhavCopyData.DefaultView)
                 {
-
+                    dblSummary = 0;
                     RdProgressBar.Text = " Filling < " + DrvCompany["cSYMBOL"] + " > Company Data  - " + ((RdProgressBar.Value1 * 100) / DtBhavCopyData.DefaultView.Count).ToString() + " %";
                     RdProgressBar.Update();
                     RdProgressBar.Refresh();
@@ -336,18 +395,30 @@ namespace A3DBhavCopy
                             DrvCompany["cCLOSE_" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy")] = DrvBhavCopySqlData["cCLOSE"];
 
                         }
-                        if (DtBhavCopyData.Columns.Contains("cTOTTRDVAL_" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy")))
+                        if (EnuReportType == enumReportType.SortByQty)
                         {
-                            DrvCompany["cTOTTRDVAL_" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy")] = DrvBhavCopySqlData["cTOTTRDVAL"];
+                            if (DtBhavCopyData.Columns.Contains("cTOTTRDQTY_" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy")))
+                            {
+                                DrvCompany["cTOTTRDQTY_" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy")] = DrvBhavCopySqlData["cTOTTRDQTY"];
 
+                            }
+                        }
+                        else
+                        {
+                            if (DtBhavCopyData.Columns.Contains("cTOTTRDVAL_" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy")))
+                            {
+                                DrvCompany["cTOTTRDVAL_" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy")] = DrvBhavCopySqlData["cTOTTRDVAL"];
+
+                            }
                         }
                         if (DtBhavCopyData.Columns.Contains("cPriceChange_" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy")))
                         {
-                            DrvCompany["cPriceChange_" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy")] = Math.Round(Convert.ToDouble(DrvBhavCopySqlData["cCLOSE"])-Convert.ToDouble(DrvBhavCopySqlData["cPREVCLOSE"]),2);
-
+                            DrvCompany["cPriceChange_" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy")] = Math.Round(Convert.ToDouble(DrvBhavCopySqlData["cCLOSE"]) - Convert.ToDouble(DrvBhavCopySqlData["cPREVCLOSE"]), 2);
+                            dblSummary = dblSummary + Convert.ToDouble(DrvCompany["cPriceChange_" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy")]);
                         }
-                        //DrvAtmID["cAverage"] = _TotalData / _IDaysInMonth;//DrvAtmDeteData["cTotalPerInService"];
+
                     }
+                    DrvCompany["cSummary"] = dblSummary;
                     DtBhavCopySqlData.DefaultView.RowFilter = "";
                     RdProgressBar.Value1 = RdProgressBar.Value1 < DvBhavCopyCompany.Count ? RdProgressBar.Value1 + 1 : DvBhavCopyCompany.Count;
                 }
@@ -359,6 +430,10 @@ namespace A3DBhavCopy
                 foreach (var gridViewDataColumn in RdGrdReportResult.Columns)
                 {
                     if (gridViewDataColumn.Name.Contains("cPriceChange_"))
+                    {
+                        gridViewDataColumn.ConditionalFormattingObjectList.Add(_ConditionalFormattingObject);
+                    }
+                    if (gridViewDataColumn.Name == "cSummary")
                     {
                         gridViewDataColumn.ConditionalFormattingObjectList.Add(_ConditionalFormattingObject);
                     }
@@ -384,20 +459,173 @@ namespace A3DBhavCopy
                     {
                         return;
                     }
-                    else if (value<0)
+                    else if (value < 0)
                     {
-                        e.Graphics.DrawImage(A3DBhavCopy.Properties.Resources.DownArrowRed9X16,new PointF(0,0));
+                        e.Graphics.DrawImage(Properties.Resources.DownArrowRed9X16, new PointF(0, 0));
                     }
                     else if (value > 0)
                     {
-                        e.Graphics.DrawImage(A3DBhavCopy.Properties.Resources.UpArrowGreen8X16, new PointF(0, 0));
+                        e.Graphics.DrawImage(Properties.Resources.UpArrowGreen8X16, new PointF(0, 0));
                     }
-                    //Brush brush = value < 0 ? Brushes.Red : Brushes.Green;
-                    //using (Font font = new Font("Segoe UI", 17))
-                    //{
-                    //    e.Graphics.DrawString("*", font, brush, Point.Empty);
-                    //}
                 }
+                if (e.Cell != null && e.Cell.RowInfo is GridViewDataRowInfo && e.Cell.ColumnInfo.Name.Contains("cSummary"))
+                {
+                    double value = Convert.ToDouble(e.Cell.Value);
+                    if (value == 0)
+                    {
+                        return;
+                    }
+                    else if (value < 0)
+                    {
+                        e.Graphics.DrawImage(Properties.Resources.DownArrowRed9X16, new PointF(0, 0));
+                    }
+                    else if (value > 0)
+                    {
+                        e.Graphics.DrawImage(Properties.Resources.UpArrowGreen8X16, new PointF(0, 0));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                ClsMessage._IClsMessage.ProjectExceptionMessage(ex);
+            }
+        }
+        string StrExcelFileName = "";
+        private void radButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog _SaveFileDialog = new SaveFileDialog()
+                {
+                    Title = "A3D Bhav-Copy Analysis Report",
+                    Filter = "Excel File(*.xlsx)|*.xlsx",
+                    RestoreDirectory = true,
+                    AddExtension = true,
+                    FileName = "A3D Bhav-Copy Analysis Data " + DateTime.Now.ToString("dd-MMM-yyyy hh-mm-ss tt")
+                };
+                if (_SaveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    Cursor = Cursors.WaitCursor;
+                    GridViewSpreadExport spreadExporter = new GridViewSpreadExport(this.RdGrdReportResult);
+                    spreadExporter.ExportChildRowsGrouped = true;
+                    spreadExporter.ExportViewDefinition = true;
+                    spreadExporter.ExportVisualSettings = true;
+
+                    spreadExporter.FileExportMode = FileExportMode.CreateOrOverrideFile;
+                    SpreadExportRenderer exportRenderer = new SpreadExportRenderer();
+
+                    spreadExporter.RunExport(_SaveFileDialog.FileName, exportRenderer);
+                    StrExcelFileName = _SaveFileDialog.FileName;
+                    Cursor = Cursors.Default;
+                    if (ClsMessage._IClsMessage.showQuestionMessage("Excel Export Completed." + Environment.NewLine + "Do You Want To Open File?") == DialogResult.Yes)
+                    {
+                        System.Diagnostics.Process.Start(StrExcelFileName);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                ClsMessage._IClsMessage.ProjectExceptionMessage(ex);
+            }
+        }
+
+        private void SpreadExporter_AsyncExportCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            if (ClsMessage._IClsMessage.showQuestionMessage("Excel Export Completed." + Environment.NewLine + "Do You Want To Open File?") == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(StrExcelFileName);
+            }
+        }
+
+        private void SpreadExporter_AsyncExportProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            RdProgressBar.Value1 = e.ProgressPercentage;
+            RdProgressBar.Update();
+            RdProgressBar.Refresh();
+            Application.DoEvents();
+        }
+
+        private void RdBtnSelectAll_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor = Cursors.WaitCursor;
+                if (DtBhavCopyCompany != null && DtBhavCopyCompany.DefaultView.Count > 0)
+                {
+                    foreach (DataRowView item in DtBhavCopyCompany.DefaultView)
+                    {
+                        item.BeginEdit();
+                        item["lSelect"] = ((RadButton)sender).Name == "RdBtnSelectAll" ? true : false;
+                        item.EndEdit();
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+
+                ClsMessage._IClsMessage.ProjectExceptionMessage(ex);
+            }
+            Cursor = Cursors.Default;
+        }
+
+        private void RdBtnClearSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DtBhavCopyCompany.DefaultView.RowFilter = "";
+                RdTxtSearchCompany.Text = "";
+
+            }
+            catch (Exception ex)
+            {
+
+                ClsMessage._IClsMessage.ProjectExceptionMessage(ex);
+            }
+        }
+
+        private void RdBtnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (!string.IsNullOrEmpty(RdTxtSearchCompany.Text.Trim()))
+                {
+
+                    if (DtBhavCopyCompany != null && DtBhavCopyCompany.Rows.Count > 0)
+                    {
+                        DtBhavCopyCompany.DefaultView.RowFilter = "cSYMBOL like'%" + RdTxtSearchCompany.Text.Trim() + "%'";
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                ClsMessage._IClsMessage.ProjectExceptionMessage(ex);
+            }
+        }
+
+        private void RdTxtSearchCompany_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (e.KeyChar == 13)
+                {
+
+                    if (!string.IsNullOrEmpty(RdTxtSearchCompany.Text.Trim()))
+                    {
+
+                        if (DtBhavCopyCompany != null && DtBhavCopyCompany.Rows.Count > 0)
+                        {
+                            DtBhavCopyCompany.DefaultView.RowFilter = "cSYMBOL like'%" + RdTxtSearchCompany.Text.Trim() + "%'";
+                        }
+                    }
+                }
+
             }
             catch (Exception ex)
             {

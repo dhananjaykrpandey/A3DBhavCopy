@@ -313,6 +313,7 @@
             this.RdBtnSearch.TabIndex = 7;
             this.RdBtnSearch.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.RdBtnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.RdBtnSearch.Click += new System.EventHandler(this.RdBtnSearch_Click);
             // 
             // RdBtnClearSearch
             // 
@@ -325,6 +326,7 @@
             this.RdBtnClearSearch.TabIndex = 6;
             this.RdBtnClearSearch.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.RdBtnClearSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.RdBtnClearSearch.Click += new System.EventHandler(this.RdBtnClearSearch_Click);
             // 
             // RdTxtSearchCompany
             // 
@@ -335,6 +337,7 @@
             this.RdTxtSearchCompany.NullText = "Enter Company Name";
             this.RdTxtSearchCompany.Size = new System.Drawing.Size(50, 20);
             this.RdTxtSearchCompany.TabIndex = 5;
+            this.RdTxtSearchCompany.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RdTxtSearchCompany_KeyPress);
             // 
             // RdBtnSelectAll
             // 
@@ -346,6 +349,7 @@
             this.RdBtnSelectAll.TabIndex = 5;
             this.RdBtnSelectAll.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.RdBtnSelectAll.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.RdBtnSelectAll.Click += new System.EventHandler(this.RdBtnSelectAll_Click);
             // 
             // RdBtnUnSelectAll
             // 
@@ -357,6 +361,7 @@
             this.RdBtnUnSelectAll.TabIndex = 4;
             this.RdBtnUnSelectAll.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.RdBtnUnSelectAll.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.RdBtnUnSelectAll.Click += new System.EventHandler(this.RdBtnSelectAll_Click);
             // 
             // radLabel4
             // 
@@ -420,6 +425,11 @@
             // 
             // 
             // 
+            this.RdGrdReportResult.MasterTemplate.AllowAddNewRow = false;
+            this.RdGrdReportResult.MasterTemplate.AllowDeleteRow = false;
+            this.RdGrdReportResult.MasterTemplate.AllowEditRow = false;
+            this.RdGrdReportResult.MasterTemplate.AllowSearchRow = true;
+            this.RdGrdReportResult.MasterTemplate.EnableFiltering = true;
             this.RdGrdReportResult.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.RdGrdReportResult.Name = "RdGrdReportResult";
             this.RdGrdReportResult.Size = new System.Drawing.Size(710, 575);
@@ -466,6 +476,7 @@
             this.radButton1.Text = "Export Report";
             this.radButton1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.radButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.radButton1.Click += new System.EventHandler(this.radButton1_Click);
             // 
             // RdBtnDownloadAndSave
             // 
@@ -515,6 +526,7 @@
             this.RdRbtYear.Size = new System.Drawing.Size(42, 18);
             this.RdRbtYear.TabIndex = 12;
             this.RdRbtYear.Text = "Year";
+            this.RdRbtYear.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.RdRbtDate_ToggleStateChanged);
             // 
             // RdDtpFrom
             // 
@@ -535,6 +547,7 @@
             this.RdRbtMonth.Size = new System.Drawing.Size(54, 18);
             this.RdRbtMonth.TabIndex = 13;
             this.RdRbtMonth.Text = "Month";
+            this.RdRbtMonth.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.RdRbtDate_ToggleStateChanged);
             // 
             // RdRbtDate
             // 
@@ -543,6 +556,7 @@
             this.RdRbtDate.Size = new System.Drawing.Size(44, 18);
             this.RdRbtDate.TabIndex = 11;
             this.RdRbtDate.Text = "Date";
+            this.RdRbtDate.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.RdRbtDate_ToggleStateChanged);
             // 
             // radLabel1
             // 

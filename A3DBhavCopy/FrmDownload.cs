@@ -137,7 +137,7 @@ namespace A3DBhavCopy
                 RdProgressBar.Minimum = 1;
                 RdProgressBar.Maximum = Convert.ToInt32(_IDaysInMonth);
                 RdProgressBar.Value1 = 1;
-                RdLlbMessage.Text = "Starting Downloaing!! Please Wait....";
+                RdLlbMessage.Text = "Starting Downloading!! Please Wait....";
                 DtBhavCopyFile.Rows.Clear();
                 for (int i = 0; i <= _IDaysInMonth; i++)
                 {
@@ -314,6 +314,7 @@ namespace A3DBhavCopy
                     _DtpToDate = new DateTime(RdDtpTo.Value.Year, 12, 31);
 
                 }
+                Cursor = Cursors.WaitCursor;
                 DownLoadFiles(_DtpFromDate, _DtpToDate);
                 UploadData();
             }
@@ -322,6 +323,7 @@ namespace A3DBhavCopy
 
                 ClsMessage._IClsMessage.ProjectExceptionMessage(ex);
             }
+            Cursor = Cursors.Default;
         }
         private void UploadData()
         {
@@ -368,7 +370,7 @@ namespace A3DBhavCopy
                         RdProgressBar.Text = ((RdProgressBar.Value1 * 100) / DvBhavCopyFile.Count).ToString() + " %";
                         RdProgressBar.Update();
                         RdProgressBar.Refresh();
-                        RdLlbMessage.Text = "Geting < " + DrvFiles["cFileName"].ToString().Replace(".zip", "") + " > File Data..";
+                        RdLlbMessage.Text = "Getting < " + DrvFiles["cFileName"].ToString().Replace(".zip", "") + " > File Data..";
                         RdLlbMessage.Update();
                         Application.DoEvents();
 
@@ -460,7 +462,7 @@ namespace A3DBhavCopy
                                     iFileID = _mClsBhavCopyHead.iFileID;
                                     /**********************************************************************************************/
 
-                                    RdLlbMessage.Text = "Geting all data of < " + StrFileName + " > File ..";
+                                    RdLlbMessage.Text = "Getting all data of < " + StrFileName + " > File ..";
                                     RdLlbMessage.Update();
                                     Application.DoEvents();
 
@@ -660,6 +662,96 @@ namespace A3DBhavCopy
 
                 throw;
             }
+        }
+        private void RdBtnSelectAll_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor = Cursors.WaitCursor;
+                if (DtBhavCopyFile != null && DtBhavCopyFile.DefaultView.Count > 0)
+                {
+                    foreach (DataRowView item in DtBhavCopyFile.DefaultView)
+                    {
+                        item.BeginEdit();
+                        item["lSelect"] = ((RadButton)sender).Name == "RdBtnSelectAll" ? true : false;
+                        item.EndEdit();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                ClsMessage._IClsMessage.ProjectExceptionMessage(ex);
+            }
+            Cursor = Cursors.Default;
+        }
+
+        private void RdBtnClearSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DtBhavCopyFile.DefaultView.RowFilter = "";
+                RdTxtSearchCompany.Text = "";
+
+            }
+            catch (Exception ex)
+            {
+
+                ClsMessage._IClsMessage.ProjectExceptionMessage(ex);
+            }
+        }
+
+        private void RdBtnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (!string.IsNullOrEmpty(RdTxtSearchCompany.Text.Trim()))
+                {
+
+                    if (DtBhavCopyFile != null && DtBhavCopyFile.Rows.Count > 0)
+                    {
+                        DtBhavCopyFile.DefaultView.RowFilter = "cFileName like'%" + RdTxtSearchCompany.Text.Trim() + "%'";
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                ClsMessage._IClsMessage.ProjectExceptionMessage(ex);
+            }
+        }
+
+        private void RdTxtSearchCompany_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (e.KeyChar == 13)
+                {
+
+                    if (!string.IsNullOrEmpty(RdTxtSearchCompany.Text.Trim()))
+                    {
+
+                        if (DtBhavCopyFile != null && DtBhavCopyFile.Rows.Count > 0)
+                        {
+                            DtBhavCopyFile.DefaultView.RowFilter = "cFileName like'%" + RdTxtSearchCompany.Text.Trim() + "%'";
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                ClsMessage._IClsMessage.ProjectExceptionMessage(ex);
+            }
+        }
+
+        private void RdBtnReload_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

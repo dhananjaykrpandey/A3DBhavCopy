@@ -129,6 +129,14 @@
     <Reference Include="TelerikCommon, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
       <Private>True</Private>
     </Reference>
+    <Reference Include="TelerikData, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\TelerikData.dll</HintPath>
+    </Reference>
+    <Reference Include="TelerikExport, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\TelerikExport.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonClasses\ClsMessage.cs" />
