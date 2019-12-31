@@ -304,6 +304,9 @@ namespace A3DBhavCopy
                 gridViewColumnGroup.Rows[0].ColumnNames.Add("cSYMBOL");
                 gridViewColumnGroup.Rows[0].ColumnNames.Add("cSERIES");
                 gridViewColumnGroup.Rows[0].ColumnNames.Add("cSummary");
+                gridViewColumnGroup.IsPinned = true;
+                gridViewColumnGroup.PinPosition = PinnedColumnPosition.Left;
+                
                 view.ColumnGroups.Add(gridViewColumnGroup);
 
 
@@ -427,16 +430,23 @@ namespace A3DBhavCopy
                 //obj.CellBackColor = Color.SkyBlue;
                 _ConditionalFormattingObject.CellForeColor = Color.Red;
                 //obj.TextAlignment = ContentAlignment.MiddleRight;
+
+                RdGrdReportResult.Columns["cSYMBOL"].PinPosition = PinnedColumnPosition.Left;
+                RdGrdReportResult.Columns["cSYMBOL"].IsPinned = true;
+                RdGrdReportResult.Columns["cSERIES"].PinPosition = PinnedColumnPosition.Left;
+                RdGrdReportResult.Columns["cSERIES"].IsPinned = true;
+                RdGrdReportResult.Columns["cSummary"].PinPosition = PinnedColumnPosition.Left;
+                RdGrdReportResult.Columns["cSummary"].IsPinned = true;
+                RdGrdReportResult.Columns["cSummary"].ConditionalFormattingObjectList.Add(_ConditionalFormattingObject);
+
+
                 foreach (var gridViewDataColumn in RdGrdReportResult.Columns)
                 {
                     if (gridViewDataColumn.Name.Contains("cPriceChange_"))
                     {
                         gridViewDataColumn.ConditionalFormattingObjectList.Add(_ConditionalFormattingObject);
                     }
-                    if (gridViewDataColumn.Name == "cSummary")
-                    {
-                        gridViewDataColumn.ConditionalFormattingObjectList.Add(_ConditionalFormattingObject);
-                    }
+                    
                 }
                 RdProgressBar.Value1 = 1;
                 RdProgressBar.Text = "Done";

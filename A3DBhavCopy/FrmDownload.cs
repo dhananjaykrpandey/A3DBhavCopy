@@ -138,6 +138,8 @@ namespace A3DBhavCopy
                 RdProgressBar.Maximum = Convert.ToInt32(_IDaysInMonth);
                 RdProgressBar.Value1 = 1;
                 RdLlbMessage.Text = "Starting Downloading!! Please Wait....";
+                RdLlbMessage.Update();
+                Application.DoEvents();
                 DtBhavCopyFile.Rows.Clear();
                 for (int i = 0; i <= _IDaysInMonth; i++)
                 {
@@ -149,11 +151,16 @@ namespace A3DBhavCopy
 
                     _DataBhavCopyFileRow["cFileName"] = "cm" + _DtMonthDate.ToString("ddMMMyyyy").ToUpper() + "bhav.csv.zip";
                     _DataBhavCopyFileRow["dFileDate"] = _DtMonthDate.ToShortDateString();
+                    RdLlbMessage.Text = "Checking InterNet Connection !! Please Wait....";
+                    RdLlbMessage.Update();
+                    Application.DoEvents();
                     if (CheckForInternetConnection() == true)
                     {
 
-                        RdLlbMessage.Text = "Checking InterNet Connection !! Please Wait....";
+                    
                         RdLlbMessage.Text = "Checking File " + "cm" + _DtMonthDate.ToString("ddMMMyyyy") + "bhav.csv.zip" + " Exists Or Not !! Please Wait....";
+                        RdLlbMessage.Update();
+                        Application.DoEvents();
                         if (CheckFileExists("https://www.nseindia.com/content/historical/EQUITIES" + StrUrl) == false)
                         {
                             RdLlbMessage.Text = "File " + "cm" + _DtMonthDate.ToString("ddMMMyyyy") + "bhav.csv.zip" + " Not Found .";
@@ -190,6 +197,8 @@ namespace A3DBhavCopy
 
                 RdLlbMessage.Text = "Download Completed.";
                 RdLlbMessage.Text = "";
+                RdLlbMessage.Update();
+                Application.DoEvents();
                 ClsMessage._IClsMessage.showMessage("Download completed!");
                 RdProgressBar.Value1 = 1;
                 RdGrdBhavCopyFile.DataSource = DtBhavCopyFile.DefaultView;
@@ -338,7 +347,7 @@ namespace A3DBhavCopy
                 if (DvBhavCopyFile.Count > 0)
                 {
                     string StrCsvFileLoation = "";
-                    StrCsvFileLoation = Application.StartupPath + @"\BhavCopyDataCsvFiles";
+                    StrCsvFileLoation = Path.GetTempPath() + @"BhavCopyDataCsvFiles";
                     if (Directory.Exists(StrCsvFileLoation) == false)
                     {
                         Directory.CreateDirectory(StrCsvFileLoation);
@@ -413,11 +422,11 @@ namespace A3DBhavCopy
                                     RdLlbMessage.Update();
                                     Application.DoEvents();
 
-                                   
+
 
 
                                     var vBhavCopyHead = dbContxt._MBhavCopyHead.Where(f => f.cFileName == StrFileName).Select(BCH => BCH.iFileID).ToList();
-                                    if (vBhavCopyHead != null && vBhavCopyHead.Count>0)
+                                    if (vBhavCopyHead != null && vBhavCopyHead.Count > 0)
                                     {
 
                                         RdLlbMessage.Text = "Deleting existing < " + StrFileName + " > File Data..";
