@@ -31,10 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmA3DBhavCopy));
             this.RdRibbonBar = new Telerik.WinControls.UI.RadRibbonBar();
             this.ribbonTab1 = new Telerik.WinControls.UI.RibbonTab();
-            this.radRibbonBarGroup1 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.RdRibBarGrpDownload = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.RdBtnMenuDownloadBhavCopy = new Telerik.WinControls.UI.RadButtonElement();
-            this.radImageButtonElement1 = new Telerik.WinControls.UI.RadImageButtonElement();
+            this.RdRibBarGrpAnalysis = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.RdBtnMenuAnalysisBhavCopy = new Telerik.WinControls.UI.RadButtonElement();
+            this.radImageButtonElement2 = new Telerik.WinControls.UI.RadImageButtonElement();
+            this.RdBtnMenuAnalysisCompare = new Telerik.WinControls.UI.RadButtonElement();
+            this.radImageButtonElement3 = new Telerik.WinControls.UI.RadImageButtonElement();
             this.RdDockMain = new Telerik.WinControls.UI.Docking.RadDock();
             this.documentContainer1 = new Telerik.WinControls.UI.Docking.DocumentContainer();
             this.RdStatusStrip = new Telerik.WinControls.UI.RadStatusStrip();
@@ -50,11 +53,9 @@
             this.RdSpltBtnItemThemeVisualStudio2012Light = new Telerik.WinControls.UI.RadMenuItem();
             this.RdSpltBtnItemThemeWindows8 = new Telerik.WinControls.UI.RadMenuItem();
             this.commandBarSeparator1 = new Telerik.WinControls.UI.CommandBarSeparator();
-            this.RdProgressBar = new Telerik.WinControls.UI.RadProgressBarElement();
             this.commandBarSeparator2 = new Telerik.WinControls.UI.CommandBarSeparator();
             this.RdLlbDateRange = new Telerik.WinControls.UI.RadLabelElement();
             this.commandBarSeparator3 = new Telerik.WinControls.UI.CommandBarSeparator();
-            this.RdLlbMessage = new Telerik.WinControls.UI.RadLabelElement();
             this.visualStudio2012DarkTheme1 = new Telerik.WinControls.Themes.VisualStudio2012DarkTheme();
             this.visualStudio2012LightTheme1 = new Telerik.WinControls.Themes.VisualStudio2012LightTheme();
             this.windows8Theme1 = new Telerik.WinControls.Themes.Windows8Theme();
@@ -89,7 +90,7 @@
             // 
             // 
             this.RdRibbonBar.OptionsButton.Text = "Options";
-            this.RdRibbonBar.Size = new System.Drawing.Size(1188, 164);
+            this.RdRibbonBar.Size = new System.Drawing.Size(1188, 165);
             this.RdRibbonBar.StartButtonImage = global::A3DBhavCopy.Properties.Resources.Rupee16X16;
             this.RdRibbonBar.TabIndex = 0;
             this.RdRibbonBar.Text = "A3D Bhav-Copy Analysis System";
@@ -100,21 +101,19 @@
             // 
             this.ribbonTab1.IsSelected = true;
             this.ribbonTab1.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radRibbonBarGroup1});
+            this.RdRibBarGrpDownload,
+            this.RdRibBarGrpAnalysis});
             this.ribbonTab1.Name = "ribbonTab1";
             this.ribbonTab1.Text = "Bhav-Copy";
             // 
-            // radRibbonBarGroup1
+            // RdRibBarGrpDownload
             // 
-            this.radRibbonBarGroup1.AutoSize = false;
-            this.radRibbonBarGroup1.Bounds = new System.Drawing.Rectangle(0, 0, 314, 96);
-            this.radRibbonBarGroup1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.radRibbonBarGroup1.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.RdBtnMenuDownloadBhavCopy,
-            this.radImageButtonElement1,
-            this.RdBtnMenuAnalysisBhavCopy});
-            this.radRibbonBarGroup1.Name = "radRibbonBarGroup1";
-            this.radRibbonBarGroup1.Text = "Bhav-Copy";
+            this.RdRibBarGrpDownload.AutoSize = true;
+            this.RdRibBarGrpDownload.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.RdRibBarGrpDownload.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.RdBtnMenuDownloadBhavCopy});
+            this.RdRibBarGrpDownload.Name = "RdRibBarGrpDownload";
+            this.RdRibBarGrpDownload.Text = "Bhav-Copy";
             // 
             // RdBtnMenuDownloadBhavCopy
             // 
@@ -126,10 +125,16 @@
             this.RdBtnMenuDownloadBhavCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.RdBtnMenuDownloadBhavCopy.Click += new System.EventHandler(this.RdBtnMenuDownloadBhavCopy_Click);
             // 
-            // radImageButtonElement1
+            // RdRibBarGrpAnalysis
             // 
-            this.radImageButtonElement1.Name = "radImageButtonElement1";
-            this.radImageButtonElement1.Text = "radImageButtonElement1";
+            this.RdRibBarGrpAnalysis.AutoSize = true;
+            this.RdRibBarGrpAnalysis.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.RdBtnMenuAnalysisBhavCopy,
+            this.radImageButtonElement2,
+            this.RdBtnMenuAnalysisCompare,
+            this.radImageButtonElement3});
+            this.RdRibBarGrpAnalysis.Name = "RdRibBarGrpAnalysis";
+            this.RdRibBarGrpAnalysis.Text = "Analysis";
             // 
             // RdBtnMenuAnalysisBhavCopy
             // 
@@ -141,19 +146,41 @@
             this.RdBtnMenuAnalysisBhavCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.RdBtnMenuAnalysisBhavCopy.Click += new System.EventHandler(this.RdBtnMenuDownloadBhavCopy_Click);
             // 
+            // radImageButtonElement2
+            // 
+            this.radImageButtonElement2.Name = "radImageButtonElement2";
+            this.radImageButtonElement2.Text = "radImageButtonElement2";
+            // 
+            // RdBtnMenuAnalysisCompare
+            // 
+            this.RdBtnMenuAnalysisCompare.AutoSize = false;
+            this.RdBtnMenuAnalysisCompare.Bounds = new System.Drawing.Rectangle(0, 0, 90, 69);
+            this.RdBtnMenuAnalysisCompare.Image = global::A3DBhavCopy.Properties.Resources.Comapre48X48;
+            this.RdBtnMenuAnalysisCompare.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.RdBtnMenuAnalysisCompare.Name = "RdBtnMenuAnalysisCompare";
+            this.RdBtnMenuAnalysisCompare.Tag = "FrmCompare";
+            this.RdBtnMenuAnalysisCompare.Text = "Comparison";
+            this.RdBtnMenuAnalysisCompare.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.RdBtnMenuAnalysisCompare.Click += new System.EventHandler(this.RdBtnMenuDownloadBhavCopy_Click);
+            // 
+            // radImageButtonElement3
+            // 
+            this.radImageButtonElement3.Name = "radImageButtonElement3";
+            this.radImageButtonElement3.Text = "radImageButtonElement3";
+            // 
             // RdDockMain
             // 
             this.RdDockMain.Controls.Add(this.documentContainer1);
             this.RdDockMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RdDockMain.IsCleanUpTarget = true;
-            this.RdDockMain.Location = new System.Drawing.Point(0, 164);
+            this.RdDockMain.Location = new System.Drawing.Point(0, 165);
             this.RdDockMain.MainDocumentContainer = this.documentContainer1;
             this.RdDockMain.Name = "RdDockMain";
             // 
             // 
             // 
             this.RdDockMain.RootElement.MinSize = new System.Drawing.Size(0, 0);
-            this.RdDockMain.Size = new System.Drawing.Size(1188, 537);
+            this.RdDockMain.Size = new System.Drawing.Size(1188, 536);
             this.RdDockMain.TabIndex = 0;
             this.RdDockMain.TabStop = false;
             this.RdDockMain.Text = "radDock1";
@@ -172,11 +199,9 @@
             this.RdStatusStrip.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.RdSplitBtnTheme,
             this.commandBarSeparator1,
-            this.RdProgressBar,
             this.commandBarSeparator2,
             this.RdLlbDateRange,
-            this.commandBarSeparator3,
-            this.RdLlbMessage});
+            this.commandBarSeparator3});
             this.RdStatusStrip.Location = new System.Drawing.Point(0, 701);
             this.RdStatusStrip.Name = "RdStatusStrip";
             this.RdStatusStrip.Size = new System.Drawing.Size(1188, 28);
@@ -262,24 +287,6 @@
             this.RdStatusStrip.SetSpring(this.commandBarSeparator1, false);
             this.commandBarSeparator1.VisibleInOverflowMenu = false;
             // 
-            // RdProgressBar
-            // 
-            this.RdProgressBar.AutoSize = false;
-            this.RdProgressBar.Bounds = new System.Drawing.Rectangle(0, 0, 403, 20);
-            this.RdProgressBar.Name = "RdProgressBar";
-            this.RdProgressBar.SeparatorColor1 = System.Drawing.Color.White;
-            this.RdProgressBar.SeparatorColor2 = System.Drawing.Color.White;
-            this.RdProgressBar.SeparatorColor3 = System.Drawing.Color.White;
-            this.RdProgressBar.SeparatorColor4 = System.Drawing.Color.White;
-            this.RdProgressBar.SeparatorGradientAngle = 0;
-            this.RdProgressBar.SeparatorGradientPercentage1 = 0.4F;
-            this.RdProgressBar.SeparatorGradientPercentage2 = 0.6F;
-            this.RdProgressBar.SeparatorNumberOfColors = 2;
-            this.RdStatusStrip.SetSpring(this.RdProgressBar, false);
-            this.RdProgressBar.StepWidth = 14;
-            this.RdProgressBar.SweepAngle = 90;
-            this.RdProgressBar.Text = "";
-            // 
             // commandBarSeparator2
             // 
             this.commandBarSeparator2.Name = "commandBarSeparator2";
@@ -300,15 +307,6 @@
             this.commandBarSeparator3.Name = "commandBarSeparator3";
             this.RdStatusStrip.SetSpring(this.commandBarSeparator3, false);
             this.commandBarSeparator3.VisibleInOverflowMenu = false;
-            // 
-            // RdLlbMessage
-            // 
-            this.RdLlbMessage.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.Auto;
-            this.RdLlbMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(2)))), ((int)(((byte)(2)))));
-            this.RdLlbMessage.Name = "RdLlbMessage";
-            this.RdStatusStrip.SetSpring(this.RdLlbMessage, false);
-            this.RdLlbMessage.Text = "..";
-            this.RdLlbMessage.TextWrap = true;
             // 
             // FrmA3DBhavCopy
             // 
@@ -345,15 +343,12 @@
         private Telerik.WinControls.UI.Docking.DocumentContainer documentContainer1;
         public Telerik.WinControls.UI.RadStatusStrip RdStatusStrip;
         private Telerik.WinControls.UI.RibbonTab ribbonTab1;
-        private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup1;
+        private Telerik.WinControls.UI.RadRibbonBarGroup RdRibBarGrpDownload;
         private Telerik.WinControls.UI.RadButtonElement RdBtnMenuDownloadBhavCopy;
-        private Telerik.WinControls.UI.RadImageButtonElement radImageButtonElement1;
         private Telerik.WinControls.UI.RadButtonElement RdBtnMenuAnalysisBhavCopy;
         private Telerik.WinControls.UI.RadSplitButtonElement RdSplitBtnTheme;
         private Telerik.WinControls.UI.CommandBarSeparator commandBarSeparator1;
-        public Telerik.WinControls.UI.RadProgressBarElement RdProgressBar;
         private Telerik.WinControls.UI.CommandBarSeparator commandBarSeparator2;
-        public Telerik.WinControls.UI.RadLabelElement RdLlbMessage;
         
 
         private Telerik.WinControls.UI.RadMenuItem RdSpltBtnItemThemeDefault;
@@ -377,6 +372,10 @@
         private Telerik.WinControls.Themes.BreezeTheme breezeTheme1;
         private Telerik.WinControls.UI.CommandBarSeparator commandBarSeparator3;
         public Telerik.WinControls.UI.RadLabelElement RdLlbDateRange;
+        private Telerik.WinControls.UI.RadRibbonBarGroup RdRibBarGrpAnalysis;
+        private Telerik.WinControls.UI.RadImageButtonElement radImageButtonElement2;
+        private Telerik.WinControls.UI.RadButtonElement RdBtnMenuAnalysisCompare;
+        private Telerik.WinControls.UI.RadImageButtonElement radImageButtonElement3;
     }
 }
 

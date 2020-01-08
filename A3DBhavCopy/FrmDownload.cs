@@ -489,7 +489,7 @@ namespace A3DBhavCopy
                                                                 iFileID = iFileID,
                                                                 cSYMBOL = DrvFilesData["cSYMBOL"].ToString().Trim(),
                                                                 cSERIES = DrvFilesData["cSERIES"].ToString().Trim(),
-                                                                cOPEN = DrvFilesData["cSYMBOL"].ToString().Trim(),
+                                                                cOPEN = DrvFilesData["cOPEN"].ToString().Trim(),
                                                                 cHIGH = DrvFilesData["cHIGH"].ToString().Trim(),
                                                                 cLOW = DrvFilesData["cLOW"].ToString().Trim(),
                                                                 cCLOSE = DrvFilesData["cCLOSE"].ToString().Trim(),

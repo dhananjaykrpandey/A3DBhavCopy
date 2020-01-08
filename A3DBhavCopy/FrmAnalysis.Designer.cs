@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.RadTreeNode radTreeNode1 = new Telerik.WinControls.UI.RadTreeNode();
-            Telerik.WinControls.UI.RadTreeNode radTreeNode2 = new Telerik.WinControls.UI.RadTreeNode();
-            Telerik.WinControls.UI.RadTreeNode radTreeNode3 = new Telerik.WinControls.UI.RadTreeNode();
             Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn1 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
@@ -38,9 +35,6 @@
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAnalysis));
             this.RdDockMain = new Telerik.WinControls.UI.Docking.RadDock();
-            this.RdToolWinReportMenu = new Telerik.WinControls.UI.Docking.ToolWindow();
-            this.RdTreeMenu = new Telerik.WinControls.UI.RadTreeView();
-            this.RdToolTabStripReportMenu = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.RdToolTabStripSymbol = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.RdToolWinSymbol = new Telerik.WinControls.UI.Docking.ToolWindow();
             this.RdGrdCompanies = new Telerik.WinControls.UI.RadGridView();
@@ -70,12 +64,13 @@
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
             this.telerikMetroBlueTheme1 = new Telerik.WinControls.Themes.TelerikMetroBlueTheme();
+            this.RdPnlDateRange = new Telerik.WinControls.UI.RadPanel();
+            this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
+            this.RdRbtSortByVal = new Telerik.WinControls.UI.RadRadioButton();
+            this.RdRbtSortByQty = new Telerik.WinControls.UI.RadRadioButton();
+            this.radLabel5 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.RdDockMain)).BeginInit();
             this.RdDockMain.SuspendLayout();
-            this.RdToolWinReportMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RdTreeMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RdToolTabStripReportMenu)).BeginInit();
-            this.RdToolTabStripReportMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RdToolTabStripSymbol)).BeginInit();
             this.RdToolTabStripSymbol.SuspendLayout();
             this.RdToolWinSymbol.SuspendLayout();
@@ -110,14 +105,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.RdRbtMonth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RdRbtDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RdPnlDateRange)).BeginInit();
+            this.RdPnlDateRange.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
+            this.radPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RdRbtSortByVal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RdRbtSortByQty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // RdDockMain
             // 
-            this.RdDockMain.ActiveWindow = this.RdToolWinReportMenu;
+            this.RdDockMain.ActiveWindow = this.RdToolWinSymbol;
             this.RdDockMain.BackColor = System.Drawing.Color.White;
-            this.RdDockMain.Controls.Add(this.RdToolTabStripReportMenu);
             this.RdDockMain.Controls.Add(this.RdToolTabStripSymbol);
             this.RdDockMain.Controls.Add(this.documentContainer1);
             this.RdDockMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -129,79 +130,17 @@
             // 
             // 
             this.RdDockMain.RootElement.MinSize = new System.Drawing.Size(0, 0);
-            this.RdDockMain.Size = new System.Drawing.Size(1241, 698);
+            this.RdDockMain.Size = new System.Drawing.Size(1249, 698);
             this.RdDockMain.TabIndex = 0;
             this.RdDockMain.TabStop = false;
             this.RdDockMain.Text = "radDock1";
-            // 
-            // RdToolWinReportMenu
-            // 
-            this.RdToolWinReportMenu.BackColor = System.Drawing.Color.White;
-            this.RdToolWinReportMenu.Caption = null;
-            this.RdToolWinReportMenu.Controls.Add(this.RdTreeMenu);
-            this.RdToolWinReportMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RdToolWinReportMenu.Location = new System.Drawing.Point(1, 24);
-            this.RdToolWinReportMenu.Name = "RdToolWinReportMenu";
-            this.RdToolWinReportMenu.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            this.RdToolWinReportMenu.Size = new System.Drawing.Size(198, 662);
-            this.RdToolWinReportMenu.Text = "Report Menu";
-            // 
-            // RdTreeMenu
-            // 
-            this.RdTreeMenu.BackColor = System.Drawing.Color.White;
-            this.RdTreeMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RdTreeMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RdTreeMenu.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.RdTreeMenu.ForeColor = System.Drawing.Color.Black;
-            this.RdTreeMenu.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(12)))), ((int)(((byte)(2)))));
-            this.RdTreeMenu.LineStyle = Telerik.WinControls.UI.TreeLineStyle.Solid;
-            this.RdTreeMenu.Location = new System.Drawing.Point(0, 0);
-            this.RdTreeMenu.Name = "RdTreeMenu";
-            radTreeNode1.Expanded = true;
-            radTreeNode1.Name = "NdA3d";
-            radTreeNode2.Name = "ndSortByVal";
-            radTreeNode2.Tag = "SortByVal";
-            radTreeNode2.Text = "Sort By Value";
-            radTreeNode3.Name = "ndSortByQuantity";
-            radTreeNode3.Tag = "SortByQuantity";
-            radTreeNode3.Text = "Sort By Quantity";
-            radTreeNode1.Nodes.AddRange(new Telerik.WinControls.UI.RadTreeNode[] {
-            radTreeNode2,
-            radTreeNode3});
-            radTreeNode1.Tag = "Header";
-            radTreeNode1.Text = "A3D Bhav-Copy Analysis Report";
-            this.RdTreeMenu.Nodes.AddRange(new Telerik.WinControls.UI.RadTreeNode[] {
-            radTreeNode1});
-            this.RdTreeMenu.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.RdTreeMenu.ShowLines = true;
-            this.RdTreeMenu.Size = new System.Drawing.Size(198, 662);
-            this.RdTreeMenu.SpacingBetweenNodes = -1;
-            this.RdTreeMenu.TabIndex = 0;
-            this.RdTreeMenu.Text = "radTreeView1";
-            this.RdTreeMenu.ThemeName = "TelerikMetroBlue";
-            this.RdTreeMenu.NodeMouseClick += new Telerik.WinControls.UI.RadTreeView.TreeViewEventHandler(this.RdTreeMenu_NodeMouseClick);
-            // 
-            // RdToolTabStripReportMenu
-            // 
-            this.RdToolTabStripReportMenu.CanUpdateChildIndex = true;
-            this.RdToolTabStripReportMenu.Controls.Add(this.RdToolWinReportMenu);
-            this.RdToolTabStripReportMenu.Location = new System.Drawing.Point(5, 5);
-            this.RdToolTabStripReportMenu.Name = "RdToolTabStripReportMenu";
-            // 
-            // 
-            // 
-            this.RdToolTabStripReportMenu.RootElement.MinSize = new System.Drawing.Size(0, 0);
-            this.RdToolTabStripReportMenu.SelectedIndex = 0;
-            this.RdToolTabStripReportMenu.Size = new System.Drawing.Size(200, 688);
-            this.RdToolTabStripReportMenu.TabIndex = 2;
-            this.RdToolTabStripReportMenu.TabStop = false;
             // 
             // RdToolTabStripSymbol
             // 
             this.RdToolTabStripSymbol.BackColor = System.Drawing.Color.White;
             this.RdToolTabStripSymbol.CanUpdateChildIndex = true;
             this.RdToolTabStripSymbol.Controls.Add(this.RdToolWinSymbol);
-            this.RdToolTabStripSymbol.Location = new System.Drawing.Point(209, 5);
+            this.RdToolTabStripSymbol.Location = new System.Drawing.Point(5, 5);
             this.RdToolTabStripSymbol.Name = "RdToolTabStripSymbol";
             // 
             // 
@@ -397,7 +336,7 @@
             // 
             this.documentTabStrip1.RootElement.MinSize = new System.Drawing.Size(0, 0);
             this.documentTabStrip1.SelectedIndex = 0;
-            this.documentTabStrip1.Size = new System.Drawing.Size(722, 688);
+            this.documentTabStrip1.Size = new System.Drawing.Size(934, 688);
             this.documentTabStrip1.TabIndex = 0;
             this.documentTabStrip1.TabStop = false;
             // 
@@ -414,14 +353,14 @@
             this.RdDocWinReports.Location = new System.Drawing.Point(6, 29);
             this.RdDocWinReports.Name = "RdDocWinReports";
             this.RdDocWinReports.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            this.RdDocWinReports.Size = new System.Drawing.Size(710, 653);
+            this.RdDocWinReports.Size = new System.Drawing.Size(922, 653);
             this.RdDocWinReports.Text = "   A n a l y s i s  R e p o r t";
             // 
             // RdGrdReportResult
             // 
             this.RdGrdReportResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RdGrdReportResult.EnableCustomDrawing = true;
-            this.RdGrdReportResult.Location = new System.Drawing.Point(0, 78);
+            this.RdGrdReportResult.Location = new System.Drawing.Point(0, 117);
             // 
             // 
             // 
@@ -432,36 +371,36 @@
             this.RdGrdReportResult.MasterTemplate.EnableFiltering = true;
             this.RdGrdReportResult.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.RdGrdReportResult.Name = "RdGrdReportResult";
-            this.RdGrdReportResult.Size = new System.Drawing.Size(710, 575);
+            this.RdGrdReportResult.Size = new System.Drawing.Size(922, 536);
             this.RdGrdReportResult.TabIndex = 1;
             this.RdGrdReportResult.Text = "radGridView2";
             this.RdGrdReportResult.CellPaint += new Telerik.WinControls.UI.GridViewCellPaintEventHandler(this.RdGrdReportResult_CellPaint);
             // 
             // RdPnlReportHeader
             // 
+            this.RdPnlReportHeader.Controls.Add(this.radPanel1);
+            this.RdPnlReportHeader.Controls.Add(this.radLabel5);
+            this.RdPnlReportHeader.Controls.Add(this.RdPnlDateRange);
             this.RdPnlReportHeader.Controls.Add(this.RdProgressBar);
             this.RdPnlReportHeader.Controls.Add(this.radButton1);
             this.RdPnlReportHeader.Controls.Add(this.RdBtnDownloadAndSave);
             this.RdPnlReportHeader.Controls.Add(this.radLabel3);
             this.RdPnlReportHeader.Controls.Add(this.RdDtpTo);
             this.RdPnlReportHeader.Controls.Add(this.radLabel2);
-            this.RdPnlReportHeader.Controls.Add(this.RdRbtYear);
             this.RdPnlReportHeader.Controls.Add(this.RdDtpFrom);
-            this.RdPnlReportHeader.Controls.Add(this.RdRbtMonth);
-            this.RdPnlReportHeader.Controls.Add(this.RdRbtDate);
             this.RdPnlReportHeader.Controls.Add(this.radLabel1);
             this.RdPnlReportHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.RdPnlReportHeader.Location = new System.Drawing.Point(0, 0);
             this.RdPnlReportHeader.Name = "RdPnlReportHeader";
-            this.RdPnlReportHeader.Size = new System.Drawing.Size(710, 78);
+            this.RdPnlReportHeader.Size = new System.Drawing.Size(922, 117);
             this.RdPnlReportHeader.TabIndex = 0;
             // 
             // RdProgressBar
             // 
             this.RdProgressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.RdProgressBar.Location = new System.Drawing.Point(0, 63);
+            this.RdProgressBar.Location = new System.Drawing.Point(0, 102);
             this.RdProgressBar.Name = "RdProgressBar";
-            this.RdProgressBar.Size = new System.Drawing.Size(710, 15);
+            this.RdProgressBar.Size = new System.Drawing.Size(922, 15);
             this.RdProgressBar.TabIndex = 16;
             this.RdProgressBar.Text = "....";
             // 
@@ -469,7 +408,7 @@
             // 
             this.radButton1.Image = global::A3DBhavCopy.Properties.Resources.Excel24X24;
             this.radButton1.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radButton1.Location = new System.Drawing.Point(489, 33);
+            this.radButton1.Location = new System.Drawing.Point(454, 69);
             this.radButton1.Name = "radButton1";
             this.radButton1.Size = new System.Drawing.Size(107, 24);
             this.radButton1.TabIndex = 15;
@@ -482,7 +421,7 @@
             // 
             this.RdBtnDownloadAndSave.Image = global::A3DBhavCopy.Properties.Resources.analysis24X4;
             this.RdBtnDownloadAndSave.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.RdBtnDownloadAndSave.Location = new System.Drawing.Point(378, 33);
+            this.RdBtnDownloadAndSave.Location = new System.Drawing.Point(341, 69);
             this.RdBtnDownloadAndSave.Name = "RdBtnDownloadAndSave";
             this.RdBtnDownloadAndSave.Size = new System.Drawing.Size(107, 24);
             this.RdBtnDownloadAndSave.TabIndex = 14;
@@ -493,7 +432,7 @@
             // 
             // radLabel3
             // 
-            this.radLabel3.Location = new System.Drawing.Point(202, 37);
+            this.radLabel3.Location = new System.Drawing.Point(199, 43);
             this.radLabel3.Name = "radLabel3";
             this.radLabel3.Size = new System.Drawing.Size(45, 18);
             this.radLabel3.TabIndex = 9;
@@ -503,7 +442,7 @@
             // 
             this.RdDtpTo.CustomFormat = "dd/MMM/yyyy";
             this.RdDtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.RdDtpTo.Location = new System.Drawing.Point(281, 36);
+            this.RdDtpTo.Location = new System.Drawing.Point(247, 42);
             this.RdDtpTo.Name = "RdDtpTo";
             this.RdDtpTo.Size = new System.Drawing.Size(91, 20);
             this.RdDtpTo.TabIndex = 10;
@@ -513,7 +452,7 @@
             // 
             // radLabel2
             // 
-            this.radLabel2.Location = new System.Drawing.Point(3, 38);
+            this.radLabel2.Location = new System.Drawing.Point(3, 44);
             this.radLabel2.Name = "radLabel2";
             this.radLabel2.Size = new System.Drawing.Size(59, 18);
             this.radLabel2.TabIndex = 7;
@@ -521,7 +460,7 @@
             // 
             // RdRbtYear
             // 
-            this.RdRbtYear.Location = new System.Drawing.Point(281, 12);
+            this.RdRbtYear.Location = new System.Drawing.Point(179, 5);
             this.RdRbtYear.Name = "RdRbtYear";
             this.RdRbtYear.Size = new System.Drawing.Size(42, 18);
             this.RdRbtYear.TabIndex = 12;
@@ -532,7 +471,7 @@
             // 
             this.RdDtpFrom.CustomFormat = "dd/MMM/yyyy";
             this.RdDtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.RdDtpFrom.Location = new System.Drawing.Point(105, 36);
+            this.RdDtpFrom.Location = new System.Drawing.Point(105, 42);
             this.RdDtpFrom.Name = "RdDtpFrom";
             this.RdDtpFrom.Size = new System.Drawing.Size(91, 20);
             this.RdDtpFrom.TabIndex = 8;
@@ -542,7 +481,7 @@
             // 
             // RdRbtMonth
             // 
-            this.RdRbtMonth.Location = new System.Drawing.Point(202, 12);
+            this.RdRbtMonth.Location = new System.Drawing.Point(100, 5);
             this.RdRbtMonth.Name = "RdRbtMonth";
             this.RdRbtMonth.Size = new System.Drawing.Size(54, 18);
             this.RdRbtMonth.TabIndex = 13;
@@ -551,7 +490,7 @@
             // 
             // RdRbtDate
             // 
-            this.RdRbtDate.Location = new System.Drawing.Point(105, 12);
+            this.RdRbtDate.Location = new System.Drawing.Point(3, 5);
             this.RdRbtDate.Name = "RdRbtDate";
             this.RdRbtDate.Size = new System.Drawing.Size(44, 18);
             this.RdRbtDate.TabIndex = 11;
@@ -566,12 +505,59 @@
             this.radLabel1.TabIndex = 6;
             this.radLabel1.Text = "Filter Type(Range)";
             // 
+            // RdPnlDateRange
+            // 
+            this.RdPnlDateRange.Controls.Add(this.RdRbtDate);
+            this.RdPnlDateRange.Controls.Add(this.RdRbtMonth);
+            this.RdPnlDateRange.Controls.Add(this.RdRbtYear);
+            this.RdPnlDateRange.Location = new System.Drawing.Point(105, 9);
+            this.RdPnlDateRange.Name = "RdPnlDateRange";
+            this.RdPnlDateRange.Size = new System.Drawing.Size(233, 28);
+            this.RdPnlDateRange.TabIndex = 1;
+            // 
+            // radPanel1
+            // 
+            this.radPanel1.Controls.Add(this.RdRbtSortByVal);
+            this.radPanel1.Controls.Add(this.RdRbtSortByQty);
+            this.radPanel1.Location = new System.Drawing.Point(105, 67);
+            this.radPanel1.Name = "radPanel1";
+            this.radPanel1.Size = new System.Drawing.Size(233, 28);
+            this.radPanel1.TabIndex = 14;
+            // 
+            // RdRbtSortByVal
+            // 
+            this.RdRbtSortByVal.Location = new System.Drawing.Point(3, 5);
+            this.RdRbtSortByVal.Name = "RdRbtSortByVal";
+            this.RdRbtSortByVal.Size = new System.Drawing.Size(87, 18);
+            this.RdRbtSortByVal.TabIndex = 11;
+            this.RdRbtSortByVal.Tag = "SortByVal";
+            this.RdRbtSortByVal.Text = "Sort By Value";
+            this.RdRbtSortByVal.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.RdRbdSortByVal_ToggleStateChanged);
+            // 
+            // RdRbtSortByQty
+            // 
+            this.RdRbtSortByQty.Location = new System.Drawing.Point(128, 5);
+            this.RdRbtSortByQty.Name = "RdRbtSortByQty";
+            this.RdRbtSortByQty.Size = new System.Drawing.Size(102, 18);
+            this.RdRbtSortByQty.TabIndex = 13;
+            this.RdRbtSortByQty.Tag = "SORTBYQUANTITY";
+            this.RdRbtSortByQty.Text = "Sort By Quantity";
+            this.RdRbtSortByQty.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.RdRbdSortByVal_ToggleStateChanged);
+            // 
+            // radLabel5
+            // 
+            this.radLabel5.Location = new System.Drawing.Point(3, 73);
+            this.radLabel5.Name = "radLabel5";
+            this.radLabel5.Size = new System.Drawing.Size(42, 18);
+            this.radLabel5.TabIndex = 15;
+            this.radLabel5.Text = "Sort By";
+            // 
             // FrmAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1241, 698);
+            this.ClientSize = new System.Drawing.Size(1249, 698);
             this.Controls.Add(this.RdDockMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAnalysis";
@@ -583,10 +569,6 @@
             this.Load += new System.EventHandler(this.FrmAnalysis_Load);
             ((System.ComponentModel.ISupportInitialize)(this.RdDockMain)).EndInit();
             this.RdDockMain.ResumeLayout(false);
-            this.RdToolWinReportMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.RdTreeMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RdToolTabStripReportMenu)).EndInit();
-            this.RdToolTabStripReportMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RdToolTabStripSymbol)).EndInit();
             this.RdToolTabStripSymbol.ResumeLayout(false);
             this.RdToolWinSymbol.ResumeLayout(false);
@@ -623,6 +605,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.RdRbtMonth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RdRbtDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RdPnlDateRange)).EndInit();
+            this.RdPnlDateRange.ResumeLayout(false);
+            this.RdPnlDateRange.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
+            this.radPanel1.ResumeLayout(false);
+            this.radPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RdRbtSortByVal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RdRbtSortByQty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -632,13 +623,10 @@
 
         private Telerik.WinControls.UI.Docking.RadDock RdDockMain;
         private Telerik.WinControls.UI.Docking.ToolWindow RdToolWinSymbol;
-        private Telerik.WinControls.UI.Docking.ToolTabStrip RdToolTabStripReportMenu;
-        private Telerik.WinControls.UI.Docking.ToolWindow RdToolWinReportMenu;
         private Telerik.WinControls.UI.Docking.ToolTabStrip RdToolTabStripSymbol;
         private Telerik.WinControls.UI.Docking.DocumentContainer documentContainer1;
         private Telerik.WinControls.UI.Docking.DocumentTabStrip documentTabStrip1;
         private Telerik.WinControls.UI.Docking.DocumentWindow RdDocWinReports;
-        private Telerik.WinControls.UI.RadTreeView RdTreeMenu;
         private Telerik.WinControls.UI.RadGridView RdGrdCompanies;
         private Telerik.WinControls.UI.RadGridView RdGrdReportResult;
         private Telerik.WinControls.UI.RadPanel RdPnlReportHeader;
@@ -663,5 +651,10 @@
         private Telerik.WinControls.UI.RadProgressBar RdProgressBar;
         private Telerik.WinControls.Themes.TelerikMetroTheme telerikMetroTheme1;
         private Telerik.WinControls.Themes.TelerikMetroBlueTheme telerikMetroBlueTheme1;
+        private Telerik.WinControls.UI.RadPanel radPanel1;
+        private Telerik.WinControls.UI.RadRadioButton RdRbtSortByVal;
+        private Telerik.WinControls.UI.RadRadioButton RdRbtSortByQty;
+        private Telerik.WinControls.UI.RadLabel radLabel5;
+        private Telerik.WinControls.UI.RadPanel RdPnlDateRange;
     }
 }

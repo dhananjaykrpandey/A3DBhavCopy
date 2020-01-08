@@ -113,6 +113,26 @@ namespace A3DBhavCopy.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Comapre48X48 {
+            get {
+                object obj = ResourceManager.GetObject("Comapre48X48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ComapreGraph488X {
+            get {
+                object obj = ResourceManager.GetObject("ComapreGraph488X", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DownArrowRed9X16 {
             get {
                 object obj = ResourceManager.GetObject("DownArrowRed9X16", resourceCulture);
@@ -156,6 +176,16 @@ namespace A3DBhavCopy.Properties {
         internal static System.Drawing.Bitmap Reload16X16 {
             get {
                 object obj = ResourceManager.GetObject("Reload16X16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Reverse24X24 {
+            get {
+                object obj = ResourceManager.GetObject("Reverse24X24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
