@@ -154,6 +154,12 @@
     <Compile Include="FrmAnalysis.Designer.cs">
       <DependentUpon>FrmAnalysis.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBhavCopyData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBhavCopyData.Designer.cs">
+      <DependentUpon>FrmBhavCopyData.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCompare.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAnalysis.resx">
       <DependentUpon>FrmAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBhavCopyData.resx">
+      <DependentUpon>FrmBhavCopyData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCompare.resx">
       <DependentUpon>FrmCompare.cs</DependentUpon>

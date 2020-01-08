@@ -135,7 +135,7 @@ namespace A3DBhavCopy
             }
         }
 
-     
+
         private bool LValidateFilter()
         {
             try
@@ -279,7 +279,7 @@ namespace A3DBhavCopy
                 gridViewColumnGroup.Rows[0].ColumnNames.Add("cSummary");
                 gridViewColumnGroup.IsPinned = true;
                 gridViewColumnGroup.PinPosition = PinnedColumnPosition.Left;
-                
+
                 view.ColumnGroups.Add(gridViewColumnGroup);
 
 
@@ -419,7 +419,7 @@ namespace A3DBhavCopy
                     {
                         gridViewDataColumn.ConditionalFormattingObjectList.Add(_ConditionalFormattingObject);
                     }
-                    
+
                 }
                 RdProgressBar.Value1 = 1;
                 RdProgressBar.Text = "Done";
@@ -545,7 +545,7 @@ namespace A3DBhavCopy
                         item.EndEdit();
                     }
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -569,20 +569,54 @@ namespace A3DBhavCopy
                 ClsMessage._IClsMessage.ProjectExceptionMessage(ex);
             }
         }
+        private void SearchCompany()
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(RdTxtSearchCompany.Text.Trim()))
+                {
+                    if (DtBhavCopyCompany != null && DtBhavCopyCompany.Rows.Count > 0)
+                    {
+                        if (RdTxtSearchCompany.Text.Trim().Contains(","))
+                        {
+                            List<string> LstCompanySearch = new List<string>();
+                            LstCompanySearch = RdTxtSearchCompany.Text.Trim().Split(',').ToList();
+                            string StrFilter = "";
+                            foreach (var item in LstCompanySearch)
+                            {
+                                if (item.Trim().Length > 0)
+                                {
+                                    StrFilter = string.Concat(StrFilter, " OR ", "cSYMBOL like'%", item, "%'");
+                                }
 
+                            }
+
+                            if (StrFilter.Length > 3)
+                            {
+                                StrFilter = StrFilter.Substring(3, StrFilter.Length - 3);
+                            }
+                            StrFilter = string.Concat("( ", StrFilter, " )");
+                            DtBhavCopyCompany.DefaultView.RowFilter = StrFilter;
+                        }
+                        else
+                        {
+                            DtBhavCopyCompany.DefaultView.RowFilter = "cSYMBOL like'%" + RdTxtSearchCompany.Text.Trim() + "%'";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                ClsMessage._IClsMessage.ProjectExceptionMessage(ex);
+            }
+        }
         private void RdBtnSearch_Click(object sender, EventArgs e)
         {
             try
             {
 
-                if (!string.IsNullOrEmpty(RdTxtSearchCompany.Text.Trim()))
-                {
-
-                    if (DtBhavCopyCompany != null && DtBhavCopyCompany.Rows.Count > 0)
-                    {
-                        DtBhavCopyCompany.DefaultView.RowFilter = "cSYMBOL like'%" + RdTxtSearchCompany.Text.Trim() + "%'";
-                    }
-                }
+                SearchCompany();
 
             }
             catch (Exception ex)
@@ -599,14 +633,7 @@ namespace A3DBhavCopy
                 if (e.KeyChar == 13)
                 {
 
-                    if (!string.IsNullOrEmpty(RdTxtSearchCompany.Text.Trim()))
-                    {
-
-                        if (DtBhavCopyCompany != null && DtBhavCopyCompany.Rows.Count > 0)
-                        {
-                            DtBhavCopyCompany.DefaultView.RowFilter = "cSYMBOL like'%" + RdTxtSearchCompany.Text.Trim() + "%'";
-                        }
-                    }
+                    SearchCompany();
                 }
 
             }

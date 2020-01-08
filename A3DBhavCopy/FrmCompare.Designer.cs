@@ -74,6 +74,7 @@
             this.radLabel4 = new Telerik.WinControls.UI.RadLabel();
             this.documentContainer1 = new Telerik.WinControls.UI.Docking.DocumentContainer();
             this.RdDockMain = new Telerik.WinControls.UI.Docking.RadDock();
+            this.radLabel6 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.RdRbtDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RdRbtMonth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RdRbtYear)).BeginInit();
@@ -123,6 +124,7 @@
             this.documentContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RdDockMain)).BeginInit();
             this.RdDockMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -174,7 +176,7 @@
             this.RdPnlReportHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.RdPnlReportHeader.Location = new System.Drawing.Point(0, 0);
             this.RdPnlReportHeader.Name = "RdPnlReportHeader";
-            this.RdPnlReportHeader.Size = new System.Drawing.Size(922, 120);
+            this.RdPnlReportHeader.Size = new System.Drawing.Size(907, 120);
             this.RdPnlReportHeader.TabIndex = 0;
             // 
             // RdTxtCompareFormula
@@ -299,7 +301,7 @@
             this.RdProgressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.RdProgressBar.Location = new System.Drawing.Point(0, 105);
             this.RdProgressBar.Name = "RdProgressBar";
-            this.RdProgressBar.Size = new System.Drawing.Size(922, 15);
+            this.RdProgressBar.Size = new System.Drawing.Size(907, 15);
             this.RdProgressBar.TabIndex = 16;
             this.RdProgressBar.Text = "....";
             // 
@@ -390,7 +392,7 @@
             this.RdDocWinReports.Location = new System.Drawing.Point(6, 29);
             this.RdDocWinReports.Name = "RdDocWinReports";
             this.RdDocWinReports.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            this.RdDocWinReports.Size = new System.Drawing.Size(922, 653);
+            this.RdDocWinReports.Size = new System.Drawing.Size(907, 653);
             this.RdDocWinReports.Text = " C o m p a r i s o n  R e p o r t";
             // 
             // RdGrdReportResult
@@ -408,7 +410,7 @@
             this.RdGrdReportResult.MasterTemplate.EnableFiltering = true;
             this.RdGrdReportResult.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.RdGrdReportResult.Name = "RdGrdReportResult";
-            this.RdGrdReportResult.Size = new System.Drawing.Size(922, 533);
+            this.RdGrdReportResult.Size = new System.Drawing.Size(907, 533);
             this.RdGrdReportResult.TabIndex = 1;
             this.RdGrdReportResult.Text = "radGridView2";
             this.RdGrdReportResult.CellPaint += new Telerik.WinControls.UI.GridViewCellPaintEventHandler(this.RdGrdReportResult_CellPaint);
@@ -424,7 +426,7 @@
             // 
             this.documentTabStrip1.RootElement.MinSize = new System.Drawing.Size(0, 0);
             this.documentTabStrip1.SelectedIndex = 0;
-            this.documentTabStrip1.Size = new System.Drawing.Size(934, 688);
+            this.documentTabStrip1.Size = new System.Drawing.Size(919, 688);
             this.documentTabStrip1.TabIndex = 0;
             this.documentTabStrip1.TabStop = false;
             // 
@@ -440,9 +442,9 @@
             // 
             this.RdToolTabStripSymbol.RootElement.MinSize = new System.Drawing.Size(0, 0);
             this.RdToolTabStripSymbol.SelectedIndex = 0;
-            this.RdToolTabStripSymbol.Size = new System.Drawing.Size(301, 688);
-            this.RdToolTabStripSymbol.SizeInfo.AbsoluteSize = new System.Drawing.Size(301, 200);
-            this.RdToolTabStripSymbol.SizeInfo.SplitterCorrection = new System.Drawing.Size(101, 0);
+            this.RdToolTabStripSymbol.Size = new System.Drawing.Size(316, 688);
+            this.RdToolTabStripSymbol.SizeInfo.AbsoluteSize = new System.Drawing.Size(316, 200);
+            this.RdToolTabStripSymbol.SizeInfo.SplitterCorrection = new System.Drawing.Size(116, 0);
             this.RdToolTabStripSymbol.TabIndex = 1;
             this.RdToolTabStripSymbol.TabStop = false;
             // 
@@ -456,7 +458,7 @@
             this.RdToolWinSymbol.Location = new System.Drawing.Point(1, 24);
             this.RdToolWinSymbol.Name = "RdToolWinSymbol";
             this.RdToolWinSymbol.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            this.RdToolWinSymbol.Size = new System.Drawing.Size(299, 662);
+            this.RdToolWinSymbol.Size = new System.Drawing.Size(314, 662);
             this.RdToolWinSymbol.Text = "Companies List";
             // 
             // RdGrdCompanies
@@ -482,18 +484,17 @@
             gridViewCheckBoxColumn2.HeaderText = "[  ?  ]";
             gridViewCheckBoxColumn2.MinWidth = 20;
             gridViewCheckBoxColumn2.Name = "lSelect";
-            gridViewCheckBoxColumn2.Width = 59;
+            gridViewCheckBoxColumn2.Width = 62;
             gridViewTextBoxColumn3.EnableExpressionEditor = false;
             gridViewTextBoxColumn3.FieldName = "cSYMBOL";
             gridViewTextBoxColumn3.HeaderText = "Company Name (SYMBOL)";
             gridViewTextBoxColumn3.Name = "cSYMBOL";
             gridViewTextBoxColumn3.ReadOnly = true;
-            gridViewTextBoxColumn3.Width = 174;
+            gridViewTextBoxColumn3.Width = 183;
             gridViewTextBoxColumn4.EnableExpressionEditor = false;
             gridViewTextBoxColumn4.FieldName = "cSERIES";
             gridViewTextBoxColumn4.HeaderText = "Series";
             gridViewTextBoxColumn4.Name = "cSERIES";
-            gridViewTextBoxColumn4.Width = 47;
             this.RdGrdCompanies.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewCheckBoxColumn2,
             gridViewTextBoxColumn3,
@@ -503,11 +504,12 @@
             this.RdGrdCompanies.MasterTemplate.ViewDefinition = tableViewDefinition4;
             this.RdGrdCompanies.Name = "RdGrdCompanies";
             this.RdGrdCompanies.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.RdGrdCompanies.Size = new System.Drawing.Size(299, 630);
+            this.RdGrdCompanies.Size = new System.Drawing.Size(314, 609);
             this.RdGrdCompanies.TabIndex = 0;
             // 
             // RdPnlSearchCompany
             // 
+            this.RdPnlSearchCompany.Controls.Add(this.radLabel6);
             this.RdPnlSearchCompany.Controls.Add(this.RdBtnReload);
             this.RdPnlSearchCompany.Controls.Add(this.RdBtnSearch);
             this.RdPnlSearchCompany.Controls.Add(this.RdBtnClearSearch);
@@ -516,9 +518,9 @@
             this.RdPnlSearchCompany.Controls.Add(this.RdBtnUnSelectAll);
             this.RdPnlSearchCompany.Controls.Add(this.radLabel4);
             this.RdPnlSearchCompany.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.RdPnlSearchCompany.Location = new System.Drawing.Point(0, 630);
+            this.RdPnlSearchCompany.Location = new System.Drawing.Point(0, 609);
             this.RdPnlSearchCompany.Name = "RdPnlSearchCompany";
-            this.RdPnlSearchCompany.Size = new System.Drawing.Size(299, 32);
+            this.RdPnlSearchCompany.Size = new System.Drawing.Size(314, 53);
             this.RdPnlSearchCompany.TabIndex = 4;
             // 
             // RdBtnReload
@@ -526,7 +528,7 @@
             this.RdBtnReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.RdBtnReload.Image = global::A3DBhavCopy.Properties.Resources.Reload16X16;
             this.RdBtnReload.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.RdBtnReload.Location = new System.Drawing.Point(270, 4);
+            this.RdBtnReload.Location = new System.Drawing.Point(285, 4);
             this.RdBtnReload.Name = "RdBtnReload";
             this.RdBtnReload.Size = new System.Drawing.Size(27, 24);
             this.RdBtnReload.TabIndex = 7;
@@ -539,7 +541,7 @@
             this.RdBtnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.RdBtnSearch.Image = global::A3DBhavCopy.Properties.Resources.searchicon;
             this.RdBtnSearch.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.RdBtnSearch.Location = new System.Drawing.Point(213, 4);
+            this.RdBtnSearch.Location = new System.Drawing.Point(228, 4);
             this.RdBtnSearch.Name = "RdBtnSearch";
             this.RdBtnSearch.Size = new System.Drawing.Size(27, 24);
             this.RdBtnSearch.TabIndex = 7;
@@ -552,7 +554,7 @@
             this.RdBtnClearSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.RdBtnClearSearch.Image = global::A3DBhavCopy.Properties.Resources.Close16X16;
             this.RdBtnClearSearch.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.RdBtnClearSearch.Location = new System.Drawing.Point(242, 4);
+            this.RdBtnClearSearch.Location = new System.Drawing.Point(257, 4);
             this.RdBtnClearSearch.Name = "RdBtnClearSearch";
             this.RdBtnClearSearch.Size = new System.Drawing.Size(27, 24);
             this.RdBtnClearSearch.TabIndex = 6;
@@ -567,7 +569,7 @@
             this.RdTxtSearchCompany.Location = new System.Drawing.Point(161, 6);
             this.RdTxtSearchCompany.Name = "RdTxtSearchCompany";
             this.RdTxtSearchCompany.NullText = "Enter Company Name";
-            this.RdTxtSearchCompany.Size = new System.Drawing.Size(50, 20);
+            this.RdTxtSearchCompany.Size = new System.Drawing.Size(65, 20);
             this.RdTxtSearchCompany.TabIndex = 5;
             this.RdTxtSearchCompany.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RdTxtSearchCompany_KeyPress);
             // 
@@ -613,9 +615,9 @@
             // 
             // 
             this.documentContainer1.RootElement.MinSize = new System.Drawing.Size(0, 0);
-            this.documentContainer1.SizeInfo.AbsoluteSize = new System.Drawing.Size(722, 200);
+            this.documentContainer1.SizeInfo.AbsoluteSize = new System.Drawing.Size(919, 200);
             this.documentContainer1.SizeInfo.SizeMode = Telerik.WinControls.UI.Docking.SplitPanelSizeMode.Fill;
-            this.documentContainer1.SizeInfo.SplitterCorrection = new System.Drawing.Size(-101, 0);
+            this.documentContainer1.SizeInfo.SplitterCorrection = new System.Drawing.Size(-116, 0);
             this.documentContainer1.TabIndex = 3;
             // 
             // RdDockMain
@@ -637,6 +639,16 @@
             this.RdDockMain.TabIndex = 1;
             this.RdDockMain.TabStop = false;
             this.RdDockMain.Text = "radDock1";
+            // 
+            // radLabel6
+            // 
+            this.radLabel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.radLabel6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic);
+            this.radLabel6.Location = new System.Drawing.Point(0, 35);
+            this.radLabel6.Name = "radLabel6";
+            this.radLabel6.Size = new System.Drawing.Size(312, 18);
+            this.radLabel6.TabIndex = 24;
+            this.radLabel6.Text = "Search Multiple Compnay Use Comma(,) with Comanpy Name";
             // 
             // FrmCompare
             // 
@@ -704,6 +716,7 @@
             this.documentContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RdDockMain)).EndInit();
             this.RdDockMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -752,5 +765,6 @@
         private Telerik.WinControls.UI.RadLabel radLabel5;
         private Telerik.WinControls.UI.RadTextBox RdTxtCompareFormula;
         private Telerik.WinControls.UI.RadLabel radLabel8;
+        private Telerik.WinControls.UI.RadLabel radLabel6;
     }
 }

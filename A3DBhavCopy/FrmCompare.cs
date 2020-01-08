@@ -121,8 +121,6 @@ namespace A3DBhavCopy
                 ClsMessage._IClsMessage.ProjectExceptionMessage(ex);
             }
         }
-
-
         private bool LValidateFilter()
         {
             try
@@ -150,7 +148,7 @@ namespace A3DBhavCopy
                     RdBtnReload.Focus();
                     LResult = false;
                 }
-                else if(LstRdCheckBoxes.Count<2)
+                else if (LstRdCheckBoxes.Count < 2)
                 {
                     ClsMessage._IClsMessage.ProjectExceptionMessage("Please Set Comparison Formula");
                     RdChkOpen.Focus();
@@ -203,20 +201,54 @@ namespace A3DBhavCopy
                 ClsMessage._IClsMessage.ProjectExceptionMessage(ex);
             }
         }
+        private void SearchCompany()
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(RdTxtSearchCompany.Text.Trim()))
+                {
+                    if (DtBhavCopyCompany != null && DtBhavCopyCompany.Rows.Count > 0)
+                    {
+                        if (RdTxtSearchCompany.Text.Trim().Contains(","))
+                        {
+                            List<string> LstCompanySearch = new List<string>();
+                            LstCompanySearch = RdTxtSearchCompany.Text.Trim().Split(',').ToList();
+                            string StrFilter = "";
+                            foreach (var item in LstCompanySearch)
+                            {
+                                if (item.Trim().Length > 0)
+                                {
+                                    StrFilter = string.Concat(StrFilter, " OR ", "cSYMBOL like'%", item, "%'");
+                                }
 
+                            }
+
+                            if (StrFilter.Length > 3)
+                            {
+                                StrFilter = StrFilter.Substring(3, StrFilter.Length - 3);
+                            }
+                            StrFilter = string.Concat("( ", StrFilter, " )");
+                            DtBhavCopyCompany.DefaultView.RowFilter = StrFilter;
+                        }
+                        else
+                        {
+                            DtBhavCopyCompany.DefaultView.RowFilter = "cSYMBOL like'%" + RdTxtSearchCompany.Text.Trim() + "%'";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                ClsMessage._IClsMessage.ProjectExceptionMessage(ex);
+            }
+        }
         private void RdBtnSearch_Click(object sender, EventArgs e)
         {
             try
             {
 
-                if (!string.IsNullOrEmpty(RdTxtSearchCompany.Text.Trim()))
-                {
-
-                    if (DtBhavCopyCompany != null && DtBhavCopyCompany.Rows.Count > 0)
-                    {
-                        DtBhavCopyCompany.DefaultView.RowFilter = "cSYMBOL like'%" + RdTxtSearchCompany.Text.Trim() + "%'";
-                    }
-                }
+                SearchCompany();
 
             }
             catch (Exception ex)
@@ -233,14 +265,7 @@ namespace A3DBhavCopy
                 if (e.KeyChar == 13)
                 {
 
-                    if (!string.IsNullOrEmpty(RdTxtSearchCompany.Text.Trim()))
-                    {
-
-                        if (DtBhavCopyCompany != null && DtBhavCopyCompany.Rows.Count > 0)
-                        {
-                            DtBhavCopyCompany.DefaultView.RowFilter = "cSYMBOL like'%" + RdTxtSearchCompany.Text.Trim() + "%'";
-                        }
-                    }
+                    SearchCompany();
                 }
 
             }
@@ -500,7 +525,7 @@ namespace A3DBhavCopy
                             DrvCompany[string.Concat(LstRdCheckBoxes[1].Tag.ToString(), "_", Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy"))] = DrvBhavCopySqlData[LstRdCheckBoxes[1].Tag.ToString()];
 
                         }
-                      
+
                         if (DtBhavCopyData.Columns.Contains("cPriceChange_" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy")))
                         {
                             DrvCompany["cPriceChange_" + Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy")] = Math.Round(Convert.ToDouble(DrvCompany[string.Concat(LstRdCheckBoxes[0].Tag.ToString(), "_", Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy"))]) - Convert.ToDouble(DrvCompany[string.Concat(LstRdCheckBoxes[1].Tag.ToString(), "_", Convert.ToDateTime(DrvBhavCopySqlData["dTIMESTAMP"]).ToString("dd-MMM-yyyy"))]), 2);
@@ -633,7 +658,7 @@ namespace A3DBhavCopy
             }
         }
         string StrExcelFileName = "";
-      
+
         private void SpreadExporter_AsyncExportCompleted(object sender, AsyncCompletedEventArgs e)
         {
             if (ClsMessage._IClsMessage.showQuestionMessage("Excel Export Completed." + Environment.NewLine + "Do You Want To Open File?") == DialogResult.Yes)

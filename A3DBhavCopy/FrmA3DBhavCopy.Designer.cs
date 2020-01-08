@@ -65,6 +65,8 @@
             this.office2013DarkTheme1 = new Telerik.WinControls.Themes.Office2013DarkTheme();
             this.desertTheme1 = new Telerik.WinControls.Themes.DesertTheme();
             this.breezeTheme1 = new Telerik.WinControls.Themes.BreezeTheme();
+            this.RdBtnMenuBhavCopyData = new Telerik.WinControls.UI.RadButtonElement();
+            this.radImageButtonElement1 = new Telerik.WinControls.UI.RadImageButtonElement();
             ((System.ComponentModel.ISupportInitialize)(this.RdRibbonBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RdDockMain)).BeginInit();
             this.RdDockMain.SuspendLayout();
@@ -129,6 +131,8 @@
             // 
             this.RdRibBarGrpAnalysis.AutoSize = true;
             this.RdRibBarGrpAnalysis.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.RdBtnMenuBhavCopyData,
+            this.radImageButtonElement1,
             this.RdBtnMenuAnalysisBhavCopy,
             this.radImageButtonElement2,
             this.RdBtnMenuAnalysisCompare,
@@ -308,6 +312,21 @@
             this.RdStatusStrip.SetSpring(this.commandBarSeparator3, false);
             this.commandBarSeparator3.VisibleInOverflowMenu = false;
             // 
+            // RdBtnMenuBhavCopyData
+            // 
+            this.RdBtnMenuBhavCopyData.Image = global::A3DBhavCopy.Properties.Resources.ComapreGraph488X;
+            this.RdBtnMenuBhavCopyData.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.RdBtnMenuBhavCopyData.Name = "RdBtnMenuBhavCopyData";
+            this.RdBtnMenuBhavCopyData.Tag = "FrmBhavCopyData";
+            this.RdBtnMenuBhavCopyData.Text = "Bhav-Copy Data";
+            this.RdBtnMenuBhavCopyData.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.RdBtnMenuBhavCopyData.Click += new System.EventHandler(this.RdBtnMenuDownloadBhavCopy_Click);
+            // 
+            // radImageButtonElement1
+            // 
+            this.radImageButtonElement1.Name = "radImageButtonElement1";
+            this.radImageButtonElement1.Text = "radImageButtonElement1";
+            // 
             // FrmA3DBhavCopy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -376,6 +395,8 @@
         private Telerik.WinControls.UI.RadImageButtonElement radImageButtonElement2;
         private Telerik.WinControls.UI.RadButtonElement RdBtnMenuAnalysisCompare;
         private Telerik.WinControls.UI.RadImageButtonElement radImageButtonElement3;
+        private Telerik.WinControls.UI.RadButtonElement RdBtnMenuBhavCopyData;
+        private Telerik.WinControls.UI.RadImageButtonElement radImageButtonElement1;
     }
 }
 
