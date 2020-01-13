@@ -13,6 +13,7 @@ using System.Data.Entity;
 using A3DBhavCopy.Models;
 using System.Net.NetworkInformation;
 using System.Globalization;
+using ICSharpCode.SharpZipLib.Zip;
 
 namespace A3DBhavCopy
 {
@@ -137,7 +138,7 @@ namespace A3DBhavCopy
                 double _IDaysInMonth = (DtpToDate - DtpFromDate).TotalDays;
 
                 RdProgressBar.Minimum = 1;
-                RdProgressBar.Maximum = Convert.ToInt32(_IDaysInMonth);
+                RdProgressBar.Maximum = Convert.ToInt32(_IDaysInMonth) + 1;
                 RdProgressBar.Value1 = 1;
                 RdLlbMessage.Text = "Starting Downloading!! Please Wait....";
                 RdLlbMessage.Update();
@@ -148,6 +149,10 @@ namespace A3DBhavCopy
                     //lSelect cFileName dFileDate cFileDownLoadStatus  // cFileLoation  lFileDownloaded
                     DataRow _DataBhavCopyFileRow = DtBhavCopyFile.NewRow();
                     DateTime _DtMonthDate = _DtpFromDate.AddDays(Convert.ToDouble(i));
+
+                    if (_DtMonthDate.DayOfWeek.ToString() == "Sunday" || _DtMonthDate.DayOfWeek.ToString() == "Saturday") { continue; }
+
+
                     string StrUrl = "";
                     StrUrl = @"/" + _DtMonthDate.Year + @"/" + _DtMonthDate.ToString("MMM").ToUpper() + @"/cm" + _DtMonthDate.ToString("ddMMMyyyy").ToUpper() + "bhav.csv.zip";
 
@@ -159,39 +164,55 @@ namespace A3DBhavCopy
                     if (CheckForInternetConnection() == true)
                     {
 
-                    
+
                         RdLlbMessage.Text = "Checking File " + "cm" + _DtMonthDate.ToString("ddMMMyyyy") + "bhav.csv.zip" + " Exists Or Not !! Please Wait....";
                         RdLlbMessage.Update();
                         Application.DoEvents();
                         string StrNseUrl = "https://www.nseindia.com/content/historical/EQUITIES";
-                        
-                        if (CheckFileExists(StrNseUrl+StrUrl) == false)
+
+                        if (CheckFileExists(StrNseUrl + StrUrl) == false)
                         {
                             StrNseUrl = "https://www1.nseindia.com/content/historical/EQUITIES";
                             //https://www1.nseindia.com/content/historical/EQUITIES/2020/JAN/cm08JAN2020bhav.csv.zip
                             if (CheckFileExists(StrNseUrl + StrUrl) == false)
                             {
-                                RdLlbMessage.Text = "File " + "cm" + _DtMonthDate.ToString("ddMMMyyyy") + "bhav.csv.zip" + " Not Found .";
+                                RdLlbMessage.Text = "File " + _DtMonthDate.ToString("ddMMMyyyy") + " Bhav-Copy " + " Not Found .";
                                 _DataBhavCopyFileRow["cFileDownLoadStatus"] = RdLlbMessage.Text;
                                 _DataBhavCopyFileRow["cFileLoation"] = "";
                                 _DataBhavCopyFileRow["lFileDownloaded"] = false;
                                 DtBhavCopyFile.Rows.Add(_DataBhavCopyFileRow);
                                 continue;
                             }
+                            RdLlbMessage.Text = "File " + _DtMonthDate.ToString("ddMMMyyyy") + " Bhav-Copy " + " Exists.";
                         }
                         string StrTempFolder = System.IO.Path.GetTempPath();
 
-                        using (WebClient webClient = new WebClient())
-                        {
+                        //using (WebClient webClient = new WebClient())
+                        //{
+                        //    RdLlbMessage.Text = "File " + _DtMonthDate.ToString("ddMMMyyyy") + " Bhav-Copy " + " Downloading.";
+                        //    webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
+                        //    webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged); //StrTempFolder + "cm" + _DtMonthDate.ToString("ddMMMyyyy") + "bhav.csv.zip"
+                        //    webClient.DownloadFile(new Uri(StrNseUrl + StrUrl), Path.GetFileName(StrNseUrl + StrUrl));//,Path.Combine(Path.GetTempPath(), Path.GetFileName(StrNseUrl + StrUrl))
+                        //    _DataBhavCopyFileRow["cFileDownLoadStatus"] = "Download Completed.";
+                        //    _DataBhavCopyFileRow["cFileLoation"] = StrTempFolder + "cm" + _DtMonthDate.ToString("ddMMMyyyy") + "bhav.csv.zip";
+                        //    _DataBhavCopyFileRow["lFileDownloaded"] = true;
+                        //    RdLlbMessage.Text = "File " + _DtMonthDate.ToString("ddMMMyyyy") + " Bhav-Copy " + " Downloaded.";
+                        //}
 
-                            webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
-                            webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-                            webClient.DownloadFileAsync(new Uri(StrNseUrl + StrUrl), StrTempFolder + "cm" + _DtMonthDate.ToString("ddMMMyyyy") + "bhav.csv.zip");
-                            _DataBhavCopyFileRow["cFileDownLoadStatus"] = "Download Completed.";
-                            _DataBhavCopyFileRow["cFileLoation"] = StrTempFolder + "cm" + _DtMonthDate.ToString("ddMMMyyyy") + "bhav.csv.zip";
-                            _DataBhavCopyFileRow["lFileDownloaded"] = true;
+                        WebClient client = new WebClient();
+                        client.Headers.Add("Upgrade-Insecure-Requests", "1");
+                        client.Headers.Add(HttpRequestHeader.UserAgent, "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36");
+                        client.Headers.Add(HttpRequestHeader.Accept, "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
+                        client.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip, deflate, sdch, br");
+                        client.Headers.Add(HttpRequestHeader.AcceptLanguage, "en-US,en;q=0.8");
+                        client.Headers.Add("Referer", "https://www.nseindia.com/products/content/equities/equities/archieve_eq.htm");
+                        client.Headers.Add("Cookie", "JSESSIONID = E44619239697B5CB808404AC020D3EB4.tomcat2; NSE - TEST - 1 = 1960845322.20480.0000");
 
-                        }
+                        client.DownloadFile(new Uri(StrNseUrl + StrUrl), Path.Combine(Path.GetTempPath(), Path.GetFileName(StrNseUrl + StrUrl)));
+                        _DataBhavCopyFileRow["cFileDownLoadStatus"] = "Download Completed.";
+                        _DataBhavCopyFileRow["cFileLoation"] = StrTempFolder + "cm" + _DtMonthDate.ToString("ddMMMyyyy") + "bhav.csv.zip";
+                        _DataBhavCopyFileRow["lFileDownloaded"] = true;
+                        RdLlbMessage.Text = "File " + _DtMonthDate.ToString("ddMMMyyyy") + " Bhav-Copy " + " Downloaded.";
                     }
                     else
                     {
@@ -259,18 +280,41 @@ namespace A3DBhavCopy
         {
             try
             {
-                //-> Check if url is valid  
-                WebRequest serverRequest = WebRequest.Create(_url);
-                WebResponse serverResponse = null;
-                try //Try to get response from server  
+                ////-> Check if url is valid  
+                //WebRequest serverRequest = WebRequest.Create(_url);
+                //WebResponse serverResponse = null;
+                //try //Try to get response from server  
+                //{
+                //    serverResponse = serverRequest.GetResponse();
+                //    serverResponse.Close();
+                //    return true;
+                //}
+                //catch //If could not obtain any response  
+                //{
+                //    if (serverResponse != null) { serverResponse.Close(); }
+                //    return false;
+                //}
+
+                HttpWebRequest request = WebRequest.Create(_url) as HttpWebRequest;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+                // instruct the server to return headers only
+                request.Method = "HEAD";
+                // make the connection
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                try
                 {
-                    serverResponse = serverRequest.GetResponse();
-                    serverResponse.Close();
+                    // create the request
+
+
+                    // get the status code
+                    HttpStatusCode status = response.StatusCode;
+                    response.Close();
                     return true;
                 }
-                catch //If could not obtain any response  
+                catch (Exception e) //If could not obtain any response  
                 {
-                    if (serverResponse != null) { serverResponse.Close(); }
+                    //MessageBox.Show(e.Message.ToString());
+                    if (response != null) { response.Close(); }
                     return false;
                 }
 
@@ -366,16 +410,20 @@ namespace A3DBhavCopy
                         string zipPath = DrvFiles["cFileLoation"].ToString();
                         string extractPath = StrCsvFileLoation;//+"\\"+ Path.GetFileName(zipPath);
 
-                        using (ZipArchive archive = ZipFile.OpenRead(zipPath))
-                        {
-                            foreach (ZipArchiveEntry entry in archive.Entries)
-                            {
-                                if (entry.FullName.EndsWith(".csv", StringComparison.OrdinalIgnoreCase))
-                                {
-                                    entry.ExtractToFile(Path.Combine(extractPath, entry.FullName), true);
-                                }
-                            }
-                        }
+                        FastZip z = new FastZip();
+                        z.CreateEmptyDirectories = true;
+                        z.ExtractZip(zipPath, extractPath, "");
+
+                        //using (ZipArchive archive = ZipFile.OpenRead(zipPath))
+                        //{
+                        //    foreach (ZipArchiveEntry entry in archive.Entries)
+                        //    {
+                        //        if (entry.FullName.EndsWith(".csv", StringComparison.OrdinalIgnoreCase))
+                        //        {
+                        //            entry.ExtractToFile(Path.Combine(extractPath, entry.FullName), true);
+                        //        }
+                        //    }
+                        //}
 
                     }
                     DtBhavCopyData = new DataTable();
@@ -772,4 +820,5 @@ namespace A3DBhavCopy
 
         }
     }
+
 }
