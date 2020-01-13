@@ -35,6 +35,7 @@
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAnalysis));
             this.RdDockMain = new Telerik.WinControls.UI.Docking.RadDock();
+            this.RdToolTabStripSymbol = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.RdToolWinSymbol = new Telerik.WinControls.UI.Docking.ToolWindow();
             this.RdGrdCompanies = new Telerik.WinControls.UI.RadGridView();
             this.RdPnlSearchCompany = new Telerik.WinControls.UI.RadPanel();
@@ -45,33 +46,33 @@
             this.RdBtnSelectAll = new Telerik.WinControls.UI.RadButton();
             this.RdBtnUnSelectAll = new Telerik.WinControls.UI.RadButton();
             this.radLabel4 = new Telerik.WinControls.UI.RadLabel();
-            this.RdToolTabStripSymbol = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.documentContainer1 = new Telerik.WinControls.UI.Docking.DocumentContainer();
             this.documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             this.RdDocWinReports = new Telerik.WinControls.UI.Docking.DocumentWindow();
             this.RdGrdReportResult = new Telerik.WinControls.UI.RadGridView();
             this.RdPnlReportHeader = new Telerik.WinControls.UI.RadPanel();
-            this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
-            this.RdRbtSortByVal = new Telerik.WinControls.UI.RadRadioButton();
-            this.RdRbtSortByQty = new Telerik.WinControls.UI.RadRadioButton();
-            this.radLabel5 = new Telerik.WinControls.UI.RadLabel();
-            this.RdPnlDateRange = new Telerik.WinControls.UI.RadPanel();
-            this.RdRbtDate = new Telerik.WinControls.UI.RadRadioButton();
-            this.RdRbtMonth = new Telerik.WinControls.UI.RadRadioButton();
-            this.RdRbtYear = new Telerik.WinControls.UI.RadRadioButton();
             this.RdProgressBar = new Telerik.WinControls.UI.RadProgressBar();
             this.radButton1 = new Telerik.WinControls.UI.RadButton();
             this.RdBtnDownloadAndSave = new Telerik.WinControls.UI.RadButton();
             this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
             this.RdDtpTo = new Telerik.WinControls.UI.RadDateTimePicker();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
+            this.RdRbtYear = new Telerik.WinControls.UI.RadRadioButton();
             this.RdDtpFrom = new Telerik.WinControls.UI.RadDateTimePicker();
+            this.RdRbtMonth = new Telerik.WinControls.UI.RadRadioButton();
+            this.RdRbtDate = new Telerik.WinControls.UI.RadRadioButton();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
             this.telerikMetroBlueTheme1 = new Telerik.WinControls.Themes.TelerikMetroBlueTheme();
-            this.radLabel6 = new Telerik.WinControls.UI.RadLabel();
+            this.RdPnlDateRange = new Telerik.WinControls.UI.RadPanel();
+            this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
+            this.RdRbtSortByVal = new Telerik.WinControls.UI.RadRadioButton();
+            this.RdRbtSortByQty = new Telerik.WinControls.UI.RadRadioButton();
+            this.radLabel5 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.RdDockMain)).BeginInit();
             this.RdDockMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RdToolTabStripSymbol)).BeginInit();
+            this.RdToolTabStripSymbol.SuspendLayout();
             this.RdToolWinSymbol.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RdGrdCompanies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RdGrdCompanies.MasterTemplate)).BeginInit();
@@ -84,8 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.RdBtnSelectAll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RdBtnUnSelectAll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RdToolTabStripSymbol)).BeginInit();
-            this.RdToolTabStripSymbol.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).BeginInit();
             this.documentContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).BeginInit();
@@ -95,25 +94,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.RdGrdReportResult.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RdPnlReportHeader)).BeginInit();
             this.RdPnlReportHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
-            this.radPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RdRbtSortByVal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RdRbtSortByQty)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RdPnlDateRange)).BeginInit();
-            this.RdPnlDateRange.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RdRbtDate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RdRbtMonth)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RdRbtYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RdProgressBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RdBtnDownloadAndSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RdDtpTo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RdRbtYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RdDtpFrom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RdRbtMonth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RdRbtDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RdPnlDateRange)).BeginInit();
+            this.RdPnlDateRange.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
+            this.radPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RdRbtSortByVal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RdRbtSortByQty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,6 +134,24 @@
             this.RdDockMain.TabIndex = 0;
             this.RdDockMain.TabStop = false;
             this.RdDockMain.Text = "radDock1";
+            // 
+            // RdToolTabStripSymbol
+            // 
+            this.RdToolTabStripSymbol.BackColor = System.Drawing.Color.White;
+            this.RdToolTabStripSymbol.CanUpdateChildIndex = true;
+            this.RdToolTabStripSymbol.Controls.Add(this.RdToolWinSymbol);
+            this.RdToolTabStripSymbol.Location = new System.Drawing.Point(5, 5);
+            this.RdToolTabStripSymbol.Name = "RdToolTabStripSymbol";
+            // 
+            // 
+            // 
+            this.RdToolTabStripSymbol.RootElement.MinSize = new System.Drawing.Size(0, 0);
+            this.RdToolTabStripSymbol.SelectedIndex = 0;
+            this.RdToolTabStripSymbol.Size = new System.Drawing.Size(301, 688);
+            this.RdToolTabStripSymbol.SizeInfo.AbsoluteSize = new System.Drawing.Size(301, 200);
+            this.RdToolTabStripSymbol.SizeInfo.SplitterCorrection = new System.Drawing.Size(101, 0);
+            this.RdToolTabStripSymbol.TabIndex = 1;
+            this.RdToolTabStripSymbol.TabStop = false;
             // 
             // RdToolWinSymbol
             // 
@@ -194,12 +210,11 @@
             this.RdGrdCompanies.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.RdGrdCompanies.Name = "RdGrdCompanies";
             this.RdGrdCompanies.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.RdGrdCompanies.Size = new System.Drawing.Size(299, 614);
+            this.RdGrdCompanies.Size = new System.Drawing.Size(299, 630);
             this.RdGrdCompanies.TabIndex = 0;
             // 
             // RdPnlSearchCompany
             // 
-            this.RdPnlSearchCompany.Controls.Add(this.radLabel6);
             this.RdPnlSearchCompany.Controls.Add(this.RdBtnReload);
             this.RdPnlSearchCompany.Controls.Add(this.RdBtnSearch);
             this.RdPnlSearchCompany.Controls.Add(this.RdBtnClearSearch);
@@ -208,9 +223,9 @@
             this.RdPnlSearchCompany.Controls.Add(this.RdBtnUnSelectAll);
             this.RdPnlSearchCompany.Controls.Add(this.radLabel4);
             this.RdPnlSearchCompany.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.RdPnlSearchCompany.Location = new System.Drawing.Point(0, 614);
+            this.RdPnlSearchCompany.Location = new System.Drawing.Point(0, 630);
             this.RdPnlSearchCompany.Name = "RdPnlSearchCompany";
-            this.RdPnlSearchCompany.Size = new System.Drawing.Size(299, 48);
+            this.RdPnlSearchCompany.Size = new System.Drawing.Size(299, 32);
             this.RdPnlSearchCompany.TabIndex = 4;
             // 
             // RdBtnReload
@@ -297,24 +312,6 @@
             this.radLabel4.TabIndex = 2;
             this.radLabel4.Text = "Search Company";
             // 
-            // RdToolTabStripSymbol
-            // 
-            this.RdToolTabStripSymbol.BackColor = System.Drawing.Color.White;
-            this.RdToolTabStripSymbol.CanUpdateChildIndex = true;
-            this.RdToolTabStripSymbol.Controls.Add(this.RdToolWinSymbol);
-            this.RdToolTabStripSymbol.Location = new System.Drawing.Point(5, 5);
-            this.RdToolTabStripSymbol.Name = "RdToolTabStripSymbol";
-            // 
-            // 
-            // 
-            this.RdToolTabStripSymbol.RootElement.MinSize = new System.Drawing.Size(0, 0);
-            this.RdToolTabStripSymbol.SelectedIndex = 0;
-            this.RdToolTabStripSymbol.Size = new System.Drawing.Size(301, 688);
-            this.RdToolTabStripSymbol.SizeInfo.AbsoluteSize = new System.Drawing.Size(301, 200);
-            this.RdToolTabStripSymbol.SizeInfo.SplitterCorrection = new System.Drawing.Size(101, 0);
-            this.RdToolTabStripSymbol.TabIndex = 1;
-            this.RdToolTabStripSymbol.TabStop = false;
-            // 
             // documentContainer1
             // 
             this.documentContainer1.Controls.Add(this.documentTabStrip1);
@@ -398,80 +395,6 @@
             this.RdPnlReportHeader.Size = new System.Drawing.Size(922, 117);
             this.RdPnlReportHeader.TabIndex = 0;
             // 
-            // radPanel1
-            // 
-            this.radPanel1.Controls.Add(this.RdRbtSortByVal);
-            this.radPanel1.Controls.Add(this.RdRbtSortByQty);
-            this.radPanel1.Location = new System.Drawing.Point(105, 67);
-            this.radPanel1.Name = "radPanel1";
-            this.radPanel1.Size = new System.Drawing.Size(233, 28);
-            this.radPanel1.TabIndex = 14;
-            // 
-            // RdRbtSortByVal
-            // 
-            this.RdRbtSortByVal.Location = new System.Drawing.Point(3, 5);
-            this.RdRbtSortByVal.Name = "RdRbtSortByVal";
-            this.RdRbtSortByVal.Size = new System.Drawing.Size(87, 18);
-            this.RdRbtSortByVal.TabIndex = 11;
-            this.RdRbtSortByVal.Tag = "SortByVal";
-            this.RdRbtSortByVal.Text = "Sort By Value";
-            this.RdRbtSortByVal.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.RdRbdSortByVal_ToggleStateChanged);
-            // 
-            // RdRbtSortByQty
-            // 
-            this.RdRbtSortByQty.Location = new System.Drawing.Point(128, 5);
-            this.RdRbtSortByQty.Name = "RdRbtSortByQty";
-            this.RdRbtSortByQty.Size = new System.Drawing.Size(102, 18);
-            this.RdRbtSortByQty.TabIndex = 13;
-            this.RdRbtSortByQty.Tag = "SORTBYQUANTITY";
-            this.RdRbtSortByQty.Text = "Sort By Quantity";
-            this.RdRbtSortByQty.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.RdRbdSortByVal_ToggleStateChanged);
-            // 
-            // radLabel5
-            // 
-            this.radLabel5.Location = new System.Drawing.Point(3, 73);
-            this.radLabel5.Name = "radLabel5";
-            this.radLabel5.Size = new System.Drawing.Size(42, 18);
-            this.radLabel5.TabIndex = 15;
-            this.radLabel5.Text = "Sort By";
-            // 
-            // RdPnlDateRange
-            // 
-            this.RdPnlDateRange.Controls.Add(this.RdRbtDate);
-            this.RdPnlDateRange.Controls.Add(this.RdRbtMonth);
-            this.RdPnlDateRange.Controls.Add(this.RdRbtYear);
-            this.RdPnlDateRange.Location = new System.Drawing.Point(105, 9);
-            this.RdPnlDateRange.Name = "RdPnlDateRange";
-            this.RdPnlDateRange.Size = new System.Drawing.Size(233, 28);
-            this.RdPnlDateRange.TabIndex = 1;
-            // 
-            // RdRbtDate
-            // 
-            this.RdRbtDate.Location = new System.Drawing.Point(3, 5);
-            this.RdRbtDate.Name = "RdRbtDate";
-            this.RdRbtDate.Size = new System.Drawing.Size(44, 18);
-            this.RdRbtDate.TabIndex = 11;
-            this.RdRbtDate.Text = "Date";
-            this.RdRbtDate.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.RdRbtDate_ToggleStateChanged);
-            // 
-            // RdRbtMonth
-            // 
-            this.RdRbtMonth.Location = new System.Drawing.Point(100, 5);
-            this.RdRbtMonth.Name = "RdRbtMonth";
-            this.RdRbtMonth.Size = new System.Drawing.Size(54, 18);
-            this.RdRbtMonth.TabIndex = 13;
-            this.RdRbtMonth.Text = "Month";
-            this.RdRbtMonth.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.RdRbtDate_ToggleStateChanged);
-            // 
-            // RdRbtYear
-            // 
-            this.RdRbtYear.Location = new System.Drawing.Point(179, 5);
-            this.RdRbtYear.Name = "RdRbtYear";
-            this.RdRbtYear.Size = new System.Drawing.Size(42, 18);
-            this.RdRbtYear.TabIndex = 12;
-            this.RdRbtYear.Text = "Year";
-            this.RdRbtYear.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.RdRbtDate_ToggleStateChanged);
-            // 
             // RdProgressBar
             // 
             this.RdProgressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -535,6 +458,15 @@
             this.radLabel2.TabIndex = 7;
             this.radLabel2.Text = "Date From";
             // 
+            // RdRbtYear
+            // 
+            this.RdRbtYear.Location = new System.Drawing.Point(179, 5);
+            this.RdRbtYear.Name = "RdRbtYear";
+            this.RdRbtYear.Size = new System.Drawing.Size(42, 18);
+            this.RdRbtYear.TabIndex = 12;
+            this.RdRbtYear.Text = "Year";
+            this.RdRbtYear.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.RdRbtDate_ToggleStateChanged);
+            // 
             // RdDtpFrom
             // 
             this.RdDtpFrom.CustomFormat = "dd/MMM/yyyy";
@@ -547,6 +479,24 @@
             this.RdDtpFrom.Text = "24/Dec/2019";
             this.RdDtpFrom.Value = new System.DateTime(2019, 12, 24, 11, 4, 10, 689);
             // 
+            // RdRbtMonth
+            // 
+            this.RdRbtMonth.Location = new System.Drawing.Point(100, 5);
+            this.RdRbtMonth.Name = "RdRbtMonth";
+            this.RdRbtMonth.Size = new System.Drawing.Size(54, 18);
+            this.RdRbtMonth.TabIndex = 13;
+            this.RdRbtMonth.Text = "Month";
+            this.RdRbtMonth.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.RdRbtDate_ToggleStateChanged);
+            // 
+            // RdRbtDate
+            // 
+            this.RdRbtDate.Location = new System.Drawing.Point(3, 5);
+            this.RdRbtDate.Name = "RdRbtDate";
+            this.RdRbtDate.Size = new System.Drawing.Size(44, 18);
+            this.RdRbtDate.TabIndex = 11;
+            this.RdRbtDate.Text = "Date";
+            this.RdRbtDate.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.RdRbtDate_ToggleStateChanged);
+            // 
             // radLabel1
             // 
             this.radLabel1.Location = new System.Drawing.Point(3, 12);
@@ -555,15 +505,52 @@
             this.radLabel1.TabIndex = 6;
             this.radLabel1.Text = "Filter Type(Range)";
             // 
-            // radLabel6
+            // RdPnlDateRange
             // 
-            this.radLabel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.radLabel6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic);
-            this.radLabel6.Location = new System.Drawing.Point(0, 30);
-            this.radLabel6.Name = "radLabel6";
-            this.radLabel6.Size = new System.Drawing.Size(312, 18);
-            this.radLabel6.TabIndex = 25;
-            this.radLabel6.Text = "Search Multiple Compnay Use Comma(,) with Comanpy Name";
+            this.RdPnlDateRange.Controls.Add(this.RdRbtDate);
+            this.RdPnlDateRange.Controls.Add(this.RdRbtMonth);
+            this.RdPnlDateRange.Controls.Add(this.RdRbtYear);
+            this.RdPnlDateRange.Location = new System.Drawing.Point(105, 9);
+            this.RdPnlDateRange.Name = "RdPnlDateRange";
+            this.RdPnlDateRange.Size = new System.Drawing.Size(233, 28);
+            this.RdPnlDateRange.TabIndex = 1;
+            // 
+            // radPanel1
+            // 
+            this.radPanel1.Controls.Add(this.RdRbtSortByVal);
+            this.radPanel1.Controls.Add(this.RdRbtSortByQty);
+            this.radPanel1.Location = new System.Drawing.Point(105, 67);
+            this.radPanel1.Name = "radPanel1";
+            this.radPanel1.Size = new System.Drawing.Size(233, 28);
+            this.radPanel1.TabIndex = 14;
+            // 
+            // RdRbtSortByVal
+            // 
+            this.RdRbtSortByVal.Location = new System.Drawing.Point(3, 5);
+            this.RdRbtSortByVal.Name = "RdRbtSortByVal";
+            this.RdRbtSortByVal.Size = new System.Drawing.Size(87, 18);
+            this.RdRbtSortByVal.TabIndex = 11;
+            this.RdRbtSortByVal.Tag = "SortByVal";
+            this.RdRbtSortByVal.Text = "Sort By Value";
+            this.RdRbtSortByVal.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.RdRbdSortByVal_ToggleStateChanged);
+            // 
+            // RdRbtSortByQty
+            // 
+            this.RdRbtSortByQty.Location = new System.Drawing.Point(128, 5);
+            this.RdRbtSortByQty.Name = "RdRbtSortByQty";
+            this.RdRbtSortByQty.Size = new System.Drawing.Size(102, 18);
+            this.RdRbtSortByQty.TabIndex = 13;
+            this.RdRbtSortByQty.Tag = "SORTBYQUANTITY";
+            this.RdRbtSortByQty.Text = "Sort By Quantity";
+            this.RdRbtSortByQty.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.RdRbdSortByVal_ToggleStateChanged);
+            // 
+            // radLabel5
+            // 
+            this.radLabel5.Location = new System.Drawing.Point(3, 73);
+            this.radLabel5.Name = "radLabel5";
+            this.radLabel5.Size = new System.Drawing.Size(42, 18);
+            this.radLabel5.TabIndex = 15;
+            this.radLabel5.Text = "Sort By";
             // 
             // FrmAnalysis
             // 
@@ -582,6 +569,8 @@
             this.Load += new System.EventHandler(this.FrmAnalysis_Load);
             ((System.ComponentModel.ISupportInitialize)(this.RdDockMain)).EndInit();
             this.RdDockMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.RdToolTabStripSymbol)).EndInit();
+            this.RdToolTabStripSymbol.ResumeLayout(false);
             this.RdToolWinSymbol.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RdGrdCompanies.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RdGrdCompanies)).EndInit();
@@ -595,8 +584,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.RdBtnSelectAll)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RdBtnUnSelectAll)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RdToolTabStripSymbol)).EndInit();
-            this.RdToolTabStripSymbol.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).EndInit();
             this.documentContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).EndInit();
@@ -607,27 +594,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.RdPnlReportHeader)).EndInit();
             this.RdPnlReportHeader.ResumeLayout(false);
             this.RdPnlReportHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
-            this.radPanel1.ResumeLayout(false);
-            this.radPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RdRbtSortByVal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RdRbtSortByQty)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RdPnlDateRange)).EndInit();
-            this.RdPnlDateRange.ResumeLayout(false);
-            this.RdPnlDateRange.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RdRbtDate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RdRbtMonth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RdRbtYear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RdProgressBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RdBtnDownloadAndSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RdDtpTo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RdRbtYear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RdDtpFrom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RdRbtMonth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RdRbtDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RdPnlDateRange)).EndInit();
+            this.RdPnlDateRange.ResumeLayout(false);
+            this.RdPnlDateRange.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
+            this.radPanel1.ResumeLayout(false);
+            this.radPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RdRbtSortByVal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RdRbtSortByQty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -670,6 +656,5 @@
         private Telerik.WinControls.UI.RadRadioButton RdRbtSortByQty;
         private Telerik.WinControls.UI.RadLabel radLabel5;
         private Telerik.WinControls.UI.RadPanel RdPnlDateRange;
-        private Telerik.WinControls.UI.RadLabel radLabel6;
     }
 }

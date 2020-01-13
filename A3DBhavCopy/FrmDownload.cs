@@ -52,8 +52,10 @@ namespace A3DBhavCopy
             DcCol = new DataColumn("dFileUploadDate", typeof(DateTime));
             DtBhavCopyFile.Columns.Add(DcCol);
 
-            DcCol = new DataColumn("cFileDownLoadStatus", typeof(string));
-            DcCol.DefaultValue = "";
+            DcCol = new DataColumn("cFileDownLoadStatus", typeof(string))
+            {
+                DefaultValue = ""
+            };
             DtBhavCopyFile.Columns.Add(DcCol);
 
             DcCol = new DataColumn("cFileUploadStatus", typeof(string));
@@ -161,14 +163,21 @@ namespace A3DBhavCopy
                         RdLlbMessage.Text = "Checking File " + "cm" + _DtMonthDate.ToString("ddMMMyyyy") + "bhav.csv.zip" + " Exists Or Not !! Please Wait....";
                         RdLlbMessage.Update();
                         Application.DoEvents();
-                        if (CheckFileExists("https://www.nseindia.com/content/historical/EQUITIES" + StrUrl) == false)
+                        string StrNseUrl = "https://www.nseindia.com/content/historical/EQUITIES";
+                        
+                        if (CheckFileExists(StrNseUrl+StrUrl) == false)
                         {
-                            RdLlbMessage.Text = "File " + "cm" + _DtMonthDate.ToString("ddMMMyyyy") + "bhav.csv.zip" + " Not Found .";
-                            _DataBhavCopyFileRow["cFileDownLoadStatus"] = RdLlbMessage.Text;
-                            _DataBhavCopyFileRow["cFileLoation"] = "";
-                            _DataBhavCopyFileRow["lFileDownloaded"] = false;
-                            DtBhavCopyFile.Rows.Add(_DataBhavCopyFileRow);
-                            continue;
+                            StrNseUrl = "https://www1.nseindia.com/content/historical/EQUITIES";
+                            //https://www1.nseindia.com/content/historical/EQUITIES/2020/JAN/cm08JAN2020bhav.csv.zip
+                            if (CheckFileExists(StrNseUrl + StrUrl) == false)
+                            {
+                                RdLlbMessage.Text = "File " + "cm" + _DtMonthDate.ToString("ddMMMyyyy") + "bhav.csv.zip" + " Not Found .";
+                                _DataBhavCopyFileRow["cFileDownLoadStatus"] = RdLlbMessage.Text;
+                                _DataBhavCopyFileRow["cFileLoation"] = "";
+                                _DataBhavCopyFileRow["lFileDownloaded"] = false;
+                                DtBhavCopyFile.Rows.Add(_DataBhavCopyFileRow);
+                                continue;
+                            }
                         }
                         string StrTempFolder = System.IO.Path.GetTempPath();
 
@@ -177,7 +186,7 @@ namespace A3DBhavCopy
 
                             webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
                             webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-                            webClient.DownloadFileAsync(new Uri("https://www.nseindia.com/content/historical/EQUITIES" + StrUrl), StrTempFolder + "cm" + _DtMonthDate.ToString("ddMMMyyyy") + "bhav.csv.zip");
+                            webClient.DownloadFileAsync(new Uri(StrNseUrl + StrUrl), StrTempFolder + "cm" + _DtMonthDate.ToString("ddMMMyyyy") + "bhav.csv.zip");
                             _DataBhavCopyFileRow["cFileDownLoadStatus"] = "Download Completed.";
                             _DataBhavCopyFileRow["cFileLoation"] = StrTempFolder + "cm" + _DtMonthDate.ToString("ddMMMyyyy") + "bhav.csv.zip";
                             _DataBhavCopyFileRow["lFileDownloaded"] = true;

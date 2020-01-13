@@ -47,96 +47,153 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="PresentationCore" />
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.IO.Compression" />
-    <Reference Include="System.IO.Compression.FileSystem" />
-    <Reference Include="System.Security" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Telerik.WinControls, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+    <Reference Include="PresentationCore">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.GridView, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+    <Reference Include="System">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.RadDock, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+    <Reference Include="System.ComponentModel.DataAnnotations">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.Aqua, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+    <Reference Include="System.configuration">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.Breeze, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+    <Reference Include="System.Core">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.Desert, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+    <Reference Include="System.IO.Compression">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.Office2007Black, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+    <Reference Include="System.IO.Compression.FileSystem">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.Office2007Silver, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+    <Reference Include="System.Security">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.Office2010Black, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+    <Reference Include="System.Xml.Linq">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.Office2010Blue, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+    <Reference Include="System.Data.DataSetExtensions">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.Office2010Silver, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+    <Reference Include="Microsoft.CSharp">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.Office2013Dark, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+    <Reference Include="System.Data">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.Office2013Light, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+    <Reference Include="System.Deployment">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.TelerikMetro, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+    <Reference Include="System.Drawing">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.TelerikMetroBlue, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+    <Reference Include="System.Net.Http">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.TelerikMetroTouch, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+    <Reference Include="System.Windows.Forms">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.VisualStudio2012Dark, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+    <Reference Include="System.Xml">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.VisualStudio2012Light, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
-      <Private>True</Private>
+    <Reference Include="Telerik.WinControls, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\Telerik.WinControls.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.Windows7, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
-      <Private>True</Private>
+    <Reference Include="Telerik.WinControls.GridView, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\Telerik.WinControls.GridView.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.Windows8, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
-      <Private>True</Private>
+    <Reference Include="Telerik.WinControls.RadDock, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\Telerik.WinControls.RadDock.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.WinControls.UI, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
-      <Private>True</Private>
+    <Reference Include="Telerik.WinControls.Themes.Aqua, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\Telerik.WinControls.Themes.Aqua.dll</HintPath>
     </Reference>
-    <Reference Include="TelerikCommon, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
-      <Private>True</Private>
+    <Reference Include="Telerik.WinControls.Themes.Breeze, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\Telerik.WinControls.Themes.Breeze.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Desert, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\Telerik.WinControls.Themes.Desert.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.HighContrastBlack, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\Telerik.WinControls.Themes.HighContrastBlack.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2007Black, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\Telerik.WinControls.Themes.Office2007Black.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2007Silver, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\Telerik.WinControls.Themes.Office2007Silver.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2010Black, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\Telerik.WinControls.Themes.Office2010Black.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2010Blue, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\Telerik.WinControls.Themes.Office2010Blue.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2010Silver, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\Telerik.WinControls.Themes.Office2010Silver.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2013Dark, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\Telerik.WinControls.Themes.Office2013Dark.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Office2013Light, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\Telerik.WinControls.Themes.Office2013Light.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetro, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\Telerik.WinControls.Themes.TelerikMetro.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetroBlue, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\Telerik.WinControls.Themes.TelerikMetroBlue.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetroTouch, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\Telerik.WinControls.Themes.TelerikMetroTouch.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.VisualStudio2012Dark, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\Telerik.WinControls.Themes.VisualStudio2012Dark.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.VisualStudio2012Light, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\Telerik.WinControls.Themes.VisualStudio2012Light.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Windows7, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\Telerik.WinControls.Themes.Windows7.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.Themes.Windows8, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\Telerik.WinControls.Themes.Windows8.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.UI, Version=2016.1.112.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="TelerikCommon, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\TelerikCommon.dll</HintPath>
     </Reference>
     <Reference Include="TelerikData, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\TelerikData.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\TelerikData.dll</HintPath>
     </Reference>
     <Reference Include="TelerikExport, Version=2016.1.112.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\TelerikExport.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms Q1 2016\Bin\TelerikExport.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -154,12 +211,6 @@
     <Compile Include="FrmAnalysis.Designer.cs">
       <DependentUpon>FrmAnalysis.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmBhavCopyData.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmBhavCopyData.Designer.cs">
-      <DependentUpon>FrmBhavCopyData.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmCompare.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +222,12 @@
     </Compile>
     <Compile Include="FrmDownload.Designer.cs">
       <DependentUpon>FrmDownload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTest.Designer.cs">
+      <DependentUpon>FrmTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201912240806356_A3DBhavCopyData.cs" />
     <Compile Include="Migrations\201912240806356_A3DBhavCopyData.designer.cs">
@@ -189,14 +246,14 @@
     <EmbeddedResource Include="FrmAnalysis.resx">
       <DependentUpon>FrmAnalysis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmBhavCopyData.resx">
-      <DependentUpon>FrmBhavCopyData.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmCompare.resx">
       <DependentUpon>FrmCompare.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDownload.resx">
       <DependentUpon>FrmDownload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTest.resx">
+      <DependentUpon>FrmTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912240806356_A3DBhavCopyData.resx">
       <DependentUpon>201912240806356_A3DBhavCopyData.cs</DependentUpon>
@@ -212,6 +269,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="A3DBhav-Copy.rtf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -303,6 +361,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Comapre48X48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UnInstall.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
