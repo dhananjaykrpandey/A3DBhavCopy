@@ -208,7 +208,8 @@ namespace A3DBhavCopy
                         client.Headers.Add("Referer", "https://www.nseindia.com/products/content/equities/equities/archieve_eq.htm");
                         client.Headers.Add("Cookie", "JSESSIONID = E44619239697B5CB808404AC020D3EB4.tomcat2; NSE - TEST - 1 = 1960845322.20480.0000");
 
-                        client.DownloadFile(new Uri(StrNseUrl + StrUrl), Path.Combine(Path.GetTempPath(), Path.GetFileName(StrNseUrl + StrUrl)));
+                        client.DownloadFile(new Uri(StrNseUrl + StrUrl,UriKind.Absolute), Path.Combine(Path.GetTempPath(), Path.GetFileName(StrNseUrl + StrUrl)));
+                        System.Threading.Thread.Sleep(10000);
                         _DataBhavCopyFileRow["cFileDownLoadStatus"] = "Download Completed.";
                         _DataBhavCopyFileRow["cFileLoation"] = StrTempFolder + "cm" + _DtMonthDate.ToString("ddMMMyyyy") + "bhav.csv.zip";
                         _DataBhavCopyFileRow["lFileDownloaded"] = true;
@@ -464,7 +465,7 @@ namespace A3DBhavCopy
 
                     DvBhavCopyFile.Sort = " dFileDate DESC";
 
-                    using (A3DBhavCopyDataContext dbContxt = new A3DBhavCopyDataContext())
+                    using (A3DBhavCopyDataContext dbContxt = new A3DBhavCopyDataContext(ClsUtility._IClsUtility._ConnectionString))
                     {
                         using (DbContextTransaction transaction = dbContxt.Database.BeginTransaction())
                         {

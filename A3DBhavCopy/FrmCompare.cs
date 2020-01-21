@@ -66,7 +66,7 @@ namespace A3DBhavCopy
             try
             {
                 Cursor = Cursors.WaitCursor;
-                using (var DbContext = new A3DBhavCopyDataContext())
+                using (var DbContext = new A3DBhavCopyDataContext(ClsUtility._IClsUtility._ConnectionString))
                 {
 
                     List<MClsCompanies> LstmClsCompanies = DbContext._MClsBhavCopyDetails.Select(cmp => new MClsCompanies { cSYMBOL = cmp.cSYMBOL, cSERIES = cmp.cSERIES }).OrderBy(cmpor => cmpor.cSYMBOL).Distinct().ToList();
@@ -409,7 +409,7 @@ namespace A3DBhavCopy
                 StrSqlQuery = @"select * from [A3DBhavCopyData].[dbo].[BhavCopyDetails]";
                 StrSqlQuery = StrSqlQuery + Environment.NewLine + StrSqlQueryFilter + Environment.NewLine + " AND cSYMBOL  IN ('" + StrCompnay + "')";//+ '_' + cSERIES
 
-                using (var DbContext = new A3DBhavCopyDataContext())
+                using (var DbContext = new A3DBhavCopyDataContext(ClsUtility._IClsUtility._ConnectionString))
                 {
                     var vAtmUpTime = DbContext.Database.SqlQuery<MClsBhavCopyDetails>(StrSqlQuery).ToList();
                     DtBhavCopySqlData = ClsUtility._IClsUtility.NewTable(string.Concat("BhavCopyData"), vAtmUpTime);

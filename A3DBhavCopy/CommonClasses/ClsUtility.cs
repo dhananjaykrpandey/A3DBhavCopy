@@ -16,6 +16,8 @@ namespace A3DBhavCopy.CommonClasses
     public class ClsUtility
     {
         private static ClsUtility _iClsUtility = null;
+
+        public string _ConnectionString = "Server=(localdb)\v11.0;Integrated Security=true; Database=A3DBhavCopyData ; AttachDbFileName = "+Path.Combine(Application.StartupPath, @"DataBase\A3DBhavCopyData.mdf") + "";//providerName = System.Data.SqlClient ; 
         public ClsUtility()
 
         {
