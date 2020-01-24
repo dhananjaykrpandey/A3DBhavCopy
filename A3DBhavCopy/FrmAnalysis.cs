@@ -30,8 +30,8 @@ namespace A3DBhavCopy
         {
             InitializeComponent();
 
-            RdDtpFrom.Value = DateTime.Now;
-            RdDtpTo.Value = DateTime.Now;
+            RdDtpFrom.Value = DateTime.Now.AddDays(-1);
+            RdDtpTo.Value = DateTime.Now.AddDays(-1);
             RdRbtDate.CheckState = CheckState.Checked;
             RdRbtSortByVal.CheckState = CheckState.Checked;
             //RdToolWinReportMenu.ToolCaptionButtons = ~ToolStripCaptionButtons.Close;
@@ -79,7 +79,7 @@ namespace A3DBhavCopy
             try
             {
                 Cursor = Cursors.WaitCursor;
-                using (var DbContext = new A3DBhavCopyDataContext(ClsUtility._IClsUtility._ConnectionString))
+                using (var DbContext = new A3DBhavCopyDataContext())
                 {
 
                     List<MClsCompanies> LstmClsCompanies = DbContext._MClsBhavCopyDetails.Select(cmp => new MClsCompanies { cSYMBOL = cmp.cSYMBOL, cSERIES = cmp.cSERIES }).OrderBy(cmpor => cmpor.cSYMBOL).Distinct().ToList();
@@ -256,11 +256,11 @@ namespace A3DBhavCopy
                 string StrCompnay = "";
                 StrCompnay = string.Join("','", DvBhavCopyCompany.ToTable().AsEnumerable().Select(x => x.Field<string>("cSYMBOL")).ToArray());//+ "_" + x.Field<string>("cSERIES")
 
-                StrSqlQueryFilter = StrSqlQueryFilter + " Convert(DateTime,dTIMESTAMP,101) >=Convert(DateTime,'" + _DtpFromDate + "',101) AND Convert(DateTime,dTIMESTAMP,101) <=Convert(DateTime,'" + _DtpToDate + "',101)";
+                StrSqlQueryFilter = StrSqlQueryFilter + " Convert(DateTime,dTIMESTAMP,101) >=Convert(DateTime,'" + _DtpFromDate.ToString("yyyy/MM/dd") + "',101) AND Convert(DateTime,dTIMESTAMP,101) <=Convert(DateTime,'" + _DtpToDate.ToString("yyyy/MM/dd") + "',101)";
                 StrSqlQuery = @"select * from [A3DBhavCopyData].[dbo].[BhavCopyDetails]";
                 StrSqlQuery = StrSqlQuery + Environment.NewLine + StrSqlQueryFilter + Environment.NewLine + " AND cSYMBOL  IN ('" + StrCompnay + "')";//+ '_' + cSERIES
 
-                using (var DbContext = new A3DBhavCopyDataContext(ClsUtility._IClsUtility._ConnectionString))
+                using (var DbContext = new A3DBhavCopyDataContext())
                 {
                     var vAtmUpTime = DbContext.Database.SqlQuery<MClsBhavCopyDetails>(StrSqlQuery).ToList();
                     DtBhavCopySqlData = ClsUtility._IClsUtility.NewTable(string.Concat("BhavCopyData"), vAtmUpTime);
@@ -291,33 +291,43 @@ namespace A3DBhavCopy
                     DateTime _DtMonthDate = _DtpFromDate.AddDays(Convert.ToDouble(i));
                     if (_DtMonthDate.DayOfWeek.ToString() == "Sunday" || _DtMonthDate.DayOfWeek.ToString() == "Saturday") { continue; }
 
-                    DcColBhavCopyData = new DataColumn("cPREVCLOSE_" + _DtMonthDate.ToString("dd-MMM-yyyy"), typeof(double));
-                    DcColBhavCopyData.DefaultValue = 0;
-                    DcColBhavCopyData.Caption = "Previous Day Closing Value";
+                    DcColBhavCopyData = new DataColumn("cPREVCLOSE_" + _DtMonthDate.ToString("dd-MMM-yyyy"), typeof(double))
+                    {
+                        DefaultValue = 0,
+                        Caption = "Previous Day Closing Value"
+                    };
                     DtBhavCopyData.Columns.Add(DcColBhavCopyData);
 
-                    DcColBhavCopyData = new DataColumn("cCLOSE_" + _DtMonthDate.ToString("dd-MMM-yyyy"), typeof(double));
-                    DcColBhavCopyData.DefaultValue = 0;
-                    DcColBhavCopyData.Caption = "Today Closing Value";
+                    DcColBhavCopyData = new DataColumn("cCLOSE_" + _DtMonthDate.ToString("dd-MMM-yyyy"), typeof(double))
+                    {
+                        DefaultValue = 0,
+                        Caption = "Today Closing Value"
+                    };
                     DtBhavCopyData.Columns.Add(DcColBhavCopyData);
 
                     if (EnuReportType == enumReportType.SortByQty)
                     {
-                        DcColBhavCopyData = new DataColumn("cTOTTRDQTY_" + _DtMonthDate.ToString("dd-MMM-yyyy"), typeof(double));
-                        DcColBhavCopyData.DefaultValue = 0;
-                        DcColBhavCopyData.Caption = "Total Trading Quantity";
+                        DcColBhavCopyData = new DataColumn("cTOTTRDQTY_" + _DtMonthDate.ToString("dd-MMM-yyyy"), typeof(double))
+                        {
+                            DefaultValue = 0,
+                            Caption = "Total Trading Quantity"
+                        };
                         DtBhavCopyData.Columns.Add(DcColBhavCopyData);
                     }
                     else
                     {
-                        DcColBhavCopyData = new DataColumn("cTOTTRDVAL_" + _DtMonthDate.ToString("dd-MMM-yyyy"), typeof(double));
-                        DcColBhavCopyData.DefaultValue = 0;
-                        DcColBhavCopyData.Caption = "Total Trading Value";
+                        DcColBhavCopyData = new DataColumn("cTOTTRDVAL_" + _DtMonthDate.ToString("dd-MMM-yyyy"), typeof(double))
+                        {
+                            DefaultValue = 0,
+                            Caption = "Total Trading Value"
+                        };
                         DtBhavCopyData.Columns.Add(DcColBhavCopyData);
                     }
-                    DcColBhavCopyData = new DataColumn("cPriceChange_" + _DtMonthDate.ToString("dd-MMM-yyyy"), typeof(double));
-                    DcColBhavCopyData.DefaultValue = 0;
-                    DcColBhavCopyData.Caption = "Price Change";
+                    DcColBhavCopyData = new DataColumn("cPriceChange_" + _DtMonthDate.ToString("dd-MMM-yyyy"), typeof(double))
+                    {
+                        DefaultValue = 0,
+                        Caption = "Price Change"
+                    };
                     DtBhavCopyData.Columns.Add(DcColBhavCopyData);
 
                     gridViewColumnGroup = new GridViewColumnGroup(_DtMonthDate.ToString("dd-MMM-yyyy"));
@@ -423,6 +433,7 @@ namespace A3DBhavCopy
                 }
                 RdProgressBar.Value1 = 1;
                 RdProgressBar.Text = "Done";
+                ClsMessage._IClsMessage.showMessage("Done!!");
             }
             catch (Exception ex)
             {

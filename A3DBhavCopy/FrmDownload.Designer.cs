@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn1 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn8 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn9 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn10 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn11 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn12 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn13 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn1 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn14 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn2 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn15 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn3 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn16 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn17 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn18 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn19 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn20 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn21 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn22 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn23 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn24 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn25 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn26 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn27 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn28 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn2 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn29 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn4 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn30 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
             this.RdPanelHeader = new Telerik.WinControls.UI.RadPanel();
             this.RdProgressBar = new Telerik.WinControls.UI.RadProgressBar();
             this.RdLlbMessage = new Telerik.WinControls.UI.RadLabel();
@@ -129,22 +129,23 @@
             this.RdPanelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.RdPanelHeader.Location = new System.Drawing.Point(0, 0);
             this.RdPanelHeader.Name = "RdPanelHeader";
-            this.RdPanelHeader.Size = new System.Drawing.Size(888, 110);
+            this.RdPanelHeader.Size = new System.Drawing.Size(888, 83);
             this.RdPanelHeader.TabIndex = 0;
             // 
             // RdProgressBar
             // 
             this.RdProgressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.RdProgressBar.Location = new System.Drawing.Point(0, 90);
+            this.RdProgressBar.Location = new System.Drawing.Point(0, 63);
             this.RdProgressBar.Name = "RdProgressBar";
             this.RdProgressBar.Size = new System.Drawing.Size(888, 20);
-            this.RdProgressBar.TabIndex = 7;
+            this.RdProgressBar.TabIndex = 4;
+            this.RdProgressBar.TabStop = false;
             this.RdProgressBar.Text = "....";
             // 
             // RdLlbMessage
             // 
             this.RdLlbMessage.ForeColor = System.Drawing.Color.Red;
-            this.RdLlbMessage.Location = new System.Drawing.Point(12, 62);
+            this.RdLlbMessage.Location = new System.Drawing.Point(12, 36);
             this.RdLlbMessage.Name = "RdLlbMessage";
             this.RdLlbMessage.Size = new System.Drawing.Size(11, 18);
             this.RdLlbMessage.TabIndex = 6;
@@ -154,10 +155,10 @@
             // 
             this.RdBtnSaveFileOnly.Image = global::A3DBhavCopy.Properties.Resources.save_all;
             this.RdBtnSaveFileOnly.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.RdBtnSaveFileOnly.Location = new System.Drawing.Point(568, 34);
+            this.RdBtnSaveFileOnly.Location = new System.Drawing.Point(564, 10);
             this.RdBtnSaveFileOnly.Name = "RdBtnSaveFileOnly";
             this.RdBtnSaveFileOnly.Size = new System.Drawing.Size(124, 24);
-            this.RdBtnSaveFileOnly.TabIndex = 4;
+            this.RdBtnSaveFileOnly.TabIndex = 3;
             this.RdBtnSaveFileOnly.Text = "Save File Only";
             this.RdBtnSaveFileOnly.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.RdBtnSaveFileOnly.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -167,10 +168,10 @@
             // 
             this.RdBtnDownloadAndSave.Image = global::A3DBhavCopy.Properties.Resources.DownloadAndSave24X24;
             this.RdBtnDownloadAndSave.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.RdBtnDownloadAndSave.Location = new System.Drawing.Point(425, 34);
+            this.RdBtnDownloadAndSave.Location = new System.Drawing.Point(421, 10);
             this.RdBtnDownloadAndSave.Name = "RdBtnDownloadAndSave";
             this.RdBtnDownloadAndSave.Size = new System.Drawing.Size(137, 24);
-            this.RdBtnDownloadAndSave.TabIndex = 3;
+            this.RdBtnDownloadAndSave.TabIndex = 2;
             this.RdBtnDownloadAndSave.Text = "Download && Save";
             this.RdBtnDownloadAndSave.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.RdBtnDownloadAndSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -178,7 +179,7 @@
             // 
             // radLabel3
             // 
-            this.radLabel3.Location = new System.Drawing.Point(249, 37);
+            this.radLabel3.Location = new System.Drawing.Point(245, 13);
             this.radLabel3.Name = "radLabel3";
             this.radLabel3.Size = new System.Drawing.Size(73, 18);
             this.radLabel3.TabIndex = 3;
@@ -188,17 +189,18 @@
             // 
             this.RdDtpTo.CustomFormat = "dd/MMM/yyyy";
             this.RdDtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.RdDtpTo.Location = new System.Drawing.Point(328, 36);
+            this.RdDtpTo.Location = new System.Drawing.Point(324, 12);
+            this.RdDtpTo.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.RdDtpTo.Name = "RdDtpTo";
             this.RdDtpTo.Size = new System.Drawing.Size(91, 20);
-            this.RdDtpTo.TabIndex = 3;
+            this.RdDtpTo.TabIndex = 1;
             this.RdDtpTo.TabStop = false;
             this.RdDtpTo.Text = "24/Dec/2019";
             this.RdDtpTo.Value = new System.DateTime(2019, 12, 24, 11, 4, 10, 689);
             // 
             // radLabel2
             // 
-            this.radLabel2.Location = new System.Drawing.Point(12, 38);
+            this.radLabel2.Location = new System.Drawing.Point(8, 14);
             this.radLabel2.Name = "radLabel2";
             this.radLabel2.Size = new System.Drawing.Size(86, 18);
             this.radLabel2.TabIndex = 2;
@@ -206,50 +208,55 @@
             // 
             // RdRbtYear
             // 
-            this.RdRbtYear.Location = new System.Drawing.Point(328, 12);
+            this.RdRbtYear.Location = new System.Drawing.Point(834, 66);
             this.RdRbtYear.Name = "RdRbtYear";
             this.RdRbtYear.Size = new System.Drawing.Size(42, 18);
             this.RdRbtYear.TabIndex = 5;
             this.RdRbtYear.Text = "Year";
+            this.RdRbtYear.Visible = false;
             this.RdRbtYear.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.RdRbtDate_ToggleStateChanged);
             // 
             // RdDtpFrom
             // 
             this.RdDtpFrom.CustomFormat = "dd/MMM/yyyy";
             this.RdDtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.RdDtpFrom.Location = new System.Drawing.Point(152, 36);
+            this.RdDtpFrom.Location = new System.Drawing.Point(148, 12);
+            this.RdDtpFrom.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.RdDtpFrom.Name = "RdDtpFrom";
             this.RdDtpFrom.Size = new System.Drawing.Size(91, 20);
-            this.RdDtpFrom.TabIndex = 2;
+            this.RdDtpFrom.TabIndex = 0;
             this.RdDtpFrom.TabStop = false;
             this.RdDtpFrom.Text = "24/Dec/2019";
             this.RdDtpFrom.Value = new System.DateTime(2019, 12, 24, 11, 4, 10, 689);
             // 
             // RdRbtMonth
             // 
-            this.RdRbtMonth.Location = new System.Drawing.Point(249, 12);
+            this.RdRbtMonth.Location = new System.Drawing.Point(755, 66);
             this.RdRbtMonth.Name = "RdRbtMonth";
             this.RdRbtMonth.Size = new System.Drawing.Size(54, 18);
             this.RdRbtMonth.TabIndex = 5;
             this.RdRbtMonth.Text = "Month";
+            this.RdRbtMonth.Visible = false;
             this.RdRbtMonth.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.RdRbtDate_ToggleStateChanged);
             // 
             // RdRbtDate
             // 
-            this.RdRbtDate.Location = new System.Drawing.Point(152, 12);
+            this.RdRbtDate.Location = new System.Drawing.Point(658, 66);
             this.RdRbtDate.Name = "RdRbtDate";
             this.RdRbtDate.Size = new System.Drawing.Size(44, 18);
             this.RdRbtDate.TabIndex = 4;
             this.RdRbtDate.Text = "Date";
+            this.RdRbtDate.Visible = false;
             this.RdRbtDate.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.RdRbtDate_ToggleStateChanged);
             // 
             // radLabel1
             // 
-            this.radLabel1.Location = new System.Drawing.Point(12, 12);
+            this.radLabel1.Location = new System.Drawing.Point(518, 66);
             this.radLabel1.Name = "radLabel1";
             this.radLabel1.Size = new System.Drawing.Size(123, 18);
             this.radLabel1.TabIndex = 1;
             this.radLabel1.Text = "Download Type(Range)";
+            this.radLabel1.Visible = false;
             // 
             // RdGrdBhavCopyData
             // 
@@ -271,103 +278,103 @@
             this.RdGrdBhavCopyData.MasterTemplate.AllowSearchRow = true;
             this.RdGrdBhavCopyData.MasterTemplate.AutoGenerateColumns = false;
             this.RdGrdBhavCopyData.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridViewDateTimeColumn1.CustomFormat = "dd-MMM-yyyy";
-            gridViewDateTimeColumn1.EnableExpressionEditor = false;
-            gridViewDateTimeColumn1.FieldName = "dTIMESTAMP";
-            gridViewDateTimeColumn1.FilteringMode = ((Telerik.WinControls.UI.GridViewTimeFilteringMode)((Telerik.WinControls.UI.GridViewTimeFilteringMode.Time | Telerik.WinControls.UI.GridViewTimeFilteringMode.Date)));
-            gridViewDateTimeColumn1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            gridViewDateTimeColumn1.HeaderText = "Bhav-Copy Date";
-            gridViewDateTimeColumn1.Name = "dTIMESTAMP";
-            gridViewDateTimeColumn1.Width = 44;
-            gridViewTextBoxColumn1.EnableExpressionEditor = false;
-            gridViewTextBoxColumn1.FieldName = "cSYMBOL";
-            gridViewTextBoxColumn1.HeaderText = "SYMBOL";
-            gridViewTextBoxColumn1.Name = "cSYMBOL";
-            gridViewTextBoxColumn1.Width = 40;
-            gridViewTextBoxColumn2.EnableExpressionEditor = false;
-            gridViewTextBoxColumn2.FieldName = "cSERIES";
-            gridViewTextBoxColumn2.HeaderText = "SERIES";
-            gridViewTextBoxColumn2.Name = "cSERIES";
-            gridViewTextBoxColumn2.Width = 32;
-            gridViewTextBoxColumn3.EnableExpressionEditor = false;
-            gridViewTextBoxColumn3.FieldName = "cOPEN";
-            gridViewTextBoxColumn3.HeaderText = "OPEN";
-            gridViewTextBoxColumn3.Name = "cOPEN";
-            gridViewTextBoxColumn3.Width = 28;
-            gridViewTextBoxColumn4.EnableExpressionEditor = false;
-            gridViewTextBoxColumn4.FieldName = "cHIGH";
-            gridViewTextBoxColumn4.HeaderText = "HIGH";
-            gridViewTextBoxColumn4.Name = "cHIGH";
-            gridViewTextBoxColumn4.Width = 28;
-            gridViewTextBoxColumn5.EnableExpressionEditor = false;
-            gridViewTextBoxColumn5.FieldName = "cLOW";
-            gridViewTextBoxColumn5.HeaderText = "LOW";
-            gridViewTextBoxColumn5.Name = "cLOW";
-            gridViewTextBoxColumn5.Width = 26;
-            gridViewTextBoxColumn6.EnableExpressionEditor = false;
-            gridViewTextBoxColumn6.FieldName = "cCLOSE";
-            gridViewTextBoxColumn6.HeaderText = "CLOSE";
-            gridViewTextBoxColumn6.Name = "cCLOSE";
-            gridViewTextBoxColumn6.Width = 32;
-            gridViewTextBoxColumn7.EnableExpressionEditor = false;
-            gridViewTextBoxColumn7.FieldName = "cLAST";
-            gridViewTextBoxColumn7.HeaderText = "LAST";
-            gridViewTextBoxColumn7.Name = "cLAST";
-            gridViewTextBoxColumn7.Width = 26;
-            gridViewTextBoxColumn8.EnableExpressionEditor = false;
-            gridViewTextBoxColumn8.FieldName = "cPREVCLOSE";
-            gridViewTextBoxColumn8.HeaderText = "PREVCLOSE";
-            gridViewTextBoxColumn8.Name = "cPREVCLOSE";
-            gridViewTextBoxColumn8.Width = 52;
-            gridViewTextBoxColumn9.EnableExpressionEditor = false;
-            gridViewTextBoxColumn9.FieldName = "cTOTTRDQTY";
-            gridViewTextBoxColumn9.HeaderText = "TOTTRDQTY";
-            gridViewTextBoxColumn9.Name = "cTOTTRDQTY";
-            gridViewTextBoxColumn9.Width = 54;
-            gridViewTextBoxColumn10.EnableExpressionEditor = false;
-            gridViewTextBoxColumn10.FieldName = "cTOTTRDVAL";
-            gridViewTextBoxColumn10.HeaderText = "TOTTRDVAL";
-            gridViewTextBoxColumn10.Name = "cTOTTRDVAL";
-            gridViewTextBoxColumn10.Width = 54;
-            gridViewTextBoxColumn11.EnableExpressionEditor = false;
-            gridViewTextBoxColumn11.FieldName = "cTIMESTAMP";
-            gridViewTextBoxColumn11.HeaderText = "TIMESTAMP";
-            gridViewTextBoxColumn11.Name = "cTIMESTAMP";
-            gridViewTextBoxColumn11.Width = 53;
-            gridViewTextBoxColumn12.EnableExpressionEditor = false;
-            gridViewTextBoxColumn12.FieldName = "cTOTALTRADES";
-            gridViewTextBoxColumn12.HeaderText = "TOTALTRADES";
-            gridViewTextBoxColumn12.Name = "cTOTALTRADES";
-            gridViewTextBoxColumn12.Width = 45;
-            gridViewTextBoxColumn13.EnableExpressionEditor = false;
-            gridViewTextBoxColumn13.FieldName = "cISIN";
-            gridViewTextBoxColumn13.HeaderText = "ISIN";
-            gridViewTextBoxColumn13.Name = "cISIN";
-            gridViewTextBoxColumn13.Width = 33;
+            gridViewDateTimeColumn3.CustomFormat = "dd-MMM-yyyy";
+            gridViewDateTimeColumn3.EnableExpressionEditor = false;
+            gridViewDateTimeColumn3.FieldName = "dTIMESTAMP";
+            gridViewDateTimeColumn3.FilteringMode = ((Telerik.WinControls.UI.GridViewTimeFilteringMode)((Telerik.WinControls.UI.GridViewTimeFilteringMode.Time | Telerik.WinControls.UI.GridViewTimeFilteringMode.Date)));
+            gridViewDateTimeColumn3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            gridViewDateTimeColumn3.HeaderText = "Bhav-Copy Date";
+            gridViewDateTimeColumn3.Name = "dTIMESTAMP";
+            gridViewDateTimeColumn3.Width = 44;
+            gridViewTextBoxColumn16.EnableExpressionEditor = false;
+            gridViewTextBoxColumn16.FieldName = "cSYMBOL";
+            gridViewTextBoxColumn16.HeaderText = "SYMBOL";
+            gridViewTextBoxColumn16.Name = "cSYMBOL";
+            gridViewTextBoxColumn16.Width = 40;
+            gridViewTextBoxColumn17.EnableExpressionEditor = false;
+            gridViewTextBoxColumn17.FieldName = "cSERIES";
+            gridViewTextBoxColumn17.HeaderText = "SERIES";
+            gridViewTextBoxColumn17.Name = "cSERIES";
+            gridViewTextBoxColumn17.Width = 32;
+            gridViewTextBoxColumn18.EnableExpressionEditor = false;
+            gridViewTextBoxColumn18.FieldName = "cOPEN";
+            gridViewTextBoxColumn18.HeaderText = "OPEN";
+            gridViewTextBoxColumn18.Name = "cOPEN";
+            gridViewTextBoxColumn18.Width = 28;
+            gridViewTextBoxColumn19.EnableExpressionEditor = false;
+            gridViewTextBoxColumn19.FieldName = "cHIGH";
+            gridViewTextBoxColumn19.HeaderText = "HIGH";
+            gridViewTextBoxColumn19.Name = "cHIGH";
+            gridViewTextBoxColumn19.Width = 28;
+            gridViewTextBoxColumn20.EnableExpressionEditor = false;
+            gridViewTextBoxColumn20.FieldName = "cLOW";
+            gridViewTextBoxColumn20.HeaderText = "LOW";
+            gridViewTextBoxColumn20.Name = "cLOW";
+            gridViewTextBoxColumn20.Width = 26;
+            gridViewTextBoxColumn21.EnableExpressionEditor = false;
+            gridViewTextBoxColumn21.FieldName = "cCLOSE";
+            gridViewTextBoxColumn21.HeaderText = "CLOSE";
+            gridViewTextBoxColumn21.Name = "cCLOSE";
+            gridViewTextBoxColumn21.Width = 32;
+            gridViewTextBoxColumn22.EnableExpressionEditor = false;
+            gridViewTextBoxColumn22.FieldName = "cLAST";
+            gridViewTextBoxColumn22.HeaderText = "LAST";
+            gridViewTextBoxColumn22.Name = "cLAST";
+            gridViewTextBoxColumn22.Width = 26;
+            gridViewTextBoxColumn23.EnableExpressionEditor = false;
+            gridViewTextBoxColumn23.FieldName = "cPREVCLOSE";
+            gridViewTextBoxColumn23.HeaderText = "PREVCLOSE";
+            gridViewTextBoxColumn23.Name = "cPREVCLOSE";
+            gridViewTextBoxColumn23.Width = 52;
+            gridViewTextBoxColumn24.EnableExpressionEditor = false;
+            gridViewTextBoxColumn24.FieldName = "cTOTTRDQTY";
+            gridViewTextBoxColumn24.HeaderText = "TOTTRDQTY";
+            gridViewTextBoxColumn24.Name = "cTOTTRDQTY";
+            gridViewTextBoxColumn24.Width = 54;
+            gridViewTextBoxColumn25.EnableExpressionEditor = false;
+            gridViewTextBoxColumn25.FieldName = "cTOTTRDVAL";
+            gridViewTextBoxColumn25.HeaderText = "TOTTRDVAL";
+            gridViewTextBoxColumn25.Name = "cTOTTRDVAL";
+            gridViewTextBoxColumn25.Width = 54;
+            gridViewTextBoxColumn26.EnableExpressionEditor = false;
+            gridViewTextBoxColumn26.FieldName = "cTIMESTAMP";
+            gridViewTextBoxColumn26.HeaderText = "TIMESTAMP";
+            gridViewTextBoxColumn26.Name = "cTIMESTAMP";
+            gridViewTextBoxColumn26.Width = 53;
+            gridViewTextBoxColumn27.EnableExpressionEditor = false;
+            gridViewTextBoxColumn27.FieldName = "cTOTALTRADES";
+            gridViewTextBoxColumn27.HeaderText = "TOTALTRADES";
+            gridViewTextBoxColumn27.Name = "cTOTALTRADES";
+            gridViewTextBoxColumn27.Width = 45;
+            gridViewTextBoxColumn28.EnableExpressionEditor = false;
+            gridViewTextBoxColumn28.FieldName = "cISIN";
+            gridViewTextBoxColumn28.HeaderText = "ISIN";
+            gridViewTextBoxColumn28.Name = "cISIN";
+            gridViewTextBoxColumn28.Width = 33;
             this.RdGrdBhavCopyData.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewDateTimeColumn1,
-            gridViewTextBoxColumn1,
-            gridViewTextBoxColumn2,
-            gridViewTextBoxColumn3,
-            gridViewTextBoxColumn4,
-            gridViewTextBoxColumn5,
-            gridViewTextBoxColumn6,
-            gridViewTextBoxColumn7,
-            gridViewTextBoxColumn8,
-            gridViewTextBoxColumn9,
-            gridViewTextBoxColumn10,
-            gridViewTextBoxColumn11,
-            gridViewTextBoxColumn12,
-            gridViewTextBoxColumn13});
+            gridViewDateTimeColumn3,
+            gridViewTextBoxColumn16,
+            gridViewTextBoxColumn17,
+            gridViewTextBoxColumn18,
+            gridViewTextBoxColumn19,
+            gridViewTextBoxColumn20,
+            gridViewTextBoxColumn21,
+            gridViewTextBoxColumn22,
+            gridViewTextBoxColumn23,
+            gridViewTextBoxColumn24,
+            gridViewTextBoxColumn25,
+            gridViewTextBoxColumn26,
+            gridViewTextBoxColumn27,
+            gridViewTextBoxColumn28});
             this.RdGrdBhavCopyData.MasterTemplate.EnableCustomGrouping = true;
             this.RdGrdBhavCopyData.MasterTemplate.EnableCustomSorting = true;
             this.RdGrdBhavCopyData.MasterTemplate.EnableFiltering = true;
             this.RdGrdBhavCopyData.MasterTemplate.ShowGroupedColumns = true;
-            this.RdGrdBhavCopyData.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.RdGrdBhavCopyData.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.RdGrdBhavCopyData.Name = "RdGrdBhavCopyData";
             this.RdGrdBhavCopyData.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.RdGrdBhavCopyData.Size = new System.Drawing.Size(555, 378);
-            this.RdGrdBhavCopyData.TabIndex = 1;
+            this.RdGrdBhavCopyData.Size = new System.Drawing.Size(555, 405);
+            this.RdGrdBhavCopyData.TabIndex = 0;
             this.RdGrdBhavCopyData.Text = "radGridView1";
             // 
             // RdGrdBhavCopyFile
@@ -391,43 +398,43 @@
             this.RdGrdBhavCopyFile.MasterTemplate.AllowSearchRow = true;
             this.RdGrdBhavCopyFile.MasterTemplate.AutoGenerateColumns = false;
             this.RdGrdBhavCopyFile.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridViewCheckBoxColumn1.EnableExpressionEditor = false;
-            gridViewCheckBoxColumn1.FieldName = "lSelect";
-            gridViewCheckBoxColumn1.HeaderText = "[ ? ]";
-            gridViewCheckBoxColumn1.MinWidth = 20;
-            gridViewCheckBoxColumn1.Name = "lSelect";
-            gridViewCheckBoxColumn1.Width = 57;
-            gridViewTextBoxColumn14.EnableExpressionEditor = false;
-            gridViewTextBoxColumn14.FieldName = "cFileName";
-            gridViewTextBoxColumn14.HeaderText = "File Name";
-            gridViewTextBoxColumn14.Name = "cFileName";
-            gridViewTextBoxColumn14.Width = 80;
-            gridViewDateTimeColumn2.EnableExpressionEditor = false;
-            gridViewDateTimeColumn2.FieldName = "dFileDate";
-            gridViewDateTimeColumn2.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            gridViewDateTimeColumn2.HeaderText = "File Date";
-            gridViewDateTimeColumn2.Name = "dFileDate";
-            gridViewDateTimeColumn2.Width = 72;
-            gridViewTextBoxColumn15.EnableExpressionEditor = false;
-            gridViewTextBoxColumn15.FieldName = "cFileDownLoadStatus";
-            gridViewTextBoxColumn15.HeaderText = "Download Status";
-            gridViewTextBoxColumn15.Name = "cFileDownLoadStatus";
-            gridViewTextBoxColumn15.Width = 102;
+            gridViewCheckBoxColumn2.EnableExpressionEditor = false;
+            gridViewCheckBoxColumn2.FieldName = "lSelect";
+            gridViewCheckBoxColumn2.HeaderText = "[ ? ]";
+            gridViewCheckBoxColumn2.MinWidth = 20;
+            gridViewCheckBoxColumn2.Name = "lSelect";
+            gridViewCheckBoxColumn2.Width = 57;
+            gridViewTextBoxColumn29.EnableExpressionEditor = false;
+            gridViewTextBoxColumn29.FieldName = "cFileName";
+            gridViewTextBoxColumn29.HeaderText = "File Name";
+            gridViewTextBoxColumn29.Name = "cFileName";
+            gridViewTextBoxColumn29.Width = 80;
+            gridViewDateTimeColumn4.EnableExpressionEditor = false;
+            gridViewDateTimeColumn4.FieldName = "dFileDate";
+            gridViewDateTimeColumn4.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            gridViewDateTimeColumn4.HeaderText = "File Date";
+            gridViewDateTimeColumn4.Name = "dFileDate";
+            gridViewDateTimeColumn4.Width = 72;
+            gridViewTextBoxColumn30.EnableExpressionEditor = false;
+            gridViewTextBoxColumn30.FieldName = "cFileDownLoadStatus";
+            gridViewTextBoxColumn30.HeaderText = "Download Status";
+            gridViewTextBoxColumn30.Name = "cFileDownLoadStatus";
+            gridViewTextBoxColumn30.Width = 102;
             this.RdGrdBhavCopyFile.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewCheckBoxColumn1,
-            gridViewTextBoxColumn14,
-            gridViewDateTimeColumn2,
-            gridViewTextBoxColumn15});
+            gridViewCheckBoxColumn2,
+            gridViewTextBoxColumn29,
+            gridViewDateTimeColumn4,
+            gridViewTextBoxColumn30});
             this.RdGrdBhavCopyFile.MasterTemplate.EnableCustomFiltering = true;
             this.RdGrdBhavCopyFile.MasterTemplate.EnableCustomGrouping = true;
             this.RdGrdBhavCopyFile.MasterTemplate.EnableCustomSorting = true;
             this.RdGrdBhavCopyFile.MasterTemplate.EnableFiltering = true;
             this.RdGrdBhavCopyFile.MasterTemplate.ShowGroupedColumns = true;
-            this.RdGrdBhavCopyFile.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            this.RdGrdBhavCopyFile.MasterTemplate.ViewDefinition = tableViewDefinition4;
             this.RdGrdBhavCopyFile.Name = "RdGrdBhavCopyFile";
             this.RdGrdBhavCopyFile.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.RdGrdBhavCopyFile.Size = new System.Drawing.Size(329, 346);
-            this.RdGrdBhavCopyFile.TabIndex = 2;
+            this.RdGrdBhavCopyFile.Size = new System.Drawing.Size(329, 373);
+            this.RdGrdBhavCopyFile.TabIndex = 0;
             this.RdGrdBhavCopyFile.Text = "radGridView2";
             // 
             // radSplitContainer1
@@ -435,13 +442,13 @@
             this.radSplitContainer1.Controls.Add(this.splitPanel1);
             this.radSplitContainer1.Controls.Add(this.splitPanel2);
             this.radSplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radSplitContainer1.Location = new System.Drawing.Point(0, 110);
+            this.radSplitContainer1.Location = new System.Drawing.Point(0, 83);
             this.radSplitContainer1.Name = "radSplitContainer1";
             // 
             // 
             // 
             this.radSplitContainer1.RootElement.MinSize = new System.Drawing.Size(0, 0);
-            this.radSplitContainer1.Size = new System.Drawing.Size(888, 378);
+            this.radSplitContainer1.Size = new System.Drawing.Size(888, 405);
             this.radSplitContainer1.TabIndex = 3;
             this.radSplitContainer1.TabStop = false;
             this.radSplitContainer1.Text = "radSplitContainer1";
@@ -456,7 +463,7 @@
             // 
             // 
             this.splitPanel1.RootElement.MinSize = new System.Drawing.Size(0, 0);
-            this.splitPanel1.Size = new System.Drawing.Size(329, 378);
+            this.splitPanel1.Size = new System.Drawing.Size(329, 405);
             this.splitPanel1.SizeInfo.AutoSizeScale = new System.Drawing.SizeF(-0.1278281F, 0F);
             this.splitPanel1.SizeInfo.SplitterCorrection = new System.Drawing.Size(-113, 0);
             this.splitPanel1.TabIndex = 0;
@@ -473,10 +480,10 @@
             this.RdPanelDownLoadFile.Controls.Add(this.radLabel4);
             this.RdPanelDownLoadFile.Controls.Add(this.RdBtnUnSelectAll);
             this.RdPanelDownLoadFile.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.RdPanelDownLoadFile.Location = new System.Drawing.Point(0, 346);
+            this.RdPanelDownLoadFile.Location = new System.Drawing.Point(0, 373);
             this.RdPanelDownLoadFile.Name = "RdPanelDownLoadFile";
             this.RdPanelDownLoadFile.Size = new System.Drawing.Size(329, 32);
-            this.RdPanelDownLoadFile.TabIndex = 3;
+            this.RdPanelDownLoadFile.TabIndex = 1;
             // 
             // RdBtnReload
             // 
@@ -500,7 +507,7 @@
             this.RdBtnSearch.Location = new System.Drawing.Point(243, 4);
             this.RdBtnSearch.Name = "RdBtnSearch";
             this.RdBtnSearch.Size = new System.Drawing.Size(27, 24);
-            this.RdBtnSearch.TabIndex = 7;
+            this.RdBtnSearch.TabIndex = 3;
             this.RdBtnSearch.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.RdBtnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.RdBtnSearch.Click += new System.EventHandler(this.RdBtnSearch_Click);
@@ -513,7 +520,7 @@
             this.RdBtnClearSearch.Location = new System.Drawing.Point(272, 4);
             this.RdBtnClearSearch.Name = "RdBtnClearSearch";
             this.RdBtnClearSearch.Size = new System.Drawing.Size(27, 24);
-            this.RdBtnClearSearch.TabIndex = 6;
+            this.RdBtnClearSearch.TabIndex = 4;
             this.RdBtnClearSearch.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.RdBtnClearSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.RdBtnClearSearch.Click += new System.EventHandler(this.RdBtnClearSearch_Click);
@@ -526,7 +533,7 @@
             this.RdTxtSearchCompany.Name = "RdTxtSearchCompany";
             this.RdTxtSearchCompany.NullText = "Enter Date(Ex. 01Jan2020) Or File Name";
             this.RdTxtSearchCompany.Size = new System.Drawing.Size(112, 20);
-            this.RdTxtSearchCompany.TabIndex = 5;
+            this.RdTxtSearchCompany.TabIndex = 2;
             this.RdTxtSearchCompany.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RdTxtSearchCompany_KeyPress);
             // 
             // RdBtnSelectAll
@@ -536,7 +543,7 @@
             this.RdBtnSelectAll.Location = new System.Drawing.Point(3, 4);
             this.RdBtnSelectAll.Name = "RdBtnSelectAll";
             this.RdBtnSelectAll.Size = new System.Drawing.Size(27, 24);
-            this.RdBtnSelectAll.TabIndex = 5;
+            this.RdBtnSelectAll.TabIndex = 1;
             this.RdBtnSelectAll.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.RdBtnSelectAll.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.RdBtnSelectAll.Click += new System.EventHandler(this.RdBtnSelectAll_Click);
@@ -572,7 +579,7 @@
             // 
             // 
             this.splitPanel2.RootElement.MinSize = new System.Drawing.Size(0, 0);
-            this.splitPanel2.Size = new System.Drawing.Size(555, 378);
+            this.splitPanel2.Size = new System.Drawing.Size(555, 405);
             this.splitPanel2.SizeInfo.AutoSizeScale = new System.Drawing.SizeF(0.1278281F, 0F);
             this.splitPanel2.SizeInfo.SplitterCorrection = new System.Drawing.Size(113, 0);
             this.splitPanel2.TabIndex = 1;

@@ -28,8 +28,8 @@ namespace A3DBhavCopy
         public FrmCompare()
         {
             InitializeComponent();
-            RdDtpFrom.Value = DateTime.Now;
-            RdDtpTo.Value = DateTime.Now;
+            RdDtpFrom.Value = DateTime.Now.AddDays(-1);
+            RdDtpTo.Value = DateTime.Now.AddDays(-1);
             RdRbtDate.CheckState = CheckState.Checked;
 
 
@@ -46,14 +46,20 @@ namespace A3DBhavCopy
             this.RdGrdReportResult.MasterTemplate.EnableFiltering = true;
 
 
-            DataColumn DcCol = new DataColumn("lSelect", typeof(bool));
-            DcCol.DefaultValue = true;
+            DataColumn DcCol = new DataColumn("lSelect", typeof(bool))
+            {
+                DefaultValue = true
+            };
             DtBhavCopyCompany.Columns.Add(DcCol);
-            DcCol = new DataColumn("cSYMBOL", typeof(string));
-            DcCol.DefaultValue = "";
+            DcCol = new DataColumn("cSYMBOL", typeof(string))
+            {
+                DefaultValue = ""
+            };
             DtBhavCopyCompany.Columns.Add(DcCol);
-            DcCol = new DataColumn("cSERIES", typeof(string));
-            DcCol.DefaultValue = "";
+            DcCol = new DataColumn("cSERIES", typeof(string))
+            {
+                DefaultValue = ""
+            };
             DtBhavCopyCompany.Columns.Add(DcCol);
         }
 
@@ -66,7 +72,7 @@ namespace A3DBhavCopy
             try
             {
                 Cursor = Cursors.WaitCursor;
-                using (var DbContext = new A3DBhavCopyDataContext(ClsUtility._IClsUtility._ConnectionString))
+                using (var DbContext = new A3DBhavCopyDataContext())
                 {
 
                     List<MClsCompanies> LstmClsCompanies = DbContext._MClsBhavCopyDetails.Select(cmp => new MClsCompanies { cSYMBOL = cmp.cSYMBOL, cSERIES = cmp.cSERIES }).OrderBy(cmpor => cmpor.cSYMBOL).Distinct().ToList();
@@ -362,19 +368,25 @@ namespace A3DBhavCopy
                 DtBhavCopyData = new DataTable();
                 DtBhavCopySqlData = new DataTable();
                 RdGrdReportResult.DataSource = null;
-                DataColumn DcColBhavCopyData = new DataColumn("cSYMBOL", typeof(string));
-                DcColBhavCopyData.DefaultValue = "";
-                DcColBhavCopyData.Caption = "Company Name(Symbol)";
+                DataColumn DcColBhavCopyData = new DataColumn("cSYMBOL", typeof(string))
+                {
+                    DefaultValue = "",
+                    Caption = "Company Name(Symbol)"
+                };
                 DtBhavCopyData.Columns.Add(DcColBhavCopyData);
 
-                DcColBhavCopyData = new DataColumn("cSERIES", typeof(string));
-                DcColBhavCopyData.DefaultValue = "";
-                DcColBhavCopyData.Caption = "Company Series(Series)";
+                DcColBhavCopyData = new DataColumn("cSERIES", typeof(string))
+                {
+                    DefaultValue = "",
+                    Caption = "Company Series(Series)"
+                };
                 DtBhavCopyData.Columns.Add(DcColBhavCopyData);
 
-                DcColBhavCopyData = new DataColumn("cSummary", typeof(double));
-                DcColBhavCopyData.DefaultValue = 0;
-                DcColBhavCopyData.Caption = "Total Summary";
+                DcColBhavCopyData = new DataColumn("cSummary", typeof(double))
+                {
+                    DefaultValue = 0,
+                    Caption = "Total Summary"
+                };
                 DtBhavCopyData.Columns.Add(DcColBhavCopyData);
 
 
@@ -405,11 +417,11 @@ namespace A3DBhavCopy
                 string StrCompnay = "";
                 StrCompnay = string.Join("','", DvBhavCopyCompany.ToTable().AsEnumerable().Select(x => x.Field<string>("cSYMBOL")).ToArray());//+ "_" + x.Field<string>("cSERIES")
 
-                StrSqlQueryFilter = StrSqlQueryFilter + " Convert(DateTime,dTIMESTAMP,101) >=Convert(DateTime,'" + _DtpFromDate + "',101) AND Convert(DateTime,dTIMESTAMP,101) <=Convert(DateTime,'" + _DtpToDate + "',101)";
+                StrSqlQueryFilter = StrSqlQueryFilter + " Convert(DateTime,dTIMESTAMP,101) >=Convert(DateTime,'" + _DtpFromDate.ToString("yyyy/MM/dd") + "',101) AND Convert(DateTime,dTIMESTAMP,101) <=Convert(DateTime,'" + _DtpToDate.ToString("yyyy/MM/dd") + "',101)";
                 StrSqlQuery = @"select * from [A3DBhavCopyData].[dbo].[BhavCopyDetails]";
                 StrSqlQuery = StrSqlQuery + Environment.NewLine + StrSqlQueryFilter + Environment.NewLine + " AND cSYMBOL  IN ('" + StrCompnay + "')";//+ '_' + cSERIES
 
-                using (var DbContext = new A3DBhavCopyDataContext(ClsUtility._IClsUtility._ConnectionString))
+                using (var DbContext = new A3DBhavCopyDataContext())
                 {
                     var vAtmUpTime = DbContext.Database.SqlQuery<MClsBhavCopyDetails>(StrSqlQuery).ToList();
                     DtBhavCopySqlData = ClsUtility._IClsUtility.NewTable(string.Concat("BhavCopyData"), vAtmUpTime);
@@ -542,6 +554,7 @@ namespace A3DBhavCopy
                 }
                 RdProgressBar.Value1 = 1;
                 RdProgressBar.Text = "Done";
+                ClsMessage._IClsMessage.showMessage("Done!!");
             }
             catch (Exception ex)
             {
@@ -608,12 +621,14 @@ namespace A3DBhavCopy
                 if (_SaveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     Cursor = Cursors.WaitCursor;
-                    GridViewSpreadExport spreadExporter = new GridViewSpreadExport(this.RdGrdReportResult);
-                    spreadExporter.ExportChildRowsGrouped = true;
-                    spreadExporter.ExportViewDefinition = true;
-                    spreadExporter.ExportVisualSettings = true;
+                    GridViewSpreadExport spreadExporter = new GridViewSpreadExport(this.RdGrdReportResult)
+                    {
+                        ExportChildRowsGrouped = true,
+                        ExportViewDefinition = true,
+                        ExportVisualSettings = true,
 
-                    spreadExporter.FileExportMode = FileExportMode.CreateOrOverrideFile;
+                        FileExportMode = FileExportMode.CreateOrOverrideFile
+                    };
                     SpreadExportRenderer exportRenderer = new SpreadExportRenderer();
 
                     spreadExporter.RunExport(_SaveFileDialog.FileName, exportRenderer);

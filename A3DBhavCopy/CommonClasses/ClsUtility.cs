@@ -17,7 +17,7 @@ namespace A3DBhavCopy.CommonClasses
     {
         private static ClsUtility _iClsUtility = null;
 
-        public string _ConnectionString = "Server=(localdb)\v11.0;Integrated Security=true; Database=A3DBhavCopyData ; AttachDbFileName = "+Path.Combine(Application.StartupPath, @"DataBase\A3DBhavCopyData.mdf") + "";//providerName = System.Data.SqlClient ; 
+        //public string _ConnectionString = "Server=(localdb)\\v11.0;Integrated Security=true; Database=A3DBhavCopyData ; AttachDbFileName = "+Path.Combine(Application.StartupPath, @"DataBase\A3DBhavCopyData.mdf") + "";//providerName = System.Data.SqlClient ; 
         public ClsUtility()
 
         {
@@ -137,8 +137,7 @@ namespace A3DBhavCopy.CommonClasses
         }
         public bool IsValidDate(string s)
         {
-            DateTime output;
-            return DateTime.TryParse(s, out output);
+            return DateTime.TryParse(s, out _);
 
         }
         public double Val(string value)
@@ -182,13 +181,13 @@ namespace A3DBhavCopy.CommonClasses
 
 
 
-        public enum enmFormMode
+        public enum EnmFormMode
         {
             AddMode, EditMode, NormalMode
 
         }
-        private static enmFormMode _enmFormMode = ClsUtility.enmFormMode.NormalMode;
-        public enmFormMode FormMode
+        private static EnmFormMode _enmFormMode = ClsUtility.EnmFormMode.NormalMode;
+        public EnmFormMode FormMode
         {
             get
             {
@@ -207,7 +206,7 @@ namespace A3DBhavCopy.CommonClasses
             if (File.Exists(strFileName))
             {
                 string newfilelocation = Path.GetTempPath();
-                newfilelocation = newfilelocation + Path.GetFileName(strFileName);
+                newfilelocation += Path.GetFileName(strFileName);
                 File.Copy(strFileName, newfilelocation, true);
 
                 using (var fs = new FileStream(newfilelocation, FileMode.Open))
@@ -242,7 +241,7 @@ namespace A3DBhavCopy.CommonClasses
             if (File.Exists(strFileName))
             {
                 string newfilelocation = Path.GetTempPath();
-                newfilelocation = newfilelocation + Path.GetFileName(strFileName);
+                newfilelocation += Path.GetFileName(strFileName);
                 File.Copy(strFileName, newfilelocation, true);
 
                 using (var fs = new FileStream(newfilelocation, FileMode.Open))

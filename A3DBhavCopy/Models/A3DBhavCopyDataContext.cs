@@ -4,7 +4,7 @@ namespace A3DBhavCopy.Models
 {
     class A3DBhavCopyDataContext:DbContext
     {
-        public A3DBhavCopyDataContext(string StrConnectionString) : base(StrConnectionString)
+        public A3DBhavCopyDataContext():base("name=A3DBhavCopyData")
         {
 
     //         < connectionStrings >

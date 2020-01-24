@@ -537,6 +537,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_DC0C8DF1A06C9B78879B8B2B68F2B454"
+        "OwnerKey" = "8:_7B507D7010FD4D52AB5FFF228CE6BE5F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_E8AFAD5B899B17A0D9625DF7BB49EC02"
         "OwnerKey" = "8:_7B507D7010FD4D52AB5FFF228CE6BE5F"
         "MsmSig" = "8:_UNDEFINED"
@@ -557,6 +563,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_7B507D7010FD4D52AB5FFF228CE6BE5F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_DC0C8DF1A06C9B78879B8B2B68F2B454"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -2035,6 +2047,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DC0C8DF1A06C9B78879B8B2B68F2B454"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:ICSharpCode.SharpZipLib, Version=1.2.0.246, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_DC0C8DF1A06C9B78879B8B2B68F2B454"
+                    {
+                    "Name" = "8:ICSharpCode.SharpZipLib.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:ICSharpCode.SharpZipLib.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_C35EB334877B4EABBC71DCACAACCD651"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E8AFAD5B899B17A0D9625DF7BB49EC02"
             {
             "AssemblyRegister" = "3:1"
@@ -2218,7 +2261,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:A3D Bhav-Copy Analysis System"
         "ProductCode" = "8:{62EE4627-A640-4924-B00F-4824F48C314E}"
-        "PackageCode" = "8:{6E080A21-FA6A-42B0-8C20-3B27B27D3688}"
+        "PackageCode" = "8:{F299A70A-83A0-479B-A815-24AC35EF2A17}"
         "UpgradeCode" = "8:{57080BE7-148D-410C-867C-29BD2F2BBD80}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -2226,15 +2269,15 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Arnika InfoTech"
+        "Manufacturer" = "8:Arnika Technologies LLC"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:A3D Bhav-Copy"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Arnika InfoTech"
+        "ARPCONTACT" = "8:Arnika Technologies LLC"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:"
-        "ARPURLINFOABOUT" = "8:"
+        "ARPCOMMENTS" = "8:A3D Bhav-Copy Analysis System."
+        "ARPURLINFOABOUT" = "8:www.arnikainfotech.com"
         "ARPPRODUCTICON" = "8:_ABC8F5D679FC4FDCB68AAC24FFA42AE4"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
